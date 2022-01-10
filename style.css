@@ -1,5 +1,11 @@
 /*  import google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+@font-face {
+    font-family: 'AgustinaSignature';
+    src: url('./fonts/AgustinaSignature.otf');
+    
+
+}
 
 *{
     margin: 0;
@@ -51,7 +57,7 @@ section .title{
     position: relative;
     text-align: center;
     font-size: 40px;
-    font-weight: 500;
+    font-weight: 350;
     margin-bottom: 60px;
     padding-bottom: 20px;
     font-family: 'Ubuntu', sans-serif;
@@ -97,8 +103,11 @@ section .title::after{
 }
 .navbar .logo a{
     color: #fff;
+    font-family: "AgustinaSignature";
+    padding: 0 10px;
     font-size: 35px;
     font-weight: 600;
+    
 }
 .navbar .logo a span{
     color: crimson;
@@ -212,6 +221,7 @@ section .title::after{
     color: crimson;
     background: none;
 }
+
 
 /* about section styling */
 .about .title::after{
