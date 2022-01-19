@@ -639,6 +639,46 @@ section .title::after{
 .teams .carousel .card5:hover img{
     border-color: #fff;
 }
+/*card6*/
+.teams .carousel .card6{
+    background: #222;
+    border-radius: 6px;
+    padding: 25px 35px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.teams .carousel .card6:hover{
+    background: #003399;
+}
+.teams .carousel .card6 .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+}
+.teams .carousel .card6:hover .box{
+    transform: scale(1.05);
+}
+.teams .carousel .card6 .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+.teams .carousel .card6 img{
+    height: 250px;
+    width: 325px;
+    
+    object-fit: cover;
+    /*border-radius: 50%;*/
+    
+    transition: all 0.3s ease;
+}
+.teams .carousel .card6:hover img{
+    border-color: #fff;
+}
 .owl-dots{
     text-align: center;
     margin-top: 20px;
