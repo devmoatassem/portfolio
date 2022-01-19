@@ -41,7 +41,7 @@ section{
     padding: 0 50px;
     margin: auto;
 }
-.about, .education, .skills, .teams, .contact, footer{
+.about, .education, .skills, .teams, .contact, contact{
     font-family: 'Poppins', sans-serif;
 }
 .about .about-content,
@@ -111,7 +111,7 @@ section .title::after{
 .navbar .logo a span{
     Font-family: "AgustinaSignature";
     padding: 0 10px;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: 600;
     color: #fff;
     transition: all 0.3s ease;
@@ -238,7 +238,9 @@ section .title::after{
     height: 400px;
     width: 400px;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 50%;
+    border: 2.5px solid #112242;
+    box-shadow: 2px 2px 5px 0px rgb(24, 18, 41);
 }
 .about .about-content .right{
     width: 55%;
@@ -380,22 +382,23 @@ section .title::after{
     width: 90%;
 }
 .skills-content .right .css::before{
-    width: 60%;
+    width: 90%;
 }
 .skills-content .right .js::before{
-    width: 80%;
+    width: 90%;
 }
 .skills-content .right .php::before{
-    width: 50%;
+    width: 90%;
 }
 .skills-content .right .mysql::before{
-    width: 70%;
+    width: 90%;
 }
 
 /* teams section styling */
 .teams .title::after{
-    content: "who with me";
+    content: "Achievements";
 }
+/*card*/
 .teams .carousel .card{
     background: #222;
     border-radius: 6px;
@@ -413,6 +416,7 @@ section .title::after{
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+
 }
 .teams .carousel .card:hover .box{
     transform: scale(1.05);
@@ -423,14 +427,216 @@ section .title::after{
     margin: 10px 0 7px 0;
 }
 .teams .carousel .card img{
-    height: 150px;
-    width: 150px;
+    height: 250px;
+    width: 250px;
+    
     object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid #003399;
+    /*border-radius: 50%;
+    border: 5px solid #003399;*/
     transition: all 0.3s ease;
 }
 .teams .carousel .card:hover img{
+    border-color: #fff;
+}
+/*card1*/
+.teams .carousel .card1{
+    background: #222;
+    border-radius: 6px;
+    padding: 25px 35px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.teams .carousel .card1:hover{
+    background: #003399;
+}
+.teams .carousel .card1 .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+}
+.teams .carousel .card1:hover .box{
+    transform: scale(1.05);
+}
+.teams .carousel .card1 .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+.teams .carousel .card1 img{
+    height: 250px;
+    width: 250px;
+    
+    object-fit: cover;
+    /*border-radius: 50%;*/
+    
+    transition: all 0.3s ease;
+}
+.teams .carousel .card1:hover img{
+    border-color: #fff;
+}
+/*card2*/
+.teams .carousel .card2{
+    background: #222;
+    border-radius: 6px;
+    padding: 25px 35px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.teams .carousel .card2:hover{
+    background: #003399;
+}
+.teams .carousel .card2 .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+}
+.teams .carousel .card2:hover .box{
+    transform: scale(1.05);
+}
+.teams .carousel .card2 .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+.teams .carousel .card2 img{
+    height: 250px;
+    width: 325px;
+    
+    object-fit: cover;
+    /*border-radius: 50%;*/
+    
+    transition: all 0.3s ease;
+}
+.teams .carousel .card2:hover img{
+    border-color: #fff;
+}
+/*card3*/
+.teams .carousel .card3{
+    background: #222;
+    border-radius: 6px;
+    padding: 25px 35px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.teams .carousel .card3:hover{
+    background: #003399;
+}
+.teams .carousel .card3 .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+}
+.teams .carousel .card3:hover .box{
+    transform: scale(1.05);
+}
+.teams .carousel .card3 .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+.teams .carousel .card3 img{
+    height: 250px;
+    width: 325px;
+    
+    object-fit: cover;
+    /*border-radius: 50%;*/
+    
+    transition: all 0.3s ease;
+}
+.teams .carousel .card3:hover img{
+    border-color: #fff;
+}
+/*card4*/
+.teams .carousel .card4{
+    background: #222;
+    border-radius: 6px;
+    padding: 25px 35px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.teams .carousel .card4:hover{
+    background: #003399;
+}
+.teams .carousel .card4 .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+}
+.teams .carousel .card4:hover .box{
+    transform: scale(1.05);
+}
+.teams .carousel .card4 .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+.teams .carousel .card4 img{
+    height: 250px;
+    width: 325px;
+    
+    object-fit: cover;
+    /*border-radius: 50%;*/
+    border: 2px solid #000000;
+    transition: all 0.3s ease;
+}
+.teams .carousel .card4:hover img{
+    border-color: #fff;
+}
+
+/*card5*/
+.teams .carousel .card5{
+    background: #222;
+    border-radius: 6px;
+    padding: 25px 35px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.teams .carousel .card5:hover{
+    background: #003399;
+}
+.teams .carousel .card5 .box{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+}
+.teams .carousel .card5:hover .box{
+    transform: scale(1.05);
+}
+.teams .carousel .card5 .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+.teams .carousel .card5 img{
+    height: 250px;
+    width: 325px;
+    
+    object-fit: cover;
+    /*border-radius: 50%;*/
+    
+    transition: all 0.3s ease;
+}
+.teams .carousel .card5:hover img{
     border-color: #fff;
 }
 .owl-dots{
@@ -459,15 +665,94 @@ section .title::after{
 .contact .title::after{
     content: "get in touch";
 }
-.contact .contact-content .column{
-    width: calc(50% - 30px);
+.contact .logo{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.contact .logo a{
+    font-family: 'Ubuntu',sans-serif;
+    color: #003399;
+    font-size: 45px;
+    font-weight: 1;
+}
+.contact .logo a span{
+    
+    Font-family: "AgustinaSignature";
+    padding: 0 40px;
+    font-size: 45px;
+    font-weight: 600;
+    color: #003399;
+    transition: all 0.3s ease;
+    
+}
+.contact .contact-content {
+    text-align: center;
+    padding-bottom: 20px;
 }
 .contact .contact-content .text{
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
+    
+    text-align: justify;
+    
 }
-.contact .contact-content .left p{
+
+/*Social icons*/
+.contact .icon{
+    
+    margin-top: 10px;
+    text-align: center;
+}
+.round-btn {display: inline-block;height: 50px; width: 50px; background:#fff;border-radius: 50%;margin: 10px 5px;box-shadow: 2px 2px 5px 0px rgb(82, 0, 67);border: 1px solid;/*border: 1px solid #622657;*/}
+  .round-btn a {display: inline-block !important;padding: 1.6px 9px;font-size: 30px;border-radius: 50%;}
+  .round-btn .icon {padding: 3px;}
+  .round-btn .icon img{height: 40px; width: 40px;margin-top: 5px;}
+  .btn-facebook a {color: #3b5998;padding: 1px 15px;}
+  .btn-facebook a:hover{
+    background: #3b5998;
+    color: #fff;
+  }
+  .btn-linkedin a {color: #007bb6;padding: 1px 11px;}
+  .btn-linkedin a:hover {
+    background: #007bb6;
+    color: #fff;
+  }
+  .btn-github a{color: #211F1F;padding: 1.1px 9.5px;}
+  .btn-github a:hover{
+    background: #211F1F;
+    color: #fff;
+  }  
+  .btn-twitter a{color: #1c9deb;padding: 1px 9px;}
+  .btn-twitter a:hover{
+    background: #1c9deb;
+    color: #fff;
+  }
+  .btn-instagram a{color: #dd3f5c;padding: 1px 11px;}
+  .btn-instagram a:hover{
+    background: #dd3f5c;
+    color: #fff;
+  }
+  .btn-whatsapp a{color: #155E54;padding: 1px 11px;}
+  .btn-whatsapp a:hover{
+    background: #155E54;
+    color: #fff;
+  }
+  .btn-envelop a{
+    color: #D6403A;
+    font-size: 30px; 
+    padding: 1.7px 9.6px;
+  }
+  .btn-envelop a:hover{
+    background: #D6403A;
+    color: #fff;
+    font-size: 30px; padding: 1px 9px;
+  }
+  .standard_header .standard_social_links {margin-left: 1rem;}
+
+
+
+/*.contact .contact-content .left p{
     text-align: justify;
 }
 .contact .contact-content .left .icons{
@@ -490,8 +775,8 @@ section .title::after{
 }
 .contact .contact-content .info .sub-title{
     color: #333;
-}
-.contact .right form .fields{
+}*/
+/*.contact .right form .fields{
     display: flex;
 }
 .contact .right form .field,
@@ -549,7 +834,7 @@ section .title::after{
 .right form .button-area button:hover{
   color: #003399;
   background: none;
-}
+}*/
 /* footer section styling */
 footer{
     background: #111;
@@ -673,7 +958,7 @@ footer span a:hover{
     .skills .skills-content .left .text{
         font-size: 19px;
     }
-    .contact .right form .fields{
+   /* .contact .right form .fields{
         flex-direction: column;
     }
     .contact .right form .name,
@@ -682,7 +967,7 @@ footer span a:hover{
     }
     .right form .error-box{
        width: 150px;
-    }
+    }*/
     .scroll-up-btn{
         right: 15px;
         bottom: 15px;
@@ -692,3 +977,5 @@ footer span a:hover{
         line-height: 38px;
     }
 }
+
+
