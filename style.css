@@ -336,18 +336,19 @@ section .title::after{
 .skills .title::after{
     content: "what i know";
 }
-.skills .skills-content .column{
-    width: calc(50% - 30px);
+.skills .skills-content {
+    text-align: center;
 }
-.skills .skills-content .left .text{
+.skills .skills-content  .text{
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 10px;
 }
-.skills .skills-content .left p{
+.skills .skills-content  p{
     text-align: justify;
 }
-.skills .skills-content .left a{
+/*Button commented
+.skills .skills-content  a{
     display: inline-block;
     background: #003399;
     color: #fff;
@@ -359,30 +360,56 @@ section .title::after{
     border: 2px solid #003399;
     transition: all 0.3s ease;
 }
-.skills .skills-content .left a:hover{
+.skills .skills-content  a:hover{
     color: #003399;
     background: none;
+}*/
+
+
+
+.skills .central .card{
+    margin-top: 25px;
+    transform:translateX(50%);
+    width: calc(50% - 25px);
+    background: rgb(209, 209, 253);
+    
+    border-radius: 6px;
+    padding: 50px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px 0px rgb(24, 18, 41);
 }
-.skills .skills-content .right .bars{
+/*.skills .central .card:hover{
+    background: #d5dff3;
+    
+}*/
+.skills .central .card .box{
+    transition: all 0.3s ease;
+}
+/*.skills .central .card:hover .box{
+    transform: scale(1.05);
+}*/
+.skills .central  .card .box .bars{
     margin-bottom: 15px;
+    width: 100%;
 }
-.skills .skills-content .right .info{
+.skills .central  .info{
     display: flex;
     margin-bottom: 5px;
     align-items: center;
     justify-content: space-between;
 }
-.skills .skills-content .right span{
+.skills .central  span{
     font-weight: 500;
     font-size: 18px;
 }
-.skills .skills-content .right .line{
+.skills .central  .line{
     height: 5px;
     width: 100%;
     background: lightgrey;
     position: relative;
 }
-.skills .skills-content .right .line::before{
+.skills .central  .line::before{
     content: "";
     position: absolute;
     height: 100%;
@@ -390,19 +417,20 @@ section .title::after{
     top: 0;
     background: #003399;
 }
-.skills-content .right .html::before{
+
+.central  .html::before{
     width: 90%;
 }
-.skills-content .right .css::before{
+.central  .css::before{
     width: 90%;
 }
-.skills-content .right .js::before{
+.central  .js::before{
     width: 90%;
 }
-.skills-content .right .php::before{
+.central  .php::before{
     width: 90%;
 }
-.skills-content .right .mysql::before{
+.central  .mysql::before{
     width: 90%;
 }
 
@@ -741,13 +769,11 @@ section .title::after{
     text-align: center;
     padding-bottom: 20px;
 }
-.contact .contact-content .text{
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    
+.contact .contact-content .text p{
     text-align: justify;
-    
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 10px;
 }
 
 /*Social icons*/
@@ -974,7 +1000,11 @@ footer span a:hover{
         width: calc(50% - 10px);
         margin-bottom: 20px;
     }
-    .skills .skills-content .column,
+    .skills .central .card{
+        transform:translateX(0%);
+        width: 100%;
+        margin-bottom: 35px;
+    }
     .contact .contact-content .column{
         width: 100%;
         margin-bottom: 35px;
@@ -1040,7 +1070,7 @@ footer span a:hover{
         font-size: 27px;
     }
     .about .about-content .right .text,
-    .skills .skills-content .left .text{
+    .skills .skills-content .text{
         font-size: 19px;
     }
    /* .contact .right form .fields{
