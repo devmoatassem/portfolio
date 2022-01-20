@@ -285,7 +285,7 @@ section .title::after{
 .education .title::after,
 .teams .title::after{
     background: #111;
-    content: "what i provide";
+    content: "what i do";
 }
 .education .serv-content .card{
     width: calc(33% - 20px);
@@ -305,13 +305,25 @@ section .title::after{
 .education .serv-content .card:hover .box{
     transform: scale(1.05);
 }
-.education .serv-content .card i{
+/*.education .serv-content .card i{
     font-size: 50px;
     color: #003399;
     transition: color 0.3s ease;
 }
 .education .serv-content .card:hover i{
     color: #fff;
+}*/
+.education .serv-content .card img{
+    height: 250px;
+    width: 250px;
+    
+    object-fit: cover;
+    /*border-radius: 50%;
+    border: 5px solid #003399;*/
+    transition: all 0.3s ease;
+}
+.education .serv-content .card:hover img{
+    border-color: #fff;
 }
 .education .serv-content .card .text{
     font-size: 25px;
@@ -966,6 +978,23 @@ footer span a:hover{
     .contact .contact-content .column{
         width: 100%;
         margin-bottom: 35px;
+
+    }
+    .contact .logo a{
+        font-family: 'Ubuntu',sans-serif;
+        color: #003399;
+        font-size: 40px;
+        font-weight: 1;
+    }
+    .contact .logo a span{
+        
+        Font-family: "AgustinaSignature";
+        padding: 0 40px;
+        font-size: 40px;
+        font-weight: 600;
+        color: #003399;
+        transition: all 0.3s ease;
+        
     }
 }
 
@@ -984,6 +1013,22 @@ footer span a:hover{
     }
     .education .serv-content .card{
         width: 100%;
+    }
+    .contact .logo a{
+        font-family: 'Ubuntu',sans-serif;
+        color: #003399;
+        font-size: 35px;
+        font-weight: 1;
+    }
+    .contact .logo a span{
+        
+        Font-family: "AgustinaSignature";
+        padding: 0 40px;
+        font-size: 35px;
+        font-weight: 600;
+        color: #003399;
+        transition: all 0.3s ease;
+        
     }
 }
 
@@ -1015,6 +1060,22 @@ footer span a:hover{
         width: 35px;
         font-size: 23px;
         line-height: 38px;
+    }
+        .contact .logo a{
+        font-family: 'Ubuntu',sans-serif;
+        color: #003399;
+        font-size: 25px;
+        font-weight: 1;
+    }
+    .contact .logo a span{
+        
+        Font-family: "AgustinaSignature";
+        padding: 0 40px;
+        font-size: 25px;
+        font-weight: 600;
+        color: #003399;
+        transition: all 0.3s ease;
+        
     }
 }
 
