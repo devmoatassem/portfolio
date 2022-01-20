@@ -293,7 +293,7 @@ section .title::after{
     text-align: center;
     border-radius: 6px;
     padding: 50px 25px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     transition: all 0.3s ease;
 }
 .education .serv-content .card:hover{
@@ -375,7 +375,7 @@ section .title::after{
     
     border-radius: 6px;
     padding: 50px 25px;
-    cursor: pointer;
+    /*cursor: pointer;*/
     transition: all 0.3s ease;
     box-shadow: 2px 2px 5px 0px rgb(24, 18, 41);
 }
@@ -422,16 +422,16 @@ section .title::after{
     width: 90%;
 }
 .central  .css::before{
-    width: 90%;
+    width: 60%;
 }
 .central  .js::before{
-    width: 90%;
+    width: 70%;
 }
 .central  .php::before{
     width: 90%;
 }
 .central  .mysql::before{
-    width: 90%;
+    width: 80%;
 }
 
 /* teams section styling */
