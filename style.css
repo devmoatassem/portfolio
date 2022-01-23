@@ -235,11 +235,11 @@ section .title::after{
     width: 45%;
 }
 .about .about-content .left img{
-    height: 400px;
-    width: 400px;
+    height: 480px;
+    width: 356px;
     object-fit: cover;
-    border-radius: 50%;
-    border: 2.5px solid #112242;
+    /*border-radius: 50%;*/
+    border: 3px solid #112242;
     box-shadow: 2px 2px 5px 0px rgb(24, 18, 41);
 }
 .about .about-content .right{
