@@ -235,10 +235,10 @@ section .title::after{
     width: 45%;
 }
 .about .about-content .left img{
-    height: 480px;
-    width: 356px;
+    height: 390px;
+    width: 390px;
     object-fit: cover;
-    /*border-radius: 50%;*/
+    border-radius: 470%;
     border: 3px solid #112242;
     box-shadow: 2px 2px 5px 0px rgb(24, 18, 41);
 }
