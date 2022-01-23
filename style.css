@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 @font-face {
     font-family: 'AgustinaSignature';
-    src: url("fonts/AgustinaSignature.otf");
+    src: url("fonts/Agustina.woff");
     
 
 }
@@ -422,10 +422,10 @@ section .title::after{
     width: 90%;
 }
 .central  .css::before{
-    width: 60%;
+    width: 70%;
 }
 .central  .js::before{
-    width: 70%;
+    width: 60%;
 }
 .central  .php::before{
     width: 90%;
