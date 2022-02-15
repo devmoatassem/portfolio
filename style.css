@@ -238,7 +238,7 @@ section .title::after{
     height: 390px;
     width: 390px;
     object-fit: cover;
-    
+    border-radius: 50%;
     border: 3px solid #112242;
     box-shadow: 2px 2px 5px 0px rgb(24, 18, 41);
 }
