@@ -422,10 +422,10 @@ section .title::after{
     width: 90%;
 }
 .central  .css::before{
-    width: 70%;
+    width: 80%;
 }
 .central  .js::before{
-    width: 60%;
+    width: 70%;
 }
 .central  .php::before{
     width: 90%;
