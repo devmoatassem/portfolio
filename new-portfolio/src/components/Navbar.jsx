@@ -6,9 +6,9 @@ function Navbar() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
 
   return (
-    <nav className="bg-white w-full z-20 top-0 left-0">
+    <nav className="bg-transparent w-full header top-0 left-0 z-50 h-auto absolute">
       <div className="max-w-screen-xl flex flex-wrap items-center mx-auto p-4 justify-between">
-        <div className="name-logo">
+        <div className="name-logo text-white">
           <a href="#">
             &lt;<span id="abcd">Moatassem Billah</span>/&gt;
           </a>
@@ -43,7 +43,7 @@ function Navbar() {
             </svg>
           </button>
         </div>
-        <div className={(navbarOpen ? "hidden" : "") + "hidden items-center justify-between w-full md:flex md:w-96 md:order-1 md:mr-32"}>
+        <div className={(navbarOpen ? "hidden" : "") + "hidden items-center justify-between w-full md:flex md:w-96 md:order-1 md:mr-36"}>
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 md:place-content-center md: justify-between md:px-8 md:py-4 md:rounded-full bg-gray-800 md:bg-gray-900 ">
             <li>
               <Link
