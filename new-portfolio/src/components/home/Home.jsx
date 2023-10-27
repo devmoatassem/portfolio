@@ -1,8 +1,15 @@
+import Intro from "./Intro";
+
 function Home(){
     return(
-        <div>
-            <h1>Home</h1>
-        </div>
+        <section className="max-w-screen-xl container relative mx-auto">
+            <div className="flex min-h-screen w-full items-center justify-center">
+                <Intro />
+                
+            </div>
+            
+        </section>
+        
     )
 
 }

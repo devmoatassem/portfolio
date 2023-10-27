@@ -1,0 +1,22 @@
+/*  Nav bar logo Custom Design */
+@font-face {
+    font-family: 'AgustinaSignature'; /* Name for the font */
+    src: url('../fonts/Agustina.woff') format('woff'); /* Path to the font file and its format */
+    /* You can include additional src declarations for different font formats here */
+  }
+
+
+.name-logo{
+  display: block;
+  float: left;
+  font-size: 1.5em;
+  text-decoration: none;
+  margin-top: 10px;
+  line-height: normal;
+    
+}
+.name-logo a span{
+    font-family: "AgustinaSignature";
+  font-weight: bold;
+  padding: 0 10px;
+}
