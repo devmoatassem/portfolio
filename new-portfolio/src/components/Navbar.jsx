@@ -9,9 +9,9 @@ function Navbar() {
     <nav className="bg-transparent w-full header top-0 left-0 z-50 h-auto absolute">
       <div className="max-w-screen-xl flex flex-wrap items-center mx-auto p-4 justify-between">
         <div className="name-logo text-white">
-          <a href="#">
+          <Link href="/">
             &lt;<span id="abcd">Moatassem Billah</span>/&gt;
-          </a>
+          </Link>
         </div>
         <div className="flex md:order-2">
           <Link className="container glass-effect inline-flex items-end fill-white hover:fill-blue-700 text-white hover:text-blue-700 font-medium rounded-lg px-3 py-2 md:px-8 md:py-3 text-center mr-1 md:mr-0 ">
