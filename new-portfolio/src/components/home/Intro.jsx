@@ -1,7 +1,7 @@
 import Socials from "./Socials";
 function Intro() {
   return (
-    <div className="w-full py-20 text-center md:w-3/4">
+    <div className="px-7 w-full py-20 text-center md:w-3/4">
       <div className="relative mb-5 inline-block overflow-hidden rounded-full align-middle">
         <span className="herosection-imageanimation absolute left-0 top-0 z-10 h-full w-full animate-spin rounded-full bg-gradient-to-tr from-primary to-transparent"></span>
         <div>
@@ -15,7 +15,7 @@ function Intro() {
 
       <h1 className="text-white mb-5 text-5xl font-bold">Hi, I am Moatassem Billah</h1>
 
-      <p className="text-white mb-0 text-xl">Full Stack Web Developer</p>
+      <p className="text-white mb-0 text-xl">MERN | Python | Flask Dev | AI Enthusiast | Mentor@MLSA | SSR IEEE Faisalabad Sub Section | Former Google DSC Lead'22 | β Microsoft Learn Student Ambassador</p>
       <Socials />
     </div>
   );

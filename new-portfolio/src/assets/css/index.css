@@ -2,3 +2,12 @@
 @tailwind components;
 
 @tailwind utilities;
+
+.glass-effect{
+    /* From https://css.glass */
+background: rgba(218, 218, 218, 0.43);
+border-radius: 10px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(2.3px);
+-webkit-backdrop-filter: blur(2.3px);
+}
