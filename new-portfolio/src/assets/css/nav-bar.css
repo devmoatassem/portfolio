@@ -20,3 +20,13 @@
   font-weight: bold;
   padding: 0 10px;
 }
+
+@media screen and (max-width: 768px) {
+  .name-logo{
+    font-size: 1.2em;
+  }
+  .name-logo a span{
+    font-size: 1.2em;
+  }
+  
+}

@@ -14,13 +14,15 @@ function Navbar() {
           </a>
         </div>
         <div className="flex md:order-2">
-          <button type="button" className="glass-effect items-end text-white hover:text-blue-700 font-medium rounded-lg px-5 py-2 md:px-8 md:py-3 text-center mr-1 md:mr-0 ">
-            Hire Me
-          </button>
+          <Link className="container glass-effect inline-flex items-end fill-white hover:fill-blue-700 text-white hover:text-blue-700 font-medium rounded-lg px-3 py-2 md:px-8 md:py-3 text-center mr-1 md:mr-0 ">
+            
+            Hire Me<svg className="pl-2 mb-1 -mr-1"  height="1em" viewBox="0 0 512 512"><path d="M320 0c-17.7 0-32 14.3-32 32s14.3 32 32 32h82.7L201.4 265.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L448 109.3V192c0 17.7 14.3 32 32 32s32-14.3 32-32V32c0-17.7-14.3-32-32-32H320zM80 32C35.8 32 0 67.8 0 112V432c0 44.2 35.8 80 80 80H400c44.2 0 80-35.8 80-80V320c0-17.7-14.3-32-32-32s-32 14.3-32 32V432c0 8.8-7.2 16-16 16H80c-8.8 0-16-7.2-16-16V112c0-8.8 7.2-16 16-16H192c17.7 0 32-14.3 32-32s-14.3-32-32-32H80z"/></svg>
+             
+          </Link>
           <button
 
             type="button"
-            className="inline-flex items-center w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none -mr-2"
+            className="inline-flex items-center w-12 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none -mr-2"
             onClick={() => setNavbarOpen(!navbarOpen)}
           >
             <span className="sr-only">Open main menu</span>
