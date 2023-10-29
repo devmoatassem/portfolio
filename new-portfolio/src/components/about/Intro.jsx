@@ -1,3 +1,4 @@
+import Scroll from "./Scroll";
 import Socials from "./Socials";
 function Intro() {
   return (
@@ -17,6 +18,7 @@ function Intro() {
 
       <p className="text-white mb-0 text-xl">MERN | Python | Flask Dev | AI Enthusiast | Mentor@MLSA | SSR IEEE Faisalabad Sub Section | Former Google DSC Lead'22 | β Microsoft Learn Student Ambassador</p>
       <Socials />
+      <Scroll />
     </div>
   );
 }
