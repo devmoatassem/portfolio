@@ -1,7 +1,11 @@
+import HeadingP from "./HeadingP";
+import Projects from "./Projects";
 function Portfolio() {
   return (
-    <div>
-      <h1>Portfolio</h1>
+    <div className="relative z-20 bg-[#0b1224] ">
+      
+        <HeadingP />
+        <Projects />
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import Intro from "./Intro";
-import Scroll from "./Scroll";
 import Skills from "./Skills";
 import "../../assets/css/main-bg.css"
 function About() {
