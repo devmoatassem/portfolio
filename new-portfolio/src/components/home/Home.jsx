@@ -4,7 +4,7 @@ function Home(){
     return(
         <>
         <About />
-        <Portfolio />
+        <Portfolio topPadding = "" />
         </>
     )
 }

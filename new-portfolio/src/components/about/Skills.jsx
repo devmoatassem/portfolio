@@ -1,7 +1,7 @@
 function Skills() {
     return (
-        <div className="py-8 px-4 md:py-16 md:px-10">
-            <div className="mx-auto max-w-screen-md text-center mb-8 md:mb-12">
+        <div className="py-20 px-4 md:px-10">
+            <div className="mx-auto max-w-screen-md text-center mb-12">
 
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">What I do</h2>
                 <p className="mb-5 font-light text-gray-500 md:text-xl">-- Skills & Interests --</p>

@@ -2,7 +2,7 @@ import Scroll from "./Scroll";
 import Socials from "./Socials";
 function Intro() {
   return (
-    <div className="px-7 w-full py-20 text-center md:w-3/4">
+    <div className="px-4 w-full py-20 text-center md:w-3/4">
       <div className="relative mb-5 inline-block overflow-hidden rounded-full align-middle">
         <span className="herosection-imageanimation absolute left-0 top-0 z-10 h-full w-full animate-spin rounded-full bg-gradient-to-tr from-primary to-transparent"></span>
         <div>
