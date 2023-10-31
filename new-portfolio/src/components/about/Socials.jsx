@@ -47,14 +47,9 @@ function Socials() {
     </li>
   ))
   return (
-    <div
-      className="mt-7 text-center"
-    //   style={"opacity: 1; transform: none;"}
-    >
       <ul className="mb-0 inline-flex list-none flex-wrap gap-3 pl-0 sm:gap-4 ">
         {socials_list}
       </ul>
-    </div>
   );
 }
 

@@ -14,7 +14,7 @@ function Skills() {
                     <h3 className="mb-4 text-2xl font-semibold">Full Stack Web Developer</h3>
                     <p className="font-light md:text-lg text-gray-400">Crafting Seamless Online Experiences from Frontend to Backend</p>
                     <div className="flex justify-center items-baseline my-8">
-                        <span className="mr-2 text-xl font-semibold">My Bucket</span>
+                        <span className=" text-xl font-semibold">My Bucket</span>
 
                     </div>
                     <div className="flex flex-wrap justify-center space-x-2 space-y-2 fill-gray-400">
@@ -88,7 +88,7 @@ function Skills() {
                     <h3 className="mb-4 text-2xl font-semibold">Versatile Skills & Tools</h3>
                     <p className="font-light md:text-lg text-gray-400">Elevating Possibilities: Unleashing Versatility in Code and Beyond</p>
                     <div className="flex justify-center items-baseline my-8">
-                        <span className="mr-2 text-xl font-semibold">I Enjoy</span>
+                        <span className=" text-xl font-semibold">I Enjoy</span>
 
                     </div>
                     <div className="flex flex-wrap justify-center space-x-2 space-y-2 fill-gray-400">
@@ -147,7 +147,7 @@ function Skills() {
                     <h3 className="mb-4 text-2xl font-semibold">Community Contributor</h3>
                     <p className="font-light md:text-lg text-gray-400">Empowering Innovation, Connecting Minds, and Building the Future Together</p>
                     <div className="flex justify-center items-baseline my-8">
-                        <span className="mr-2 text-xl font-semibold">Significant Impact</span>
+                        <span className=" text-xl font-semibold">Significant Impact</span>
 
                     </div>
                     <div className="flex flex-wrap justify-center space-x-2 space-y-2 fill-gray-400">

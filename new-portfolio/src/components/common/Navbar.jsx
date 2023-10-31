@@ -1,37 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../assets/css/nav-bar.css"
+import NavLinks from "./navbar/NavLinks";
+import "../../assets/css/nav-bar.css"
 
 function Navbar() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
-  const navList = [
-    {
-      name: 'Home',
-      linkTo: '/home'
-    },
-    {
-      name: 'About',
-      linkTo: '/about'
-    },
-    {
-      name: 'Portfolio',
-      linkTo: '/portfolio'
-    },
-    {
-      name: 'Education',
-      linkTo: '/education'
-    }
-  ]
-
-  const rendered_nav_list = navList.map((navItem)=>(
-    <li key={navItem.name}>
-              <Link
-                to={navItem.linkTo}
-                className="block py-2 pl-3 pr-4 rounded active:bg-blue-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 text-white hover:text-white">
-                {navItem.name}
-              </Link>
-            </li>
-  ))
   
   return (
     <nav className="bg-transparent w-full header top-0 left-0 z-50 h-auto absolute">
@@ -60,12 +33,13 @@ function Navbar() {
         </div>
         <div className={(navbarOpen ? "hidden" : "") + "hidden  items-center justify-between w-full md:flex md:w-96 md:order-1 md:mr-32 "}>
           <ul className="glass-effect flex flex-col p-4 md:p-0 mt-4 font-medium border  md:flex-row md:space-x-8 md:mt-0 md:border-0 md:place-content-center md: justify-between md:px-8 md:py-3 ">
-            {rendered_nav_list}
+              <NavLinks/>
           </ul>
         </div>
       </div>
     </nav>
   );
 }
+
 
 export default Navbar;

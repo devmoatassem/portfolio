@@ -17,7 +17,10 @@ function Intro() {
       <h1 className="text-white mb-5 text-5xl font-bold">Hi, I am Moatassem Billah</h1>
 
       <p className="text-white mb-0 text-xl">MERN | Python | Flask Dev | AI Enthusiast | Mentor@MLSA | SSR IEEE Faisalabad Sub Section | Former Google DSC Lead'22 | β Microsoft Learn Student Ambassador</p>
-      <Socials />
+      <div className="mt-7 text-center" >
+        <Socials />
+      </div>
+      
       <Scroll />
     </div>
   );
