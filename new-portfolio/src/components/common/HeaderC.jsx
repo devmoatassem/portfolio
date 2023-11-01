@@ -8,7 +8,7 @@ function HeaderC({topPadding ='mt-14', ...props}) {
                     <div className={topPadding}>
                         <div className="py-16 px-4 mx-auto max-w-screen-md text-center">
                             <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">{props.heading}</h2>
-                            <p className="font-light text-gray-500 md:text-xl">{props.description}</p>
+                            <p className="font-light text-gray-400 md:text-xl">{props.description}</p>
                         </div>
                     </div>
                 </div>

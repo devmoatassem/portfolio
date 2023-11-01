@@ -22,7 +22,7 @@ const navList = [
 ]
 
 const rendered_nav_list = navList.map((navItem)=>(
-        <li key={navItem.name} className="relative py-2 pl-3 pr-4 rounded  hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 text-white hover:text-gray-950">
+        <li key={navItem.name} className="relative py-2 pl-3 pr-4 rounded  hover:bg-gray-100 md:hover:bg-transparent md:p-0 text-white hover:text-gray-950">
             <Link
               to={navItem.linkTo}
               

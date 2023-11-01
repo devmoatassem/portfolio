@@ -4,7 +4,6 @@ function Intro() {
   return (
     <div className="px-4 w-full py-20 text-center md:w-3/4">
       <div className="relative mb-5 inline-block overflow-hidden rounded-full align-middle">
-        <span className="herosection-imageanimation absolute left-0 top-0 z-10 h-full w-full animate-spin rounded-full bg-gradient-to-tr from-primary to-transparent"></span>
         <div>
           <img
             className=""
@@ -14,13 +13,12 @@ function Intro() {
         </div>
       </div>
 
-      <h1 className="text-white mb-5 text-5xl font-bold">Hi, I am Moatassem Billah</h1>
+      <h1 className="text-white mb-4 text-4xl font-extrabold">Hi, I am Moatassem Billah</h1>
 
-      <p className="text-white mb-0 text-xl">MERN | Python | Flask Dev | AI Enthusiast | Mentor@MLSA | SSR IEEE Faisalabad Sub Section | Former Google DSC Lead'22 | β Microsoft Learn Student Ambassador</p>
+      <p className="text-gray-400 mb-0 font-semibold text-xl">MERN | Python | Flask Dev | AI Enthusiast | Mentor@MLSA | SSR IEEE Faisalabad Sub Section | Former Google DSC Lead'22 | β Microsoft Learn Student Ambassador</p>
       <div className="mt-7 text-center" >
         <Socials />
       </div>
-      
       <Scroll />
     </div>
   );

@@ -32,11 +32,11 @@ function Socials() {
         to={social.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="group relative inline-block h-10 w-10 overflow-hidden border-white border-opacity-10 text-center align-middle text-lg leading-none text-body">
+        className="group relative inline-block h-10 w-10 overflow-hidden text-center align-middle text-lg leading-none text-body">
         <span className="fill-white front relative left-0 top-0 flex h-full w-full translate-y-0 transform items-center justify-center transition-all duration-500 group-hover:-translate-y-full">
           <svg height="1em" viewBox={social.viewBox}><path d={social.d} /></svg>
         </span>
-        <span className="fill-[#0b1224] back absolute left-0 top-0 flex h-full w-full translate-y-full items-center justify-center transition-all duration-500 group-hover:translate-y-0">
+        <span className="fill-gray-950 back absolute left-0 top-0 flex h-full w-full translate-y-full items-center justify-center transition-all duration-500 group-hover:translate-y-0">
           <svg height="1em" viewBox={social.viewBox}><path d={social.d} /></svg>
         </span>
       </Link>

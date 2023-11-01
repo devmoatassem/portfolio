@@ -24,7 +24,7 @@ function Certificates() {
             <div className="max-w-screen-xl container  mx-auto py-20 px-4">
                 <div className="mx-auto max-w-screen-md text-center mb-12">
                     <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">Certifications</h2>
-                    <p className="font-light text-gray-500 md:text-xl">-- Sculpting Knowledge --</p>
+                    <p className="font-light text-gray-400 md:text-xl">-- Sculpting Knowledge --</p>
                 </div>
                 <hr class="md:mx-auto border-gray-700 mb-6 md:mb-8" />
                 <div className="w-full items-center justify-center">
