@@ -1,12 +1,13 @@
-import p1 from '../../assets/images/project1.webp';
+import p1 from '../../assets/images/projects/CoinTrack1.png'
+
 function Projects() {
     const proj_list = [
         {
-            title: 'Project 1',
+            title: 'CoinTrack',
             pic: p1,
-            description: 'A car rental website is an online platform that allows users to rent cars for personal or business use. The website provides an interface for searching, comparing, and reserving cars.',
-            tech_stack: ['Flask', 'TailwindCSS'],
-            github: 'abc',
+            description: "A personal finance tracker built using Python-Flask, HTML, CSS, Bootstrap, and SQLite as the database consists of two main pages. Let's discuss each one in detail.",
+            tech_stack: ['Flask', 'Python', 'Sqlite3', 'CSS'],
+            github: 'https://github.com/devmoatassem/CoinTrack',
             live: 'abc',
 
         }
@@ -15,7 +16,7 @@ function Projects() {
         <li>
             <div className="flex flex-col md:gap-8 md:flex-row mx-auto max-w-lg md:max-w-[60rem] md:h-96 rounded-lg border shadow-lg border-gray-600 md:p-8 p-6 bg-gray-800 text-white">
                 <div className="overflow-hidden shadow-lg w-full md:w-[30rem] h-auto rounded-lg">
-                    <img src={proj.pic} className="translate-y-0 h-full" alt="" />
+                    <img src={proj.pic} className="translate-y-0 h-full" alt={proj.title} />
                 </div>
                 <div className='flex flex-col h-auto justify-center text-center w-full md:w-[25rem] px-4 py-8'>
                     <h3 className="mb-4 text-2xl font-semibold">{proj.title}</h3>
