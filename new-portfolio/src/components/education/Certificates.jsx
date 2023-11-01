@@ -1,37 +1,66 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import certificate_list from "./certificatesList";
 function Certificates() {
-    // const proj_list = [
-    //     {
-    //         title: 'C1',
-    //         pic: c1,
-    //         description: 'Oct 2019 - May 2023',
-    //     }
-    // ]
-    const redered_cert_list = certificate_list.map((cert) => (
-        <li key={cert.id} className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow-lg border-gray-600 bg-gray-800 text-white">
-            <div className="overflow-hidden">
-                <img src={cert.pic} className="translate-y-0 aspect-[22/17] object-contain" alt={cert.title} />
-            </div>
-            <div className="flex justify-center items-baseline my-4">
-                <span className="text-xl font-semibold">{cert.title}</span>
-            </div>
-            <p className="font-light md:text-lg text-gray-400">{cert.from}</p>
-        </li>
-    ))
+
+    const [showFullList, setShowFullList] = useState(false);
+
+    const cert_list = [];
+    for (const cert of certificate_list) {
+        cert_list.push(
+            <li key={cert.id} className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow-lg border-gray-600 bg-gray-800 text-white">
+                <div className="overflow-hidden">
+                    <img src={cert.pic} className="translate-y-0 aspect-[22/17] object-contain" alt={cert.title} />
+                </div>
+                <div className="flex justify-center items-baseline my-4">
+                    <span className="text-xl font-semibold">{cert.title}</span>
+                </div>
+                <p className="font-light md:text-lg text-gray-400">{cert.from}</p>
+            </li>
+
+        )
+        if (cert.id === '3' && showFullList === false) {
+            break;
+        }
+    }
     return (
         <section className="relative">
-            {/* <div className="absolute left-0 top-0 h-full w-full"></div> */}
             <div className="max-w-screen-xl container  mx-auto py-20 px-4">
                 <div className="mx-auto max-w-screen-md text-center mb-12">
                     <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">Certifications</h2>
                     <p className="font-light text-gray-400 md:text-xl">-- Sculpting Knowledge --</p>
                 </div>
-                <hr class="md:mx-auto border-gray-700 mb-6 md:mb-8" />
+                <hr className="md:mx-auto border-gray-700 mb-6 md:mb-8" />
                 <div className="w-full items-center justify-center">
                     <ul className='space-y-8 md:space-y-0 md:grid md:grid-cols-3 md:gap-6'>
-                        {redered_cert_list}
+                        {cert_list}
                     </ul>
+
                 </div>
+                <div className=" pt-9 flex justify-center">
+                    <Link
+                        onClick={() => setShowFullList(!showFullList)}
+                        className="container max-w-fit rounded-lg border shadow-lg border-gray-600 bg-gray-700  gap-3 inline-flex fill-white hover:fill-gray-950 text-white hover:text-gray-950 font-medium px-3 py-2 md:px-7 md:py-2.5">
+                        {showFullList ? (
+                            <>
+                                Show Less
+                                <svg height="1em" className="my-auto" viewBox="0 0 384 512">
+                                    <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z" />
+                                </svg>
+                            </>
+                        ) : (
+                            <>
+                                Show More
+                                <svg height="1em" className="my-auto" viewBox="0 0 384 512">
+                                    <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
+                                </svg>
+                            </>
+                        )}
+
+
+                    </Link>
+                </div>
+
             </div>
         </section>
     )
