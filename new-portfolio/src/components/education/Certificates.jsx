@@ -1,21 +1,21 @@
-import c1 from '../../assets/images/certificates/alphamlsa.jpg'
+import certificate_list from "./certificatesList";
 function Certificates() {
-    const proj_list = [
-        {
-            title: 'C1',
-            pic: c1,
-            description: 'Oct 2019 - May 2023',
-        }
-    ]
-    const redered_cert_list = proj_list.map((cert) => (
-        <li className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow-lg border-gray-600 bg-gray-800 text-white">
-            <div className="overflow-hidden shadow-lg w-full h-auto rounded-lg">
-                <img src={cert.pic} className="translate-y-0 h-full" alt="" />
+    // const proj_list = [
+    //     {
+    //         title: 'C1',
+    //         pic: c1,
+    //         description: 'Oct 2019 - May 2023',
+    //     }
+    // ]
+    const redered_cert_list = certificate_list.map((cert) => (
+        <li key={cert.id} className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow-lg border-gray-600 bg-gray-800 text-white">
+            <div className="overflow-hidden">
+                <img src={cert.pic} className="translate-y-0 aspect-[22/17] object-contain" alt={cert.title} />
             </div>
             <div className="flex justify-center items-baseline my-4">
                 <span className="text-xl font-semibold">{cert.title}</span>
             </div>
-            <p className="font-light md:text-lg text-gray-400">{cert.description}</p>
+            <p className="font-light md:text-lg text-gray-400">{cert.from}</p>
         </li>
     ))
     return (
