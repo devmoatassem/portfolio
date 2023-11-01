@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route , Routes} from 'react-router-dom';
 import About from './components/about/About.jsx';
-import Navbar from './components/common/Navbar.jsx';
+import Navbar from './components/common/navbar/Navbar.jsx';
 import Home from './components/home/Home.jsx';
 import Portfolio from './components/portfolio/Portfolio.jsx';
 import Education from './components/education/Education.jsx';

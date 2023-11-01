@@ -1,5 +1,5 @@
 import Scroll from "./Scroll";
-import Socials from "./Socials";
+import Socials from '../common/Socials'
 function Intro() {
   return (
     <div className="px-4 w-full py-20 text-center md:w-3/4">

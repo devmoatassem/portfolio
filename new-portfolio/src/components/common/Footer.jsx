@@ -1,4 +1,4 @@
-import Socials from "../about/Socials";
+import Socials from "./Socials";
 import NavLinks from "./navbar/NavLinks";
 import { Link } from "react-router-dom";
 function Footer() {

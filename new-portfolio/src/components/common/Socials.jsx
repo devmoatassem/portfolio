@@ -1,8 +1,4 @@
 import { Link } from "react-router-dom";
-
-
-
-
 function Socials() {
   const socials = [
     {
