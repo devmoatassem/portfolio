@@ -13,6 +13,7 @@ function HeaderC({topPadding ='mt-14', ...props}) {
                     </div>
                 </div>
             </div>
+            <hr class="md:mx-auto border-gray-700" />
         </section>
     )
 }

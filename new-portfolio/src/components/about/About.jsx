@@ -17,6 +17,7 @@ function About() {
 
 
                 </section>
+                <hr class="md:mx-auto border-gray-700" />
                 <section className="relative">
                     {/* <div className="absolute left-0 top-0 h-full w-full"></div> */}
                     <div className="max-w-screen-xl container  mx-auto">

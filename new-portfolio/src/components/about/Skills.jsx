@@ -6,6 +6,7 @@ function Skills() {
                 <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">What I do</h2>
                 <p className="mb-5 font-light text-gray-500 md:text-xl">-- Skills & Interests --</p>
             </div>
+            <hr class="md:mx-auto border-gray-700 mb-6 md:mb-8" />
             <div className="space-y-8 md:grid md:grid-cols-3 md:gap-1 md:space-y-0">
 
                 <div className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow border-gray-600 xl:p-8 bg-gray-800 text-white">

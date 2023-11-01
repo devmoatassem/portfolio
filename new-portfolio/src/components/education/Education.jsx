@@ -1,6 +1,6 @@
 import HeaderC from "../common/HeaderC";
 import University from "./University";
-import Certificates from "./Certificares";
+import Certificates from "./Certificates";
 function Education(props) {
   return (
     <div className="relative z-20 bg-[#0b1224] ">
