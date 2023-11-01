@@ -3,3 +3,23 @@
 
 @tailwind utilities;
 
+/* custom scroll bar */
+::-webkit-scrollbar {
+    position: absolute;
+    width: 2px;
+}
+::-webkit-scrollbar:hover {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    --tw-bg-opacity: 1;
+    background-color: rgb(11 18 36 / var(--tw-bg-opacity));
+}
+::-webkit-scrollbar-thumb {
+    --tw-bg-opacity: 1;
+    background-color: rgb(31 41 55 / var(--tw-bg-opacity));
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
