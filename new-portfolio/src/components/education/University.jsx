@@ -19,7 +19,7 @@ function University() {
 
 
                 </div>
-                <div className='flex flex-col h-auto justify-stretch w-full p-6 md:p-8 shadow border rounded-lg border-gray-600  bg-gray-800'>
+                <div className='flex flex-col h-auto justify-stretch w-full p-6 md:p-8 shadow-lg border rounded-lg border-gray-600  bg-gray-800'>
                     <div className='flex flex-col md:flex-row md:gap-4'>
                         <h3 className="mb-2 md:mb-0 text-2xl font-semibold">{proj.title}</h3>
                         <p className="mb-2 font-light md:text-lg text-gray-400 min-w-fit">{proj.description}</p>

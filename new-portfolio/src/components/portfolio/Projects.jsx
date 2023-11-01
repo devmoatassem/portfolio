@@ -13,7 +13,7 @@ function Projects() {
     ]
     const redered_proj_list = proj_list.map((proj) => (
         <li>
-            <div className="flex flex-col md:gap-8 md:flex-row mx-auto max-w-lg md:max-w-[60rem] md:h-96 rounded-lg border shadow border-gray-600 md:p-8 p-6 bg-gray-800 text-white">
+            <div className="flex flex-col md:gap-8 md:flex-row mx-auto max-w-lg md:max-w-[60rem] md:h-96 rounded-lg border shadow-lg border-gray-600 md:p-8 p-6 bg-gray-800 text-white">
                 <div className="overflow-hidden shadow-lg w-full md:w-[30rem] h-auto rounded-lg">
                     <img src={proj.pic} className="translate-y-0 h-full" alt="" />
                 </div>
@@ -22,7 +22,7 @@ function Projects() {
                     <p className="font-light md:text-lg text-gray-400">{proj.description}</p>
                     <div className='flex gap-4 justify-center mt-4'>
                         {proj.tech_stack.map((tech) => (
-                            <p className='bg-slate-500 shadow-lg text-gray-100 py-2 px-5 rounded'>{tech}</p>
+                            <p className='bg-gray-700 shadow-lg text-gray-100 py-2 px-5 rounded'>{tech}</p>
                         ))}
                     </div>
                     <div className='flex gap-4 justify-evenly mt-12'>

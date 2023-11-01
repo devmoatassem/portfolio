@@ -8,7 +8,7 @@ function Certificates() {
         }
     ]
     const redered_cert_list = proj_list.map((cert) => (
-        <li className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow border-gray-600 bg-gray-800 text-white">
+        <li className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow-lg border-gray-600 bg-gray-800 text-white">
             <div className="overflow-hidden shadow-lg w-full h-auto rounded-lg">
                 <img src={cert.pic} className="translate-y-0 h-full" alt="" />
             </div>
