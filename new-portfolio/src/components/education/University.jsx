@@ -46,7 +46,7 @@ function University() {
                     <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">Degrees Received</h2>
                     <p className="font-light text-gray-400 md:text-xl">-- Sculpting Knowledge --</p>
                 </div>
-                <hr class="md:mx-auto border-gray-700 mb-6 md:mb-8" />
+                <hr className="md:mx-auto border-gray-700 mb-6 md:mb-8" />
                 <div className="flex w-full items-center justify-center ">
                     <ul>
                         {redered_edu_list}
