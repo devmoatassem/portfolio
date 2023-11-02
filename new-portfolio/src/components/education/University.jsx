@@ -8,8 +8,8 @@ function University() {
             degree: 'Bechelor In Engineering (Computer Science)',
         }
     ]
-    const redered_edu_list = edu_list.map((proj) => (
-        <li>
+    const redered_edu_list = edu_list.map((proj,index) => (
+        <li key={index}>
             <div className="flex flex-col md:gap-8 md:flex-row mx-auto max-w-lg md:max-w-[60rem]  text-white">
                 <div className="overflow-hidden h-auto rounded-full mx-auto">
                     <img src={proj.logo} className="h-48 pt-1 mb-6" alt="UET Logo" />
