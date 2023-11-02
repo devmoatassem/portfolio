@@ -9,7 +9,7 @@ function Footer() {
                     <div className="mb-6 md:mb-0">
                         <div className="flex justify-center">
                             <div className="name-logo text-white">
-                                <Link href="/">
+                                <Link to="https://moatassam.com/">
                                     &lt;<span id="abcd">Moatassem Billah</span>/&gt;
                                 </Link>
                             </div>
@@ -21,7 +21,7 @@ function Footer() {
                 </div>
                 <hr className="my-6 md:mx-auto border-gray-700 md:my-8" />
                 <div className="md:flex  md:justify-between">
-                    <span className="text-sm md:text-center text-gray-400">© {new Date().getFullYear()} <Link to="https://flowbite.com" className="hover:underline">Moatassem</Link> Made with ❤️
+                    <span className="text-sm md:text-center text-gray-400">© {new Date().getFullYear()} <Link to="https://moatassam.com/" className="hover:underline">Moatassem</Link> Made with ❤️
                     </span>
                     <div className="flex justify-center mt-4 space-x-6 md:mt-0">
                         <Socials />
