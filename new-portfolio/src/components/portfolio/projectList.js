@@ -3,6 +3,7 @@ import p2 from '../../assets/images/projects/Stocks1.png'
 import p3 from '../../assets/images/projects/Screening1.jpg'
 import p4 from '../../assets/images/projects/Portfolio1.png'
 import p5 from '../../assets/images/projects/Aeye1.jpg'
+import p6 from '../../assets/images/projects/DataShuttle.jpg'
 const proj_list = [
     {
         id:'10',
@@ -50,7 +51,16 @@ const proj_list = [
         tech_stack:['Flutter','Firebase'],
         github:'https://github.com/devmoatassem/FYP-aEYE',
         live:null,
-    }
+    },
+    {
+        id:'15',
+        title:'Data Shuttle',
+        pic:p6,
+        description:'A Desktop app that allows users to send and receive files between users on the same network using sockets.',
+        tech_stack:['Python','Tkinter'],
+        github:'https://github.com/devmoatassem/DataShuttle',
+        live:null
+        }
 
 ]
 export default proj_list;
