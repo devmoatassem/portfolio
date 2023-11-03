@@ -1,4 +1,6 @@
 import uet from '../../assets/images/UET.svg';
+import { motion } from "framer-motion";
+import {childVariants, parentVariants } from "../common/animationVarients";
 function University() {
     const edu_list = [
         {
@@ -8,7 +10,7 @@ function University() {
             degree: 'Bechelor In Engineering (Computer Science)',
         }
     ]
-    const redered_edu_list = edu_list.map((proj,index) => (
+    const redered_edu_list = edu_list.map((proj, index) => (
         <li key={index}>
             <div className="flex flex-col md:gap-8 md:flex-row mx-auto max-w-lg md:max-w-[60rem]  text-white">
                 <div className="overflow-hidden h-auto rounded-full mx-auto">
@@ -43,14 +45,34 @@ function University() {
         <section className="relative">
             <div className="max-w-screen-xl container  mx-auto py-20 px-4">
                 <div className="mx-auto max-w-screen-md text-center mb-12">
-                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">Degrees Received</h2>
-                    <p className="font-light text-gray-400 md:text-xl">-- Sculpting Knowledge --</p>
+                    <motion.h2
+                        variants={childVariants}
+                        initial="hidden"
+                        transition={{ delay: 0.9, duration: 0.4 }}
+                        viewport={{ once: true }}
+                        whileInView="visible"
+                        className="mb-4 text-4xl tracking-tight font-extrabold text-white">
+                        Degrees Received
+                    </motion.h2>
+                    <motion.p variants={childVariants}
+                        initial="hidden"
+                        transition={{ delay: 1.1, duration: 0.4 }}
+                        viewport={{ once: true }}
+                        whileInView="visible"
+                        className="font-light text-gray-400 md:text-xl">
+                        -- Sculpting Knowledge --
+                    </motion.p>
                 </div>
                 <hr className="md:mx-auto border-gray-700 mb-6 md:mb-8" />
                 <div className="flex w-full items-center justify-center ">
-                    <ul>
+                    <motion.ul
+                        variants={parentVariants}
+                        initial="hidden"
+                        transition={{ delay: 1.3, duration: 0.5 }}
+                        viewport={{ once: true }}
+                        whileInView="visible">
                         {redered_edu_list}
-                    </ul>
+                    </motion.ul>
                 </div>
             </div>
         </section>

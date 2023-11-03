@@ -1,14 +1,22 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import certificate_list from "./certificatesList";
+import { motion } from "framer-motion";
+import { childVariants, parentVariants } from "../common/animationVarients";
 function Certificates() {
 
     const [showFullList, setShowFullList] = useState(false);
-
+    let index = 1;
     const cert_list = [];
     for (const cert of certificate_list) {
         cert_list.push(
-            <li key={cert.id} className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow-lg border-gray-600 bg-gray-800 text-white">
+            <motion.li
+                variants={childVariants}
+                initial="hidden"
+                transition={{ delay: 0.3*index, duration: 0.4 }}
+                viewport={{ once: true }}
+                whileInView="visible"
+                key={cert.id} className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow-lg border-gray-600 bg-gray-800 text-white">
                 <div className="overflow-hidden">
                     <img src={cert.pic} className="translate-y-0 aspect-[22/17] object-contain" alt={cert.title} />
                 </div>
@@ -16,9 +24,16 @@ function Certificates() {
                     <span className="text-xl font-semibold">{cert.title}</span>
                 </div>
                 <p className="font-light md:text-lg text-gray-400">{cert.from}</p>
-            </li>
+            </motion.li>
 
         )
+        console.log(index);
+        if (index < 3) {
+            index++;
+        }
+        else{
+            index = 1;
+        }
         if (cert.id === '3' && showFullList === false) {
             break;
         }
@@ -27,14 +42,35 @@ function Certificates() {
         <section className="relative">
             <div className="max-w-screen-xl container  mx-auto py-20 px-4">
                 <div className="mx-auto max-w-screen-md text-center mb-12">
-                    <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">Certifications</h2>
-                    <p className="font-light text-gray-400 md:text-xl">-- Sculpting Knowledge --</p>
+                    <motion.h2
+                        variants={childVariants}
+                        initial="hidden"
+                        transition={{ delay: 0.3, duration: 0.4 }}
+                        viewport={{ once: true }}
+                        whileInView="visible"
+                        className="mb-4 text-4xl tracking-tight font-extrabold text-white">
+                        Certifications
+                    </motion.h2>
+                    <motion.p variants={childVariants}
+                        initial="hidden"
+                        transition={{ delay: 0.5, duration: 0.4 }}
+                        viewport={{ once: true }}
+                        whileInView="visible"
+                        className="font-light text-gray-400 md:text-xl">
+                        -- Sculpting Knowledge --
+                    </motion.p>
                 </div>
                 <hr className="md:mx-auto border-gray-700 mb-6 md:mb-8" />
                 <div className="w-full items-center justify-center">
-                    <ul className='space-y-8 md:space-y-0 md:grid md:grid-cols-3 md:gap-6'>
+                    <motion.ul
+                        variants={parentVariants}
+                        initial="hidden"
+                        transition={{ delay: 0.7, duration: 0.5 }}
+                        viewport={{ once: true }}
+                        whileInView="visible"
+                        className='space-y-8 md:space-y-0 md:grid md:grid-cols-3 md:gap-6'>
                         {cert_list}
-                    </ul>
+                    </motion.ul>
 
                 </div>
                 <div className=" pt-9 flex justify-center">

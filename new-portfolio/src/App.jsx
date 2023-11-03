@@ -9,6 +9,7 @@ import Footer from './components/common/Footer.jsx';
 import { AnimatePresence } from 'framer-motion';
 function App() {
   const location = useLocation();
+ 
   return (
     <>
     < Navbar />
