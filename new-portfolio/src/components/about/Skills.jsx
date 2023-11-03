@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
-import { introVariants } from "../common/animationVarients";
+import { childVariants } from "../common/animationVarients";
 function Skills() {
     return (
         <div className="py-20 px-4 md:px-10">
             <div className="mx-auto max-w-screen-md text-center mb-12">
                 <motion.h2
-                    variants={introVariants}
+                    variants={childVariants}
                     initial="hidden"
                     transition={{ delay: 0.2, duration: 0.4 }}
                     viewport={{ once: true }}
@@ -13,7 +13,7 @@ function Skills() {
                     className="mb-4 text-4xl tracking-tight font-extrabold text-white">
                     What I do
                 </motion.h2>
-                <motion.p variants={introVariants}
+                <motion.p variants={childVariants}
                     initial="hidden"
                     transition={{ delay: 0.4, duration: 0.4 }}
                     viewport={{ once: true }}
@@ -26,7 +26,7 @@ function Skills() {
             <div className="space-y-8 md:grid md:grid-cols-3 md:gap-1 md:space-y-0">
 
                 <motion.div
-                    variants={introVariants}
+                    variants={childVariants}
                     initial="hidden"
                     transition={{ delay: 0.4, duration: 0.4 }}
                     viewport={{ once: true }}
@@ -107,7 +107,7 @@ function Skills() {
                 </motion.div>
 
                 <motion.div
-                    variants={introVariants}
+                    variants={childVariants}
                     initial="hidden"
                     transition={{ delay: 0.6, duration: 0.4 }}
                     viewport={{ once: true }}
@@ -173,7 +173,7 @@ function Skills() {
                 </motion.div>
 
                 <motion.div
-                    variants={introVariants}
+                    variants={childVariants}
                     initial="hidden"
                     transition={{ delay: 0.8, duration: 0.4 }}
                     viewport={{ once: true }}

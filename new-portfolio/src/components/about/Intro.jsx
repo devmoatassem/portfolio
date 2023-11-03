@@ -1,13 +1,13 @@
 import Scroll from "./Scroll";
 import Socials from '../common/Socials'
 import { motion } from "framer-motion"
-import { introVariants } from "../common/animationVarients";
+import { childVariants } from "../common/animationVarients";
 function Intro() {
   return (
     <div
       className="px-4 w-full py-20 text-center md:w-3/4">
       <motion.div
-        variants={introVariants}
+        variants={childVariants}
         initial="hidden"
         transition={{ delay: 0.2, duration: 0.4 }}
         viewport={{ once: true }}
@@ -21,7 +21,7 @@ function Intro() {
       </motion.div>
 
       <motion.h1
-        variants={introVariants}
+        variants={childVariants}
         initial="hidden"
         transition={{ delay: 0.4, duration: 0.4 }}
         viewport={{ once: true }}
@@ -29,7 +29,7 @@ function Intro() {
         className="text-white mb-4 text-4xl font-extrabold">Hi, I am Moatassem Billah</motion.h1>
 
       <motion.p
-        variants={introVariants}
+        variants={childVariants}
         initial="hidden"
         transition={{ delay: 0.6, duration: 0.4 }}
         viewport={{ once: true }}
@@ -38,7 +38,7 @@ function Intro() {
         MERN | Python | Flask Dev | AI Enthusiast | Mentor@MLSA | SSR IEEE Faisalabad Sub Section | Former Google DSC Lead'22 | β Microsoft Learn Student Ambassador
       </motion.p>
       <motion.div
-        variants={introVariants}
+        variants={childVariants}
         initial="hidden"
         transition={{ delay: 0.8, duration: 0.4 }}
         viewport={{ once: true }}

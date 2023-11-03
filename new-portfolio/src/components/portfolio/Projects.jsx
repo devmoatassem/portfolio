@@ -2,7 +2,7 @@ import proj_list from "./projectList";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { introVariants, parentListVariants } from "../common/animationVarients";
+import { childVariants, parentVariants } from "../common/animationVarients";
 
 function Projects() {
     const [showFullProj, setshowFullProj] = useState(false);
@@ -10,7 +10,7 @@ function Projects() {
     for (const proj of proj_list) {
         redered_proj_list.push(
             <motion.li 
-            variants={introVariants}
+            variants={childVariants}
             initial="hidden"
             transition={{ duration: 0.4 }}
             viewport={{ once: true }}
@@ -54,7 +54,7 @@ function Projects() {
             <div className="max-w-screen-xl container mx-auto py-20 px-4">
                 <div className="flex w-full items-center justify-center ">
                     <motion.ul
-                        variants={parentListVariants}
+                        variants={parentVariants}
                         initial="hidden"
                         // transition={{ delay: 0.5, duration: 0.8 }}
                         viewport={{ once: true }}

@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { introVariants } from "./animationVarients";
+import { childVariants } from "./animationVarients";
 function HeaderC({ topPadding = 'mt-14',tran='0.5', ...props }) {
 
     return (
         <section className="relative">
             <div className="main-bg absolute py left-0 top-0 h-full w-full"></div>
             <motion.div
-                variants={introVariants}
+                variants={childVariants}
                 initial="hidden"
                 transition={{ delay:tran, duration: 0.4 }}
                 viewport={{ once: true }}

@@ -16,18 +16,18 @@ export const pageVariants = {
     }
 };
 
-export const introVariants = {
+export const childVariants = {
     hidden:{
         opacity:0,
         y:20
     },
     visible:{
         opacity:1,
-        y:0
+        y:0,
     }
 }
 
-export const parentListVariants = {
+export const parentVariants = {
     hidden:{
         opacity:0,
         y:20

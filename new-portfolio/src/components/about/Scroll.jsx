@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { introVariants } from "../common/animationVarients";
+import { childVariants } from "../common/animationVarients";
 
 function Scroll() {
   return (
     <motion.div
-      variants={introVariants}
+      variants={childVariants}
       initial="hidden"
       transition={{ delay: 1, duration: 0.4 }}
       viewport={{ once: true }}
