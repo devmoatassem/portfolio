@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import { introVariants } from "./animationVarients";
-function HeaderC({ topPadding = 'mt-14', ...props }) {
+function HeaderC({ topPadding = 'mt-14',tran='0.5', ...props }) {
+
     return (
         <section className="relative">
             <div className="main-bg absolute py left-0 top-0 h-full w-full"></div>
             <motion.div
                 variants={introVariants}
                 initial="hidden"
-                transition={{ delay: 0.5, duration: 0.4 }}
+                transition={{ delay:tran, duration: 0.4 }}
                 viewport={{ once: true }}
                 whileInView="visible"
                 className="max-w-screen-xl container  mx-auto">
