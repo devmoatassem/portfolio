@@ -26,3 +26,20 @@ export const introVariants = {
         y:0
     }
 }
+
+export const parentListVariants = {
+    hidden:{
+        opacity:0,
+        y:20
+    },
+    visible:{
+        opacity:1,
+        y:0,
+        transition:{
+            delay: 0.5, 
+            duration: 0.4,
+            staggerChildren:3
+
+        }
+    }
+}

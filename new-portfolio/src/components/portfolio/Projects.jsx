@@ -1,12 +1,21 @@
 import proj_list from "./projectList";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { introVariants, parentListVariants } from "../common/animationVarients";
+
 function Projects() {
     const [showFullProj, setshowFullProj] = useState(false);
     const redered_proj_list = []
     for (const proj of proj_list) {
         redered_proj_list.push(
-            <li key={proj.title}>
+            <motion.li 
+            variants={introVariants}
+            initial="hidden"
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
+            whileInView="visible"
+            key={proj.title}>
                 <div className="flex flex-col md:gap-8 md:flex-row mx-auto max-w-lg md:max-w-[70rem] md:h-96 rounded-lg border shadow-lg border-gray-600 md:p-8 p-6 bg-gray-800 text-white">
                     <div className="overflow-hidden shadow-lg w-full md:w-[36rem] h-auto rounded-lg">
                         <img src={proj.pic} className="translate-y-0 aspect-[16/9] object-contain" alt={proj.title} />
@@ -33,7 +42,7 @@ function Projects() {
                         </div>
                     </div>
                 </div>
-            </li>
+            </motion.li>
         )
         if (proj.id === '11' && showFullProj === false) {
             break;
@@ -44,9 +53,15 @@ function Projects() {
         <section className="relative">
             <div className="max-w-screen-xl container mx-auto py-20 px-4">
                 <div className="flex w-full items-center justify-center ">
-                    <ul className='space-y-8'>
+                    <motion.ul
+                        variants={parentListVariants}
+                        initial="hidden"
+                        // transition={{ delay: 0.5, duration: 0.8 }}
+                        viewport={{ once: true }}
+                        whileInView="visible"
+                        className='space-y-8'>
                         {redered_proj_list}
-                    </ul>
+                    </motion.ul>
                 </div>
                 <div className=" pt-9 flex justify-center">
                     <Link
