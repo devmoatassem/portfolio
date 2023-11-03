@@ -12,7 +12,7 @@ function Projects() {
             <motion.li 
             variants={childVariants}
             initial="hidden"
-            transition={{ duration: 0.4 }}
+            transition={{ delay:0.2, duration: 0.4 }}
             viewport={{ once: true }}
             whileInView="visible"
             key={proj.title}>
@@ -56,7 +56,7 @@ function Projects() {
                     <motion.ul
                         variants={parentVariants}
                         initial="hidden"
-                        // transition={{ delay: 0.5, duration: 0.8 }}
+                        transition={{ delay: 0.5, duration: 0.5 }}
                         viewport={{ once: true }}
                         whileInView="visible"
                         className='space-y-8'>

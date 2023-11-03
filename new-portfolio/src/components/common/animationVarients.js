@@ -35,11 +35,5 @@ export const parentVariants = {
     visible:{
         opacity:1,
         y:0,
-        transition:{
-            delay: 0.5, 
-            duration: 0.4,
-            staggerChildren:3
-
-        }
     }
 }
