@@ -1,15 +1,37 @@
+import { motion } from "framer-motion";
+import { introVariants } from "../common/animationVarients";
 function Skills() {
     return (
         <div className="py-20 px-4 md:px-10">
             <div className="mx-auto max-w-screen-md text-center mb-12">
-
-                <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-white">What I do</h2>
-                <p className="mb-5 font-light text-gray-400 md:text-xl">-- Skills & Interests --</p>
+                <motion.h2
+                    variants={introVariants}
+                    initial="hidden"
+                    transition={{ delay: 0.2, duration: 0.4 }}
+                    viewport={{ once: true }}
+                    whileInView="visible"
+                    className="mb-4 text-4xl tracking-tight font-extrabold text-white">
+                    What I do
+                </motion.h2>
+                <motion.p variants={introVariants}
+                    initial="hidden"
+                    transition={{ delay: 0.4, duration: 0.4 }}
+                    viewport={{ once: true }}
+                    whileInView="visible"
+                    className="mb-5 font-light text-gray-400 md:text-xl">
+                    -- Skills & Interests --
+                </motion.p>
             </div>
             <hr className="md:mx-auto border-gray-700 mb-6 md:mb-8" />
             <div className="space-y-8 md:grid md:grid-cols-3 md:gap-1 md:space-y-0">
 
-                <div className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow-lg border-gray-600 xl:p-8 bg-gray-800 text-white">
+                <motion.div
+                    variants={introVariants}
+                    initial="hidden"
+                    transition={{ delay: 0.4, duration: 0.4 }}
+                    viewport={{ once: true }}
+                    whileInView="visible"
+                    className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow-lg border-gray-600 xl:p-8 bg-gray-800 text-white">
                     <svg className="fill-white mb-6" xmlns="http://www.w3.org/2000/svg" height="5em" viewBox="0 0 640 512"><path d="M64 96c0-35.3 28.7-64 64-64H512c35.3 0 64 28.7 64 64V352H512V96H128V352H64V96zM0 403.2C0 392.6 8.6 384 19.2 384H620.8c10.6 0 19.2 8.6 19.2 19.2c0 42.4-34.4 76.8-76.8 76.8H76.8C34.4 480 0 445.6 0 403.2zM281 209l-31 31 31 31c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-48-48c-9.4-9.4-9.4-24.6 0-33.9l48-48c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM393 175l48 48c9.4 9.4 9.4 24.6 0 33.9l-48 48c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l31-31-31-31c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z" /></svg>
 
                     <h3 className="mb-4 text-2xl font-semibold">Full Stack Web Developer</h3>
@@ -82,9 +104,15 @@ function Skills() {
 
 
                     </div>
-                </div>
+                </motion.div>
 
-                <div className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow border-gray-600 xl:p-8 bg-gray-800 text-white">
+                <motion.div
+                    variants={introVariants}
+                    initial="hidden"
+                    transition={{ delay: 0.6, duration: 0.4 }}
+                    viewport={{ once: true }}
+                    whileInView="visible"
+                    className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow border-gray-600 xl:p-8 bg-gray-800 text-white">
                     <svg className="fill-white mb-6" xmlns="http://www.w3.org/2000/svg" height="5em" viewBox="0 0 512 512"><path d="M78.6 5C69.1-2.4 55.6-1.5 47 7L7 47c-8.5 8.5-9.4 22-2.1 31.6l80 104c4.5 5.9 11.6 9.4 19 9.4h54.1l109 109c-14.7 29-10 65.4 14.3 89.6l112 112c12.5 12.5 32.8 12.5 45.3 0l64-64c12.5-12.5 12.5-32.8 0-45.3l-112-112c-24.2-24.2-60.6-29-89.6-14.3l-109-109V104c0-7.5-3.5-14.5-9.4-19L78.6 5zM19.9 396.1C7.2 408.8 0 426.1 0 444.1C0 481.6 30.4 512 67.9 512c18 0 35.3-7.2 48-19.9L233.7 374.3c-7.8-20.9-9-43.6-3.6-65.1l-61.7-61.7L19.9 396.1zM512 144c0-10.5-1.1-20.7-3.2-30.5c-2.4-11.2-16.1-14.1-24.2-6l-63.9 63.9c-3 3-7.1 4.7-11.3 4.7H352c-8.8 0-16-7.2-16-16V102.6c0-4.2 1.7-8.3 4.7-11.3l63.9-63.9c8.1-8.1 5.2-21.8-6-24.2C388.7 1.1 378.5 0 368 0C288.5 0 224 64.5 224 144l0 .8 85.3 85.3c36-9.1 75.8 .5 104 28.7L429 274.5c49-23 83-72.8 83-130.5zM56 432a24 24 0 1 1 48 0 24 24 0 1 1 -48 0z" /></svg>
                     <h3 className="mb-4 text-2xl font-semibold">Versatile Skills & Tools</h3>
                     <p className="font-light md:text-lg text-gray-400">Elevating Possibilities: Unleashing Versatility in Code and Beyond</p>
@@ -142,8 +170,15 @@ function Skills() {
                             <path d="M123.965 91.902c-7.246-18.297-13.262-37.058-20.184-55.476-3.054-7.84-6.047-15.746-10.215-23.082-1.656-2.633-3.238-5.528-5.953-7.215a4.013 4.013 0 00-2.222-.606c-1.27.028-2.536.594-3.504 1.415-3.645 2.886-5.805 7.082-8.227 10.949-4.277 7.172-8.789 14.687-15.941 19.347-3.36 2.371-7.762 2.63-11 5.172-4.43 3.34-7.442 8.078-11.074 12.184-.829.988-2.11 1.383-3.227 1.918C21.578 60.93 10.738 65.336 0 69.98c9.09 7.032 18.777 13.29 28.05 20.079 2.544-.504 5.098-1.547 7.72-1.082 4.16 1.3 6.597 5.285 8.503 8.93 3.875 7.94 6.676 16.323 9.813 24.57 5.246-.375 9.969-3.079 14.027-6.258 7.809-6.324 13.758-14.5 20.305-22.047 3.14-3.3 6.34-7.23 11.05-8.149 4.762-1.152 9.864.555 13.395 3.836 4.957 4.43 9.344 9.551 15.137 12.942-.777-3.836-2.645-7.278-4.035-10.899zM42.96 79.012c-4.57 2.703-9.426 4.93-14.176 7.289-7.457-4.996-14.723-10.29-22.05-15.465 9.878-4.328 19.91-8.348 29.917-12.387 4.746 3.703 9.637 7.223 14.383 10.926-2.23 3.563-4.914 6.871-8.074 9.637zm10.168-12.414C48.414 63.058 43.64 59.609 39 55.977c2.977-4.055 6.238-7.977 10.14-11.172 2.587-1.657 5.743-2.117 8.426-3.61 6.368-3.18 10.711-9.011 14.86-14.582-5.317 13.805-10.992 27.664-19.297 39.985zm0 0"></path>
                         </svg>
                     </div>
-                </div>
-                <div className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow border-gray-600 xl:p-8 bg-gray-800 text-white">
+                </motion.div>
+
+                <motion.div
+                    variants={introVariants}
+                    initial="hidden"
+                    transition={{ delay: 0.8, duration: 0.4 }}
+                    viewport={{ once: true }}
+                    whileInView="visible"
+                    className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow border-gray-600 xl:p-8 bg-gray-800 text-white">
                     <svg className="fill-white mb-6" xmlns="http://www.w3.org/2000/svg" height="5em" viewBox="0 0 640 512"><path d="M0 24C0 10.7 10.7 0 24 0H616c13.3 0 24 10.7 24 24s-10.7 24-24 24H24C10.7 48 0 37.3 0 24zM0 488c0-13.3 10.7-24 24-24H616c13.3 0 24 10.7 24 24s-10.7 24-24 24H24c-13.3 0-24-10.7-24-24zM83.2 160a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM32 320c0-35.3 28.7-64 64-64h96c12.2 0 23.7 3.4 33.4 9.4c-37.2 15.1-65.6 47.2-75.8 86.6H64c-17.7 0-32-14.3-32-32zm461.6 32c-10.3-40.1-39.6-72.6-77.7-87.4c9.4-5.5 20.4-8.6 32.1-8.6h96c35.3 0 64 28.7 64 64c0 17.7-14.3 32-32 32H493.6zM391.2 290.4c32.1 7.4 58.1 30.9 68.9 61.6c3.5 10 5.5 20.8 5.5 32c0 17.7-14.3 32-32 32h-224c-17.7 0-32-14.3-32-32c0-11.2 1.9-22 5.5-32c10.5-29.7 35.3-52.8 66.1-60.9c7.8-2.1 16-3.1 24.5-3.1h96c7.4 0 14.7 .8 21.6 2.4zm44-130.4a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zM321.6 96a80 80 0 1 1 0 160 80 80 0 1 1 0-160z" /></svg>
                     <h3 className="mb-4 text-2xl font-semibold">Community Contributor</h3>
                     <p className="font-light md:text-lg text-gray-400">Empowering Innovation, Connecting Minds, and Building the Future Together</p>
@@ -328,7 +363,7 @@ function Skills() {
                         <li>- Lahore Section Lead IEEEXtreme 17.0</li>
                         <li></li>
                     </ul>
-                </div>
+                </motion.div>
 
 
 
