@@ -4,7 +4,7 @@ import certificate_list from "./certificatesList";
 import { motion } from "framer-motion";
 import { childVariants, parentVariants } from "../common/animationVarients";
 
-function Certificates() {  
+function Certificates() {
     const [showFullList, setShowFullList] = useState(false);
     let index = 1;
     const cert_list = [];
@@ -13,7 +13,7 @@ function Certificates() {
             <motion.li
                 variants={childVariants}
                 initial="hidden"
-                transition={{ delay: 0.3*index, duration: 0.4 }}
+                transition={{ delay: 0.3 * index, duration: 0.4 }}
                 viewport={{ once: true }}
                 whileInView="visible"
                 key={cert.id} className="flex flex-col p-6 mx-auto max-w-lg text-center rounded-lg border shadow-lg border-gray-600 bg-gray-800 text-white">
@@ -30,7 +30,7 @@ function Certificates() {
         if (index < 3) {
             index++;
         }
-        else{
+        else {
             index = 1;
         }
         if (cert.id === '3' && showFullList === false) {
@@ -70,7 +70,6 @@ function Certificates() {
                         className='space-y-8 md:space-y-0 md:grid md:grid-cols-3 md:gap-6'>
                         {cert_list}
                     </motion.ul>
-
                 </div>
                 <div className=" pt-9 flex justify-center">
                     <Link
@@ -91,13 +90,11 @@ function Certificates() {
                                 </svg>
                             </>
                         )}
-
-
                     </Link>
                 </div>
-
             </div>
         </section>
     )
 }
+
 export default Certificates;    

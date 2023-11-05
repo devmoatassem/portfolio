@@ -2,10 +2,10 @@ import Scroll from "./Scroll";
 import Socials from '../common/Socials'
 import { motion } from "framer-motion"
 import { childVariants } from "../common/animationVarients";
+
 function Intro() {
   return (
-    <div
-      className="px-4 w-full py-20 text-center md:w-3/4">
+    <div className="px-4 w-full py-20 text-center md:w-3/4">
       <motion.div
         variants={childVariants}
         initial="hidden"
@@ -16,18 +16,17 @@ function Intro() {
         <img
           className=""
           src="https://media.licdn.com/dms/image/D4D03AQGgAJd7HnYLpg/profile-displayphoto-shrink_200_200/0/1672036507003?e=1703721600&v=beta&t=JvLzOxNLvDuh0tC90-dBOmIUotOP4VH6NcyQQHCV8Ms"
-          alt="Moatassem"
-        />
+          alt="Moatassem" />
       </motion.div>
-
       <motion.h1
         variants={childVariants}
         initial="hidden"
         transition={{ delay: 0.4, duration: 0.4 }}
         viewport={{ once: true }}
         whileInView="visible"
-        className="text-white mb-4 text-4xl font-extrabold">Hi, I am Moatassem Billah</motion.h1>
-
+        className="text-white mb-4 text-4xl font-extrabold">
+        Hi, I am Moatassem Billah
+      </motion.h1>
       <motion.p
         variants={childVariants}
         initial="hidden"

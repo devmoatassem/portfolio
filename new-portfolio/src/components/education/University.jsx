@@ -1,6 +1,7 @@
 import uet from '../../assets/images/UET.svg';
 import { motion } from "framer-motion";
-import {childVariants, parentVariants } from "../common/animationVarients";
+import { childVariants, parentVariants } from "../common/animationVarients";
+
 function University() {
     const edu_list = [
         {
@@ -10,6 +11,7 @@ function University() {
             degree: 'Bechelor In Engineering (Computer Science)',
         }
     ]
+
     const redered_edu_list = edu_list.map((proj, index) => (
         <li key={index}>
             <div className="flex flex-col md:gap-8 md:flex-row mx-auto max-w-lg md:max-w-[60rem]  text-white">
@@ -41,6 +43,7 @@ function University() {
             </div>
         </li>
     ))
+
     return (
         <section className="relative">
             <div className="max-w-screen-xl container  mx-auto py-20 px-4">
@@ -78,4 +81,5 @@ function University() {
         </section>
     )
 }
+
 export default University;    

@@ -14,11 +14,9 @@ function Front() {
                 ease: "easeInOut"
             }
         }
-
     }
     return (
         <div className="fixed w-screen h-screen flex items-center justify-center z-50 bg-[#0b1224]">
-
             <svg className="mx-auto px-4 py-4" width="504" height="124" viewBox="0 0 504 124" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <motion.path
                     variants={pathVarients}

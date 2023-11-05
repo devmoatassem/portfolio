@@ -12,7 +12,6 @@ function About() {
             animate="animate"
             exit="exit"
             transition={{ duration: 0.5 }}
-            
             className="relative z-20 bg-[#0b1224]">
             <section className="relative">
                 <div className="main-bg absolute left-0 top-0 h-full w-full"></div>
@@ -33,7 +32,6 @@ function About() {
             </section>
         </motion.div>
     )
-
 }
 
 export default About;    

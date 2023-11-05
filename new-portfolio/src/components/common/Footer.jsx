@@ -1,6 +1,7 @@
 import Socials from "./Socials";
 import NavLinks from "./navbar/NavLinks";
 import { Link } from "react-router-dom";
+
 function Footer() {
     return (
         <footer className="p-4 bg-gray-800">
@@ -31,4 +32,5 @@ function Footer() {
         </footer>
     )
 }
+
 export default Footer;

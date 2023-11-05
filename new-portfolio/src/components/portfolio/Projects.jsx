@@ -6,16 +6,17 @@ import { childVariants, parentVariants } from "../common/animationVarients";
 
 function Projects() {
     const [showFullProj, setshowFullProj] = useState(false);
+
     const redered_proj_list = []
     for (const proj of proj_list) {
         redered_proj_list.push(
-            <motion.li 
-            variants={childVariants}
-            initial="hidden"
-            transition={{ delay:0.2, duration: 0.4 }}
-            viewport={{ once: true }}
-            whileInView="visible"
-            key={proj.title}>
+            <motion.li
+                variants={childVariants}
+                initial="hidden"
+                transition={{ delay: 0.2, duration: 0.4 }}
+                viewport={{ once: true }}
+                whileInView="visible"
+                key={proj.title}>
                 <div className="flex flex-col md:gap-8 md:flex-row mx-auto max-w-lg md:max-w-[70rem] md:h-96 rounded-lg border shadow-lg border-gray-600 md:p-8 p-6 bg-gray-800 text-white">
                     <div className="overflow-hidden shadow-lg w-full md:w-[36rem] h-auto rounded-lg">
                         <img src={proj.pic} className="translate-y-0 aspect-[16/9] object-contain" alt={proj.title} />
@@ -47,8 +48,8 @@ function Projects() {
         if (proj.id === '11' && showFullProj === false) {
             break;
         }
-
     }
+
     return (
         <section className="relative">
             <div className="max-w-screen-xl container mx-auto py-20 px-4">
@@ -88,4 +89,5 @@ function Projects() {
         </section>
     )
 }
+
 export default Projects;    

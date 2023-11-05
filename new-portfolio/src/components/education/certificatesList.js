@@ -11,85 +11,87 @@ import free1 from '../../assets/images/certificates/freelancing.webp';
 import gdsc from '../../assets/images/certificates/gdsc.webp';
 import msa2 from '../../assets/images/certificates/mlsaMentor.webp';
 import msa1 from '../../assets/images/certificates/BetaMLSA.webp';
+
 const certificate_list = [
     {
-        id:'1',
+        id: '1',
         title: 'CS50x Introduction to Computer Science',
         pic: cs50,
-        from : 'Harvard University',
+        from: 'Harvard University',
     },
     {
-        id:'2',
+        id: '2',
         title: 'MTA: Windows Operating Systems Fundamentals-Certified',
         pic: mta1,
-        from : 'Microsoft',
+        from: 'Microsoft',
     },
     {
-        id:'3',
+        id: '3',
         title: 'Supervised Machine Learning',
         pic: ml1,
-        from : 'DeepLearning.AI',
+        from: 'DeepLearning.AI',
     },
     {
-        id:'4',
+        id: '4',
         title: 'Python Data Structures',
         pic: pyds,
-        from : 'University of Michigan',
+        from: 'University of Michigan',
     },
     {
-        id:'5',
-        title:'Python for Everybody',
+        id: '5',
+        title: 'Python for Everybody',
         pic: py4e,
-        from : 'University of Michigan',
+        from: 'University of Michigan',
     },
     {
-        id:'6',
+        id: '6',
         title: 'React Js Basics',
         pic: react1,
-        from : 'META',
+        from: 'META',
     },
     {
-        id:'7',
+        id: '7',
         title: 'Programming with Javascript',
         pic: js1,
-        from : 'META',
+        from: 'META',
     },
     {
-        id:'8',
+        id: '8',
         title: 'Git and Github',
         pic: git1,
         from: 'Google',
     },
     {
-        id:'9',
-        title:'Introduction to Cloud Computing',
+        id: '9',
+        title: 'Introduction to Cloud Computing',
         pic: cloud1,
-        from : 'IBM',
+        from: 'IBM',
     },
     {
-        id:'10',
-        title:'Freelancing',
+        id: '10',
+        title: 'Freelancing',
         pic: free1,
-        from : 'DigiSkills.pk'
+        from: 'DigiSkills.pk'
     },
     {
-        id:'11',
-        title:'Google Developer Student Club Lead',
+        id: '11',
+        title: 'Google Developer Student Club Lead',
         pic: gdsc,
-        from : 'Google',
+        from: 'Google',
     },
     {
-        id:'12',
+        id: '12',
         title: 'Mentor Microsoft Learn Student Ambassador',
         pic: msa2,
-        from : 'Microsoft',
+        from: 'Microsoft',
     },
     {
-        id:'13',
-        title:'Beta Microsoft Learn Student Ambassador',
+        id: '13',
+        title: 'Beta Microsoft Learn Student Ambassador',
         pic: msa1,
-        from : 'Microsoft',
+        from: 'Microsoft',
     }
-    
+
 ]
+
 export default certificate_list;

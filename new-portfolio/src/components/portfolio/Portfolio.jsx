@@ -2,6 +2,7 @@ import HeaderC from "../common/HeaderC";
 import Projects from "./Projects";
 import { motion } from "framer-motion";
 import { pageVariants } from "../common/animationVarients";
+
 function Portfolio(props) {
   return (
     <motion.div
