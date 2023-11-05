@@ -37,9 +37,7 @@ function Navbar() {
             </motion.div>
 
           </div>
-
           <button
-
             type="button"
             className="inline-flex items-center w-12 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none -mr-2"
             onClick={() => setNavbarOpen(!navbarOpen)}

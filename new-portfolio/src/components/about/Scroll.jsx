@@ -2,6 +2,14 @@ import { motion } from "framer-motion";
 import { childVariants } from "../common/animationVarients";
 
 function Scroll() {
+  const scrollDown = () => {
+    const screenHeight = window.innerHeight;
+    window.scrollTo({
+      top: screenHeight,
+      behavior: "smooth"
+    });
+  }
+
   return (
     <motion.div
       variants={childVariants}
@@ -11,7 +19,7 @@ function Scroll() {
       whileInView="visible"
       className="fill-white text-white absolute left-0 top-auto bottom-10 w-full justify-between text-center"
       style={{ opacity: 1, transform: "none" }}>
-      <a className=" cursor-pointer text-xs font-medium uppercase tracking-widest transition-all hover:text-primary">
+      <button type="button" onClick={scrollDown} className=" cursor-pointer text-xs font-medium uppercase tracking-widest transition-all hover:text-primary">
         <svg
 
           strokeWidth={0}
@@ -27,7 +35,7 @@ function Scroll() {
           </g>
         </svg>
         <span className="pl-2">Scroll Down</span>
-      </a>
+      </button>
     </motion.div>
 
   )
