@@ -15,7 +15,7 @@ function Navbar() {
       transition={{ duration: 0.5 }}
       className="max-w-screen-xl flex flex-wrap items-center mx-auto p-4 justify-between">
         <div className="name-logo text-white">
-          <Link href="/">
+          <Link to="https://moatassam.com/">
             &lt;<span id="abcd">Moatassem Billah</span>/&gt;
           </Link>
         </div>
