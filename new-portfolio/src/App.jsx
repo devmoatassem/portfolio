@@ -1,35 +1,38 @@
-import React from 'react';
-import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
-import About from './components/about/About.jsx';
-import Navbar from './components/common/navbar/Navbar.jsx';
-import Home from './components/home/Home.jsx';
-import Portfolio from './components/portfolio/Portfolio.jsx';
-import Education from './components/education/Education.jsx';
-import Footer from './components/common/Footer.jsx';
-import { AnimatePresence } from 'framer-motion';
+import { useEffect, useState } from 'react';
+
+// import Splash from './components/common/splash/Splash';
+import Front from './components/common/Front';
+import Content from './Content';
 function App() {
-  const location = useLocation();
- 
+  
+  // const [isloading, setIsLoading] = useState(true);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsLoading(false);
+  //   }, 5000);
+  // }, []);
+  const [showComponent, setShowComponent] = useState(true);
+
+  useEffect(() => {
+    // Use a setTimeout to hide the component after a specified duration
+    const timeout = setTimeout(() => {
+      setShowComponent(false);
+    }, 5000);
+
+    // Clean up the timeout to prevent memory leaks
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [5000]);
+
+
   return (
     <>
-    < Navbar />
-      <AnimatePresence mode='wait'>
-        
-        <Routes location={location} key={location.pathname}>
-          
-          <Route exact path='/'>
-            <Route index element={<Navigate to="/home" replace />} />
-            <Route exact path="/home" element={<Home />} />
-            <Route exact path="/about" element={<About />} />
-            <Route exact path="/portfolio" element={<Portfolio />} />
-            <Route exact path="/education" element={<Education />} />
-          </Route>
-
-        </Routes>
-        
-      </AnimatePresence>
-      <Footer />
+    {showComponent ? <Front /> : <Content />}
+    
     </>
+    
+    
 
   )
 }
