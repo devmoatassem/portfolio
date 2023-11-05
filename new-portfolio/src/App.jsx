@@ -17,13 +17,13 @@ function App() {
     // Use a setTimeout to hide the component after a specified duration
     const timeout = setTimeout(() => {
       setShowComponent(false);
-    }, 5000);
+    }, 3000);
 
     // Clean up the timeout to prevent memory leaks
     return () => {
       clearTimeout(timeout);
     };
-  }, [5000]);
+  }, [3000]);
 
 
   return (
