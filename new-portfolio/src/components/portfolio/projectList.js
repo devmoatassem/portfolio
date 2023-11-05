@@ -1,9 +1,9 @@
-import p1 from '../../assets/images/projects/CoinTrack1.png'
-import p2 from '../../assets/images/projects/Stocks1.png'
-import p3 from '../../assets/images/projects/Screening1.jpg'
-import p4 from '../../assets/images/projects/Portfolio1.png'
-import p5 from '../../assets/images/projects/Aeye1.jpg'
-import p6 from '../../assets/images/projects/DataShuttle.jpg'
+import p1 from '../../assets/images/projects/CoinTrack1_result.webp'
+import p2 from '../../assets/images/projects/Stocks1_result.webp'
+import p3 from '../../assets/images/projects/Screening1_result.webp'
+import p4 from '../../assets/images/projects/Portfolio1_result.webp'
+import p5 from '../../assets/images/projects/Aeye1_result.webp'
+import p6 from '../../assets/images/projects/DataShuttle_result.webp'
 const proj_list = [
     {
         id:'10',

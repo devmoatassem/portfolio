@@ -1,16 +1,16 @@
-import cs50 from '../../assets/images/certificates/CS50x_page-0001.jpg';
-import mta1 from '../../assets/images/certificates/mta.png';
-import ml1 from '../../assets/images/certificates/supervised-ML_pages-to-jpg-0001.jpg';
-import pyds from '../../assets/images/certificates/python-data-structures.jpg';
-import py4e from '../../assets/images/certificates/Programming-for-everybody.jpg';
-import react1 from '../../assets/images/certificates/react-basics_pages-to-jpg-0001.jpg';
-import js1 from '../../assets/images/certificates/programming with javascript_page-0001.jpg';
-import git1 from '../../assets/images/certificates/git-and-github_page-0001.jpg';
-import cloud1 from '../../assets/images/certificates/introduction to cloud computing_pages-to-jpg-0001.jpg';
-import free1 from '../../assets/images/certificates/freelancing.jpg';
-import gdsc from '../../assets/images/certificates/gdsc.jpg';
-import msa2 from '../../assets/images/certificates/mlsa-mentor.jpg';
-import msa1 from '../../assets/images/certificates/Beta Certificate.png';
+import cs50 from '../../assets/images/certificates/CS50x.webp';
+import mta1 from '../../assets/images/certificates/mta.webp';
+import ml1 from '../../assets/images/certificates/SupervisedML.webp';
+import pyds from '../../assets/images/certificates/PythonSpec2.webp';
+import py4e from '../../assets/images/certificates/PythonSpec1.webp';
+import react1 from '../../assets/images/certificates/ReactBasics.webp';
+import js1 from '../../assets/images/certificates/JavaScript.webp';
+import git1 from '../../assets/images/certificates/GitAndGithub.webp';
+import cloud1 from '../../assets/images/certificates/introductionToCloud.webp';
+import free1 from '../../assets/images/certificates/freelancing.webp';
+import gdsc from '../../assets/images/certificates/gdsc.webp';
+import msa2 from '../../assets/images/certificates/mlsaMentor.webp';
+import msa1 from '../../assets/images/certificates/BetaMLSA.webp';
 const certificate_list = [
     {
         id:'1',
