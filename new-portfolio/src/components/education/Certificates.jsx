@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import certificate_list from "./certificatesList";
 import { motion } from "framer-motion";
 import { childVariants, parentVariants } from "../common/animationVarients";
-function Certificates() {
 
+function Certificates() {  
     const [showFullList, setShowFullList] = useState(false);
     let index = 1;
     const cert_list = [];
@@ -27,7 +27,6 @@ function Certificates() {
             </motion.li>
 
         )
-        console.log(index);
         if (index < 3) {
             index++;
         }
