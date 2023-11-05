@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 const navList = [
   {
     name: 'Home',
-    linkTo: '/home'
+    linkTo: '/'
   },
   {
     name: 'About',

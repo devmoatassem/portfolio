@@ -11,6 +11,7 @@ function Home() {
             animate="animate"
             exit="exit"
             transition={{ duration: 0.5 }}>
+                
             <About />
             <Portfolio topPadding="mt-0" tran='0.2'/>
             <Education topPadding="mt-0" tran='0.2'/>
