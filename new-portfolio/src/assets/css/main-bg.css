@@ -1,0 +1,7 @@
+.main-bg {
+    background-image: url(../images/herosection-bg.png);
+    background-repeat: repeat;
+    background-size: initial;
+    background-position: 0 13px;
+    opacity: 0.1;
+}
