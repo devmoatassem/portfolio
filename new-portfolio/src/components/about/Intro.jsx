@@ -12,7 +12,8 @@ function Intro() {
         transition={{ delay: 0.2, duration: 0.4 }}
         viewport={{ once: true }}
         whileInView="visible"
-        className="relative mb-5 inline-block overflow-hidden rounded-full align-middle">
+        className="relative mb-5 border-[6px] border-gray-400 shadow-lg inline-block overflow-hidden rounded-full align-middle">
+          
         <img
           className=""
           src="https://media.licdn.com/dms/image/D4D03AQGgAJd7HnYLpg/profile-displayphoto-shrink_200_200/0/1672036507003?e=1703721600&v=beta&t=JvLzOxNLvDuh0tC90-dBOmIUotOP4VH6NcyQQHCV8Ms"
