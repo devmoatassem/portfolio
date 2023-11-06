@@ -37,7 +37,7 @@ function Navbar() {
             </svg>
           </button>
         </div>
-        <div className={(navbarOpen ? "hidden" : "") + "hidden rounded-lg border shadow-lg border-gray-600 bg-gray-800 items-center justify-between w-full md:flex md:w-96 md:order-1 md:mr-32 "}>
+        <div className={(navbarOpen ? "hidden" : "") + "hidden rounded-lg border shadow-lg border-gray-600 bg-gray-800 items-center justify-between w-full md:flex md:w-96 md:order-1 md:mr-28 "}>
           <ul className=" flex flex-col space-y-4 md:space-y-0 p-4 md:p-0 mt-4 font-medium md:flex-row md:space-x-8 md:mt-0 md:border-0 md:place-content-center md: justify-between md:px-8 md:py-3 ">
             <NavLinks />
           </ul>
