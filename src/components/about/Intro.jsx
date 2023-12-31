@@ -2,6 +2,7 @@ import Scroll from "./Scroll";
 import Socials from '../common/Socials'
 import { motion } from "framer-motion"
 import { childVariants } from "../common/animationVarients";
+import profilePic from "../../assets/images/profile pic.jpg"
 
 function Intro() {
   return (
@@ -15,8 +16,8 @@ function Intro() {
         className="relative mb-5 border-[6px] border-gray-400 shadow-lg inline-block overflow-hidden rounded-full align-middle">
           
         <img
-          className=""
-          src="https://media.licdn.com/dms/image/D4D03AQGgAJd7HnYLpg/profile-displayphoto-shrink_200_200/0/1672036507003?e=1703721600&v=beta&t=JvLzOxNLvDuh0tC90-dBOmIUotOP4VH6NcyQQHCV8Ms"
+          className=" aspect-square w-48 h-48 object-cover"
+          src={profilePic}
           alt="Moatassem" />
       </motion.div>
       <motion.h1
