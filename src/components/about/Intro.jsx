@@ -26,7 +26,7 @@ function Intro() {
         transition={{ delay: 0.4, duration: 0.4 }}
         viewport={{ once: true }}
         whileInView="visible"
-        className="text-white mb-4 text-4xl font-extrabold">
+        className="text-white mb-4 text-2xl md:text-4xl font-extrabold">
         Hi, I am Moatassem Billah
       </motion.h1>
       <motion.p
@@ -35,8 +35,8 @@ function Intro() {
         transition={{ delay: 0.6, duration: 0.4 }}
         viewport={{ once: true }}
         whileInView="visible"
-        className="text-gray-400 mb-0 font-semibold text-xl">
-        MERN | Python | Flask Dev | AI Enthusiast | Mentor@MLSA | SSR IEEE Faisalabad Sub Section | Former Google DSC Lead'22 | β Microsoft Learn Student Ambassador
+        className="text-gray-400 mb-0 font-semibold text-base md:text-lg">
+        {"MERN | Python | Flask Dev | AI Enthusiast | Mentor@MLSA | SSR IEEE Faisalabad Sub Section | Former Google DSC Lead'22 | β Microsoft Learn Student Ambassador"}
       </motion.p>
       <motion.div
         variants={childVariants}
