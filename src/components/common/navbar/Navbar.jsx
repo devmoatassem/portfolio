@@ -60,11 +60,23 @@ function Navbar() {
         </div>
         <div
           className={
-            (navbarOpen ? "hidden" : "") +
-            "hidden rounded-lg border shadow-lg border-gray-600 bg-gray-800 items-center justify-between w-full md:flex md:w-96 md:order-1 md:mr-28 "
+            (navbarOpen
+              ? "block absolute inset-0 h-screen rounded-none z-50 text-center "
+              : "hidden") +
+            " rounded-lg border shadow-lg border-gray-600 bg-gray-800 items-center justify-between w-full md:flex md:w-96 md:order-1 md:mr-28 "
           }
         >
-          <ul className=" flex flex-col space-y-4 md:space-y-0 p-4 md:p-0 mt-4 font-medium md:flex-row md:space-x-8 md:mt-0 md:border-0 md:place-content-center md: justify-between md:px-8 md:py-3 ">
+          <ul className="flex flex-col space-y-8 md:space-y-0 p-4 md:p-0 mt-4 font-medium md:flex-row md:space-x-8 md:mt-0 md:border-0 md:place-content-center md: justify-between md:px-8 md:py-3 ">
+            {navbarOpen ? (
+              <div
+                className="w-5 mb-5 ml-auto fill-white cursor-pointer"
+                onClick={() => setNavbarOpen(!navbarOpen)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                  <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" />
+                </svg>
+              </div>
+            ) : null}
             <NavLinks />
           </ul>
         </div>
