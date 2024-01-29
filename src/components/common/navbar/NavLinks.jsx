@@ -26,7 +26,7 @@ const rendered_nav_list = navList.map((navItem) => (
     whileHover={{ scale: 1.1 }}
     whileTap={{ scale: 0.9 }}
     key={navItem.name}
-    className="relative py-2 pl-3 pr-4 rounded hover:bg-gray-700 md:hover:bg-transparent md:p-0 text-white hover:underline hover:underline-offset-4">
+    className="relative pl-3 pr-4 rounded hover:bg-gray-700 md:hover:bg-transparent md:p-0 text-white hover:underline hover:underline-offset-4 py-5">
     <Link className="block" to={navItem.linkTo}>
       {navItem.name}
     </Link>
