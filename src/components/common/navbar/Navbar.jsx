@@ -26,7 +26,7 @@ function Navbar() {
             className="container rounded md:rounded-lg border shadow-lg border-gray-600 bg-gray-700 fill-white text-white text-sm md:text-base font-medium px-2 py-1 flex items-center justify-center h-fit md:px-7 md:py-2.5 text-center mr-1 md:mr-0"
           >
             <Link
-              to="mailto:moatassemsindhu@gmail.com"
+              to="https://www.upwork.com/freelancers/~01abde944203e3bbf3"
               className="hover:underline hover:underline-offset-4 gap-1 md:gap-2 flex items-center justify-around"
             >
               Hire Me
