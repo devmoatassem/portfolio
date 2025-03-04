@@ -5,6 +5,7 @@ import RichText from '@/components/RichText'
 import type { ContentBlock as ContentBlockProps } from '@/payload-types'
 
 import { CMSLink } from '../../components/Link'
+import { HeaderLink } from '@/components/HeaderLink'
 
 export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
   const { columns } = props
@@ -14,10 +15,13 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
     half: '6',
     oneThird: '4',
     twoThirds: '8',
+    oneFourth: '3',
   }
-
+  const headerLink = props?.link
   return (
     <div className="container my-16">
+      {props?.enableHeader && <HeaderLink {...headerLink} />}
+
       <div className="grid grid-cols-4 lg:grid-cols-12 gap-y-8 gap-x-16">
         {columns &&
           columns.length > 0 &&

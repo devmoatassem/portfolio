@@ -20,6 +20,10 @@ const columnFields: Field[] = [
         value: 'oneThird',
       },
       {
+        label: 'One Fourth',
+        value: 'oneFourth',
+      },
+      {
         label: 'Half',
         value: 'half',
       },
@@ -37,10 +41,11 @@ const columnFields: Field[] = [
     name: 'richText',
     type: 'richText',
     editor: lexicalEditor({
-      features: ({ rootFeatures }) => {
+      features: ({ defaultFeatures, rootFeatures }) => {
         return [
           ...rootFeatures,
-          HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
+          ...defaultFeatures,
+          HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
           FixedToolbarFeature(),
           InlineToolbarFeature(),
         ]
@@ -73,5 +78,19 @@ export const Content: Block = {
       },
       fields: columnFields,
     },
+    // Add header Checkbox field
+    {
+      name: 'enableHeader',
+      type: 'checkbox',
+    },
+    // header will be a link field
+    link({
+      overrides: {
+        admin: {
+          condition: (_, { enableHeader }) => Boolean(enableHeader),
+        },
+      },
+      appearances: false,
+    }),
   ],
 }
