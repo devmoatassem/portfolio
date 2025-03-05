@@ -6,7 +6,7 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
-
+// import { TextColorFeature, TextSizeFeature } from "payload-lexical-typography";
 import { link } from '@/fields/link'
 
 const columnFields: Field[] = [
@@ -48,6 +48,11 @@ const columnFields: Field[] = [
           HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
           FixedToolbarFeature(),
           InlineToolbarFeature(),
+          
+          // TextColorFeature({
+          //   colors: ["#FFFFFF", "#000000", "#FF0000", "#00FF00", "#0000FF"],
+          // }),
+          // TextSizeFeature(),
         ]
       },
     }),
