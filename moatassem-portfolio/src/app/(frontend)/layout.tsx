@@ -12,7 +12,13 @@ import { Providers } from '@/providers'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
+import localFont from 'next/font/local'
 
+export const Agustina = localFont({
+  src: '../../../public/fonts/Agustina.woff',
+  // display: 'swap', // Optional: Reduces layout shift
+  variable: '--font-agustina', // Optional: Define CSS variable
+})
 import './globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
@@ -20,7 +26,11 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const { isEnabled } = await draftMode()
 
   return (
-    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+    <html
+      className={cn(Agustina.variable, GeistSans.variable, GeistMono.variable)}
+      lang="en"
+      suppressHydrationWarning
+    >
       <head>
         <InitTheme />
         <link href="/favicon.ico" rel="icon" sizes="32x32" />

@@ -96,6 +96,7 @@ const config = {
       fontFamily: {
         mono: ['var(--font-geist-mono)'],
         sans: ['var(--font-geist-sans)'],
+        logo: ['var(--font-agustina)'],
       },
       keyframes: {
         'accordion-down': {
