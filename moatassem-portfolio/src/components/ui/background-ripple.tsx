@@ -7,15 +7,31 @@ import { cn } from '@/utilities/ui'
 interface BackgroundCellsProps {
   children?: React.ReactNode
   className?: string
+  readOnly?: boolean
 }
 
-export const BackgroundCells = ({ children, className }: BackgroundCellsProps) => {
+export const BackgroundCells = ({ children, className, readOnly }: BackgroundCellsProps) => {
   return (
-    <div className={cn('relative h-screen flex justify-center overflow-hidden', className)}>
-      <BackgroundCellCore />
-      {children && (
-        <div className="relative z-50 mt-40 pointer-events-none select-none">{children}</div>
+    <div
+      className={cn(
+        'relative min-h-[80vh] max-h-screen flex justify-center overflow-hidden',
+        className,
       )}
+    >
+      {children && (
+        <div
+          className={cn(
+            'relative z-50 flex items-center justify-center',
+            readOnly && 'pointer-events-none select-none',
+          )}
+          style={{
+            zIndex: 9999,
+          }}
+        >
+          {children}
+        </div>
+      )}
+      <BackgroundCellCore />
     </div>
   )
 }
@@ -38,9 +54,9 @@ const BackgroundCellCore = () => {
   return (
     <div ref={ref} onMouseMove={handleMouseMove} className="h-full absolute inset-0">
       <div className="absolute h-full inset-y-0 overflow-hidden">
-        <div className="absolute h-full w-full pointer-events-none -bottom-2 z-40 bg-neutral-950 [mask-image:linear-gradient(to_bottom,transparent,black)]" />
+        <div className="absolute h-full w-full pointer-events-none -bottom-2 z-30 bg-neutral-950 [mask-image:linear-gradient(to_bottom,transparent,black)]" />
         <div
-          className="absolute inset-0 z-20 bg-transparent"
+          className="absolute inset-0 z-10 bg-transparent"
           style={{
             maskImage: `radial-gradient(${size / 4}px circle at center, white, transparent)`,
             WebkitMaskImage: `radial-gradient(${size / 4}px circle at center, white, transparent)`,
@@ -72,9 +88,9 @@ const Pattern = ({ className, cellClassName }: PatternProps) => {
   const [clickedCell, setClickedCell] = useState<[number, number] | null>(null)
 
   return (
-    <div className={cn('flex flex-row relative z-30', className)}>
+    <div className={cn('flex flex-row relative z-20', className)}>
       {matrix.map((row, rowIdx) => (
-        <div key={`matrix-row-${rowIdx}`} className="flex flex-col relative z-20 border-b">
+        <div key={`matrix-row-${rowIdx}`} className="flex flex-col relative z-10 border-b">
           {row.map((column, colIdx) => {
             const controls = useAnimation()
 

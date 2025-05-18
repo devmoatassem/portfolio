@@ -24,10 +24,10 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
     >
       {/* <GridBackground /> */}
       <Spotlight />
-      <BackgroundCells >
-        <div className="container mb-8 z-10 relative flex items-center justify-center">
+      <BackgroundCells readOnly>
+        <div className="container mb-8 relative  ">
           <div className="max-w-[36.5rem] md:text-center">
-            {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
+            {richText && <RichText className="mb-6 " data={richText} enableGutter={false} />}
             {Array.isArray(links) && links.length > 0 && (
               <ul className="flex md:justify-center gap-4">
                 {links.map(({ link }, i) => {
@@ -41,13 +41,13 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, media, richText 
             )}
           </div>
         </div>
-     
-      {/* <div className="min-h-[90vh] select-none">
+
+        {/* <div className="min-h-[90vh] select-none">
         {media && typeof media === 'object' && (
           <Media fill imgClassName="-z-10 object-cover" priority resource={media} />
         )}
         </div> */}
-        </BackgroundCells>
+      </BackgroundCells>
     </div>
   )
 }

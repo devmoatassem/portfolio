@@ -12,7 +12,7 @@ export const Logo = (props: Props) => {
   const priority = priorityFromProps || 'low'
 
   return (
-    <div className="text-white font-logo text-3xl translate-y-2">
+    <div className="dark:text-white font-logo text-3xl translate-y-2">
       &lt;<span id="abcd">Moatassem Billah</span>/&gt;
     </div>
   )
