@@ -16,6 +16,9 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
+    
+    --background-2:0 0% 99%;
+    --background-3: 0 0% 95%;
 
     --card: 240 5% 96%;
     --card-foreground: 222.2 84% 4.9%;
@@ -53,6 +56,9 @@
     --background: 0 0% 0%;
     --foreground: 210 40% 98%;
 
+    --background-2:0 0% 10%;
+    --background-3: 0 0% 6%;
+    
     --card: 0 0% 4%;
     --card-foreground: 210 40% 98%;
 
