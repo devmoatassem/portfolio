@@ -442,7 +442,7 @@ export interface ContentBlock {
   columns?:
     | {
         size?: ('oneThird' | 'oneFourth' | 'half' | 'twoThirds' | 'full') | null;
-        field?: ('richText' | 'image' | 'text' | 'button' | 'link' | 'textarea') | null;
+        field?: ('richText' | 'image' | 'text' | 'button' | 'link' | 'textarea' | 'gradientText') | null;
         richText?: {
           root: {
             type: string;
@@ -468,6 +468,23 @@ export interface ContentBlock {
           };
         };
         textArea?: string | null;
+        gradientText?: {
+          text: string;
+          size?:
+            | (
+                | 'text-1xl'
+                | 'text-2xl'
+                | 'text-3xl'
+                | 'text-4xl'
+                | 'text-5xl'
+                | 'text-6xl'
+                | 'text-7xl'
+                | 'text-8xl'
+                | 'text-9xl'
+              )
+            | null;
+        };
+        enableLink?: boolean | null;
         link?: {
           type?: ('reference' | 'custom') | null;
           newTab?: boolean | null;
@@ -540,21 +557,75 @@ export interface ArchiveBlock {
     };
     [k: string]: unknown;
   } | null;
+  type: 'advanceParallax' | 'basicColumns';
   populateBy?: ('collection' | 'selection') | null;
-  relationTo?: 'posts' | null;
+  relationTo?: ('projects' | 'posts') | null;
   categories?: (string | Category)[] | null;
   limit?: number | null;
   selectedDocs?:
-    | {
-        relationTo: 'posts';
-        value: string | Post;
-      }[]
+    | (
+        | {
+            relationTo: 'posts';
+            value: string | Post;
+          }
+        | {
+            relationTo: 'projects';
+            value: string | Project;
+          }
+      )[]
     | null;
   showLoadMore?: boolean | null;
   loadMoreLabel?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'archive';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: string;
+  title: string;
+  heroImage?: (string | null) | Media;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  relatedProjects?: (string | Project)[] | null;
+  categories?: (string | Category)[] | null;
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  authors?: (string | User)[] | null;
+  populatedAuthors?:
+    | {
+        id?: string | null;
+        name?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -754,53 +825,6 @@ export interface Form {
     | null;
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects".
- */
-export interface Project {
-  id: string;
-  title: string;
-  heroImage?: (string | null) | Media;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  relatedProjects?: (string | Project)[] | null;
-  categories?: (string | Category)[] | null;
-  meta?: {
-    title?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (string | null) | Media;
-    description?: string | null;
-  };
-  publishedAt?: string | null;
-  authors?: (string | User)[] | null;
-  populatedAuthors?:
-    | {
-        id?: string | null;
-        name?: string | null;
-      }[]
-    | null;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1164,6 +1188,13 @@ export interface ContentBlockSelect<T extends boolean = true> {
               link?: T;
             };
         textArea?: T;
+        gradientText?:
+          | T
+          | {
+              text?: T;
+              size?: T;
+            };
+        enableLink?: T;
         link?:
           | T
           | {
@@ -1204,6 +1235,7 @@ export interface MediaBlockSelect<T extends boolean = true> {
  */
 export interface ArchiveBlockSelect<T extends boolean = true> {
   introContent?: T;
+  type?: T;
   populateBy?: T;
   relationTo?: T;
   categories?: T;
