@@ -1,3 +1,4 @@
+import { cn } from '@/utilities/ui'
 import React from 'react'
 interface Props {
   className?: string
@@ -6,13 +7,13 @@ interface Props {
 }
 
 export const Logo = (props: Props) => {
-  const { loading: loadingFromProps, priority: priorityFromProps, className } = props
+  const { className } = props
 
-  const loading = loadingFromProps || 'lazy'
-  const priority = priorityFromProps || 'low'
+  // const loading = loadingFromProps || 'lazy'
+  // const priority = priorityFromProps || 'low'
 
   return (
-    <div className="dark:text-white font-logo text-3xl translate-y-2">
+    <div className={cn('dark:text-white font-logo text-3xl translate-y-2', className)}>
       &lt;<span id="abcd">Moatassem Billah</span>/&gt;
     </div>
   )

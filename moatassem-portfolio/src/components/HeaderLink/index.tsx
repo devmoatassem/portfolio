@@ -25,7 +25,7 @@ export const HeaderLink: React.FC<HeaderLinkType> = (props) => {
   const {
     type,
     appearance = 'link',
-    children,
+
     className,
     label,
     newTab,
@@ -61,10 +61,9 @@ export const HeaderLink: React.FC<HeaderLinkType> = (props) => {
       {label && <label htmlFor="">{label}</label>}
       <Button asChild className={className} size={size} variant={'link'}>
         <Link className={cn(className)} href={href || url || ''} {...newTabProps}>
-          <ArrowRight size={20}/>
+          <ArrowRight size={20} />
         </Link>
       </Button>
     </div>
   )
 }
-

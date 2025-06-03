@@ -27,6 +27,23 @@ export const Archive: Block = {
       label: 'Intro Content',
     },
     {
+      name: 'type',
+      type: 'select',
+      defaultValue: 'basicColumns',
+      required: true,
+      label: 'Type',
+      options: [
+        {
+          label: 'Advance Parallax',
+          value: 'advanceParallax',
+        },
+        {
+          label: 'Basic Columns',
+          value: 'basicColumns',
+        },
+      ],
+    },
+    {
       name: 'populateBy',
       type: 'select',
       defaultValue: 'collection',
@@ -47,9 +64,13 @@ export const Archive: Block = {
       admin: {
         condition: (_, siblingData) => siblingData.populateBy === 'collection',
       },
-      defaultValue: 'posts',
+      defaultValue: 'projects',
       label: 'Collections To Show',
       options: [
+        {
+          label: 'Projects',
+          value: 'projects',
+        },
         {
           label: 'Posts',
           value: 'posts',
@@ -84,7 +105,36 @@ export const Archive: Block = {
       },
       hasMany: true,
       label: 'Selection',
-      relationTo: ['posts'],
+      relationTo: ['posts', 'projects'],
+      // hooks: {
+      //   beforeChange: [
+      //     ({ value, schemaPath , blockData , context , field , global }) => {
+      //       // Return both the value and its relationship type
+      //       console.log(schemaPath , blockData , context , field , global)
+      //       return {
+      //         // relationTo: siblingData.relationTo,
+      //         value,
+      //       }
+      //     },
+      //   ],
+      // },
+    },
+    {
+      name: 'showLoadMore',
+      type: 'checkbox',
+      defaultValue: true,
+      admin: {
+        condition: (_, siblingData) => siblingData.populateBy === 'collection',
+      },
+      label: 'Show Load More',
+    },
+    {
+      name: 'loadMoreLabel',
+      type: 'text',
+      defaultValue: 'Load More',
+      admin: {
+        condition: (_, siblingData) => siblingData.showLoadMore === 'collection',
+      },
     },
   ],
   labels: {

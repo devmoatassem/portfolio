@@ -9,12 +9,13 @@ import { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
 export type RelatedPostsProps = {
   className?: string
-  docs?: Post[]
+  docs?: any[]
   introContent?: SerializedEditorState
+  relation?: string
 }
 
 export const RelatedPosts: React.FC<RelatedPostsProps> = (props) => {
-  const { className, docs, introContent } = props
+  const { className, docs, introContent, relation } = props
 
   return (
     <div className={clsx('lg:container', className)}>
@@ -24,7 +25,7 @@ export const RelatedPosts: React.FC<RelatedPostsProps> = (props) => {
         {docs?.map((doc, index) => {
           if (typeof doc === 'string') return null
 
-          return <Card key={index} doc={doc} relationTo="posts" showCategories />
+          return <Card key={index} doc={doc} showCategories relationTo={relation} />
         })}
       </div>
     </div>

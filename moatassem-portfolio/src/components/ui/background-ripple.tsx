@@ -75,7 +75,51 @@ const BackgroundCellCore = () => {
     </div>
   )
 }
+// New component to handle individual cells with hooks
+interface PatternCellProps {
+  rowIdx: number
+  colIdx: number
+  clickedCell: [number, number] | null
+  setClickedCell: (cell: [number, number] | null) => void
+  cellClassName?: string
+}
 
+const PatternCell = ({
+  rowIdx,
+  colIdx,
+  clickedCell,
+  setClickedCell,
+  cellClassName,
+}: PatternCellProps) => {
+  const controls = useAnimation()
+
+  useEffect(() => {
+    if (clickedCell) {
+      const distance = Math.sqrt(
+        Math.pow(clickedCell[0] - rowIdx, 2) + Math.pow(clickedCell[1] - colIdx, 2),
+      )
+      controls.start({
+        opacity: [0, 1 - distance * 0.1, 0],
+        transition: { duration: distance * 0.2 },
+      })
+    }
+  }, [clickedCell, controls, rowIdx, colIdx])
+
+  return (
+    <div
+      className={cn('bg-transparent border-l border-b border-neutral-600', cellClassName)}
+      onClick={() => setClickedCell([rowIdx, colIdx])}
+    >
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: [0, 1, 0.5] }}
+        transition={{ duration: 0.5, ease: 'backOut' }}
+        animate={controls}
+        className="bg-[rgba(14,165,233,0.3)] h-12 w-12"
+      />
+    </div>
+  )
+}
 interface PatternProps {
   className?: string
   cellClassName?: string
@@ -91,44 +135,16 @@ const Pattern = ({ className, cellClassName }: PatternProps) => {
     <div className={cn('flex flex-row relative z-20', className)}>
       {matrix.map((row, rowIdx) => (
         <div key={`matrix-row-${rowIdx}`} className="flex flex-col relative z-10 border-b">
-          {row.map((column, colIdx) => {
-            const controls = useAnimation()
-
-            useEffect(() => {
-              if (clickedCell) {
-                const distance = Math.sqrt(
-                  Math.pow(clickedCell[0] - rowIdx, 2) + Math.pow(clickedCell[1] - colIdx, 2),
-                )
-                controls.start({
-                  opacity: [0, 1 - distance * 0.1, 0],
-                  transition: { duration: distance * 0.2 },
-                })
-              }
-            }, [clickedCell])
-
-            return (
-              <div
-                key={`matrix-col-${colIdx}`}
-                className={cn('bg-transparent border-l border-b border-neutral-600', cellClassName)}
-                onClick={() => setClickedCell([rowIdx, colIdx])}
-              >
-                <motion.div
-                  initial={{
-                    opacity: 0,
-                  }}
-                  whileHover={{
-                    opacity: [0, 1, 0.5],
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    ease: 'backOut',
-                  }}
-                  animate={controls}
-                  className="bg-[rgba(14,165,233,0.3)] h-12 w-12"
-                />
-              </div>
-            )
-          })}
+          {row.map((_, colIdx) => (
+            <PatternCell
+              key={`pattern-cell-${rowIdx}-${colIdx}`}
+              rowIdx={rowIdx}
+              colIdx={colIdx}
+              clickedCell={clickedCell}
+              setClickedCell={setClickedCell}
+              cellClassName={cellClassName}
+            />
+          ))}
         </div>
       ))}
     </div>

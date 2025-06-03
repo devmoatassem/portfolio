@@ -38,6 +38,41 @@ const columnFields: Field[] = [
     ],
   },
   {
+    name: 'field',
+    type: 'select',
+    // defaultValue: 'oneThird',
+    options: [
+      {
+        label: 'Rich Text',
+        value: 'richText',
+      },
+      {
+        label: 'Image',
+        value: 'image',
+      },
+      {
+        label: 'Text',
+        value: 'text',
+      },
+      {
+        label: 'Button',
+        value: 'button',
+      },
+      {
+        label: 'Link',
+        value: 'link',
+      },
+      {
+        label: 'Textarea',
+        value: 'textarea',
+      },
+      {
+        label: 'Gradient Text',
+        value: 'gradientText',
+      },
+    ],
+  },
+  {
     name: 'richText',
     type: 'richText',
     editor: lexicalEditor({
@@ -48,7 +83,7 @@ const columnFields: Field[] = [
           HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
           FixedToolbarFeature(),
           InlineToolbarFeature(),
-          
+
           // TextColorFeature({
           //   colors: ["#FFFFFF", "#000000", "#FF0000", "#00FF00", "#0000FF"],
           // }),
@@ -57,6 +92,80 @@ const columnFields: Field[] = [
       },
     }),
     label: false,
+    admin: {
+      condition: (_, { field }) => field === 'richText',
+    },
+  },
+  {
+    name: 'image',
+    type: 'upload',
+    relationTo: 'media',
+    label: false,
+    admin: {
+      condition: (_, { field }) => field === 'image',
+    },
+  },
+  {
+    name: 'text',
+    type: 'text',
+    label: false,
+    admin: {
+      condition: (_, { field }) => field === 'text',
+    },
+  },
+  {
+    name: 'button',
+    type: 'group',
+    fields: [
+      {
+        name: 'label',
+        type: 'text',
+        required: true,
+      },
+      {
+        name: 'link',
+        type: 'relationship',
+        relationTo: ['pages'],
+        required: true,
+      },
+    ],
+    admin: {
+      condition: (_, { field }) => field === 'button',
+    },
+  },
+  {
+    name: 'textArea',
+    type: 'textarea',
+    label: false,
+    admin: {
+      condition: (_, { field }) => field === 'textarea',
+    },
+  },
+  {
+    name: 'gradientText',
+    label: 'Gradient Text',
+    type: 'group',
+    fields: [
+      {
+        name: 'text',
+        type: 'textarea',
+        required: true,
+      },
+      {
+        name: 'size',
+        type: 'select',
+        options: Array.from({ length: 9 }, (_, index) => {
+          const size = index + 1
+          return {
+            label: size === 1 ? 'Large' : `Large-${size}`,
+            value: `text-${size}xl`,
+          }
+        }),
+      },
+    ],
+    admin: {
+      condition: (_, { field }) => field === 'gradientText',
+    },
   },
   {
     name: 'enableLink',
@@ -65,7 +174,7 @@ const columnFields: Field[] = [
   link({
     overrides: {
       admin: {
-        condition: (_, { enableLink }) => Boolean(enableLink),
+        condition: (_, { field }) => field === 'link',
       },
     },
   }),
