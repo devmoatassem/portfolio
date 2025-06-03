@@ -8,6 +8,7 @@ import {
 } from '@payloadcms/richtext-lexical'
 // import { TextColorFeature, TextSizeFeature } from "payload-lexical-typography";
 import { link } from '@/fields/link'
+import { backgroundField } from '../common-fields/background'
 
 const columnFields: Field[] = [
   {
@@ -184,6 +185,7 @@ export const Content: Block = {
   slug: 'content',
   interfaceName: 'ContentBlock',
   fields: [
+    backgroundField,
     {
       name: 'columns',
       type: 'array',

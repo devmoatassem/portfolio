@@ -57,7 +57,7 @@ export default async function Page({ params: paramsPromise }: Args) {
   const { hero, layout } = page
 
   return (
-    <article className="pt-16 pb-24">
+    <article className="pt-16">
       <PageClient />
       {/* Allows redirects for valid pages too */}
       <PayloadRedirects disableNotFound url={url} />
@@ -65,7 +65,7 @@ export default async function Page({ params: paramsPromise }: Args) {
       {draft && <LivePreviewListener />}
 
       <RenderHero {...hero} />
-      <div className="bg-background2">
+      {/* <div className="bg-background2">
         <div className="max-w-5xl mx-auto ">
           <TextGradientScroll
             textOpacity="medium"
@@ -73,11 +73,7 @@ export default async function Page({ params: paramsPromise }: Args) {
             className="text-xl"
           />
         </div>
-      </div>
-      {/* <div className=" bg-background3">
-        <HeroParallaxDemo />
       </div> */}
-
       <RenderBlocks blocks={layout} />
     </article>
   )

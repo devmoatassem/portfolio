@@ -391,6 +391,7 @@ export interface User {
  * via the `definition` "CallToActionBlock".
  */
 export interface CallToActionBlock {
+  background: 'bg-background' | 'bg-background2' | 'bg-background3';
   richText?: {
     root: {
       type: string;
@@ -439,6 +440,7 @@ export interface CallToActionBlock {
  * via the `definition` "ContentBlock".
  */
 export interface ContentBlock {
+  background: 'bg-background' | 'bg-background2' | 'bg-background3';
   columns?:
     | {
         size?: ('oneThird' | 'oneFourth' | 'half' | 'twoThirds' | 'full') | null;
@@ -532,6 +534,7 @@ export interface ContentBlock {
  * via the `definition` "MediaBlock".
  */
 export interface MediaBlock {
+  background: 'bg-background' | 'bg-background2' | 'bg-background3';
   media: string | Media;
   id?: string | null;
   blockName?: string | null;
@@ -542,6 +545,7 @@ export interface MediaBlock {
  * via the `definition` "ArchiveBlock".
  */
 export interface ArchiveBlock {
+  background: 'bg-background' | 'bg-background2' | 'bg-background3';
   introContent?: {
     root: {
       type: string;
@@ -632,6 +636,7 @@ export interface Project {
  * via the `definition` "FormBlock".
  */
 export interface FormBlock {
+  background: 'bg-background' | 'bg-background2' | 'bg-background3';
   form: string | Form;
   enableIntro?: boolean | null;
   introContent?: {
@@ -1149,6 +1154,7 @@ export interface PagesSelect<T extends boolean = true> {
  * via the `definition` "CallToActionBlock_select".
  */
 export interface CallToActionBlockSelect<T extends boolean = true> {
+  background?: T;
   richText?: T;
   links?:
     | T
@@ -1173,6 +1179,7 @@ export interface CallToActionBlockSelect<T extends boolean = true> {
  * via the `definition` "ContentBlock_select".
  */
 export interface ContentBlockSelect<T extends boolean = true> {
+  background?: T;
   columns?:
     | T
     | {
@@ -1225,6 +1232,7 @@ export interface ContentBlockSelect<T extends boolean = true> {
  * via the `definition` "MediaBlock_select".
  */
 export interface MediaBlockSelect<T extends boolean = true> {
+  background?: T;
   media?: T;
   id?: T;
   blockName?: T;
@@ -1234,6 +1242,7 @@ export interface MediaBlockSelect<T extends boolean = true> {
  * via the `definition` "ArchiveBlock_select".
  */
 export interface ArchiveBlockSelect<T extends boolean = true> {
+  background?: T;
   introContent?: T;
   type?: T;
   populateBy?: T;
@@ -1251,6 +1260,7 @@ export interface ArchiveBlockSelect<T extends boolean = true> {
  * via the `definition` "FormBlock_select".
  */
 export interface FormBlockSelect<T extends boolean = true> {
+  background?: T;
   form?: T;
   enableIntro?: T;
   introContent?: T;
