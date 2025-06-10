@@ -29,7 +29,7 @@ export const RenderComponents: React.FC<{
     if (Component) {
       // Prepare props based on component type
       const componentProps = getComponentProps(column, component)
-      console.log(componentProps)
+
       return (
         <Fragment>
           {/* @ts-expect-error there may be some mismatch between the expected types here */}
