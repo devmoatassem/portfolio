@@ -6,7 +6,7 @@ import type { Page } from '@/payload-types'
 
 import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
-import RichText from '@/components/RichText'
+import { RichText } from '@/components/RichText'
 import { GridBackground, Spotlight } from '@/components/ui/spotlight'
 import { BackgroundCells } from '@/components/ui/background-ripple'
 

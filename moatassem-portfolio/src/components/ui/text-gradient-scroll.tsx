@@ -43,12 +43,12 @@ function useGradientScroll() {
   return useContext(TextGradientScrollContext)
 }
 
-export default function TextGradientScroll({
+export const TextGradientScroll: React.FC<TextGradientScrollType> = ({
   text,
   className,
   type = 'letter',
   textOpacity = 'soft',
-}: TextGradientScrollType) {
+}) => {
   const ref = useRef<HTMLParagraphElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,

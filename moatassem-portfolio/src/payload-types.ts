@@ -192,7 +192,7 @@ export interface Page {
       | null;
     media?: (string | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | BentoGrid)[];
   meta?: {
     title?: string | null;
     /**
@@ -444,7 +444,11 @@ export interface ContentBlock {
   columns?:
     | {
         size?: ('oneThird' | 'oneFourth' | 'half' | 'twoThirds' | 'full') | null;
-        field?: ('richText' | 'image' | 'text' | 'button' | 'link' | 'textarea' | 'gradientText') | null;
+        component: 'richText' | 'media' | 'button' | 'gradientText' | 'globe' | 'marquee';
+        globe?: {
+          coordinates?: number[] | null;
+          markerSize?: number | null;
+        };
         richText?: {
           root: {
             type: string;
@@ -460,16 +464,26 @@ export interface ContentBlock {
           };
           [k: string]: unknown;
         } | null;
-        image?: (string | null) | Media;
-        text?: string | null;
+        media?: (string | null) | Media;
         button?: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: string | Page;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: string | Post;
+              } | null);
+          url?: string | null;
           label: string;
-          link: {
-            relationTo: 'pages';
-            value: string | Page;
-          };
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
         };
-        textArea?: string | null;
         gradientText?: {
           text: string;
           size?:
@@ -833,6 +847,123 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BentoGrid".
+ */
+export interface BentoGrid {
+  background: 'bg-background' | 'bg-background2' | 'bg-background3';
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  columns?:
+    | {
+        size:
+          | 'md:col-span-1'
+          | 'md:col-span-2'
+          | 'md:col-span-3'
+          | 'md:col-span-4'
+          | 'md:col-span-5'
+          | 'md:col-span-6'
+          | 'md:col-span-7'
+          | 'md:col-span-8'
+          | 'md:col-span-9'
+          | 'md:col-span-10'
+          | 'md:col-span-11'
+          | 'md:col-span-12';
+        title: string;
+        description?: string | null;
+        component: 'richText' | 'media' | 'button' | 'gradientText' | 'globe' | 'marquee';
+        globe?: {
+          coordinates?: number[] | null;
+          markerSize?: number | null;
+        };
+        richText?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        media?: (string | null) | Media;
+        button?: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: string | Page;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: string | Post;
+              } | null);
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        gradientText?: {
+          text: string;
+          size?:
+            | (
+                | 'text-1xl'
+                | 'text-2xl'
+                | 'text-3xl'
+                | 'text-4xl'
+                | 'text-5xl'
+                | 'text-6xl'
+                | 'text-7xl'
+                | 'text-8xl'
+                | 'text-9xl'
+              )
+            | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  enableHeader?: boolean | null;
+  link?: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?:
+      | ({
+          relationTo: 'pages';
+          value: string | Page;
+        } | null)
+      | ({
+          relationTo: 'posts';
+          value: string | Post;
+        } | null);
+    url?: string | null;
+    label: string;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'bento';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -1134,6 +1265,7 @@ export interface PagesSelect<T extends boolean = true> {
         mediaBlock?: T | MediaBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        bento?: T | BentoGridSelect<T>;
       };
   meta?:
     | T
@@ -1184,17 +1316,25 @@ export interface ContentBlockSelect<T extends boolean = true> {
     | T
     | {
         size?: T;
-        field?: T;
+        component?: T;
+        globe?:
+          | T
+          | {
+              coordinates?: T;
+              markerSize?: T;
+            };
         richText?: T;
-        image?: T;
-        text?: T;
+        media?: T;
         button?:
           | T
           | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
               label?: T;
-              link?: T;
+              appearance?: T;
             };
-        textArea?: T;
         gradientText?:
           | T
           | {
@@ -1264,6 +1404,59 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BentoGrid_select".
+ */
+export interface BentoGridSelect<T extends boolean = true> {
+  background?: T;
+  richText?: T;
+  columns?:
+    | T
+    | {
+        size?: T;
+        title?: T;
+        description?: T;
+        component?: T;
+        globe?:
+          | T
+          | {
+              coordinates?: T;
+              markerSize?: T;
+            };
+        richText?: T;
+        media?: T;
+        button?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+            };
+        gradientText?:
+          | T
+          | {
+              text?: T;
+              size?: T;
+            };
+        id?: T;
+      };
+  enableHeader?: T;
+  link?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        url?: T;
+        label?: T;
+      };
   id?: T;
   blockName?: T;
 }

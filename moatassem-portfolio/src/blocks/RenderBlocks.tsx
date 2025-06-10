@@ -8,6 +8,7 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { cn } from '@/utilities/ui'
+import { BentoGridBlock } from './BentoGrid/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -15,6 +16,7 @@ const blockComponents = {
   cta: CallToActionBlock,
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
+  bento: BentoGridBlock,
 }
 
 export const RenderBlocks: React.FC<{

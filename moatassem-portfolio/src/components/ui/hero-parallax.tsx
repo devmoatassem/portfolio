@@ -2,7 +2,7 @@
 import React from 'react'
 import { motion, useScroll, useTransform, useSpring, MotionValue } from 'motion/react'
 import { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
-import RichText from '../RichText'
+import { RichText } from '../RichText'
 import { ArchiveCardData } from '../Card'
 import Link from 'next/link'
 import { Media } from '@/components/Media'
