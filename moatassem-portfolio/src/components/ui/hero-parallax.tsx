@@ -2,7 +2,7 @@
 import React from 'react'
 import { motion, useScroll, useTransform, useSpring, MotionValue } from 'motion/react'
 import { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
-import RichText from '../RichText'
+import { RichText } from '../RichText'
 import { ArchiveCardData } from '../Card'
 import Link from 'next/link'
 import { Media } from '@/components/Media'
@@ -92,8 +92,8 @@ export const ProductCard = ({
   product: ArchiveCardData & { relationTo?: string }
   translate: MotionValue<number>
 }) => {
-  const { slug, categories, meta, relationTo, title } = product || {}
-  const { description, image: metaImage } = meta || {}
+  const { slug, meta, relationTo, title } = product || {}
+  const { image: metaImage } = meta || {}
   const href = `/${relationTo}/${slug}`
   return (
     <motion.div
