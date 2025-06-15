@@ -1,21 +1,19 @@
 import { cn } from '@/utilities/ui'
 import React from 'react'
-import { RichText } from '@/components/RichText'
-
 import type { ContentBlock as ContentBlockProps } from '@/payload-types'
-
 import { CMSLink } from '../../components/Link'
 import { HeaderLink } from '@/components/HeaderLink'
+import { RenderComponents } from '../RenderComponents'
 
 export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
   const { columns } = props
 
-  const colsSpanClasses = {
-    full: '12',
-    half: '6',
-    oneThird: '4',
-    twoThirds: '8',
-    oneFourth: '3',
+  const lgColSpan = {
+    full: 'lg:col-span-12',
+    half: 'lg:col-span-6',
+    oneThird: 'lg:col-span-4',
+    twoThirds: 'lg:col-span-8',
+    oneFourth: 'lg:col-span-3',
   }
   const headerLink = props?.link
   return (
@@ -30,13 +28,16 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
 
             return (
               <div
-                className={cn(`col-span-4 lg:col-span-${colsSpanClasses[size!]}`, {
-                  'md:col-span-2': size !== 'full',
-                })}
+                className={cn(
+                  'col-span-4', // Base mobile column span
+                  size ? lgColSpan[size] : 'lg:col-span-6', // Lookup pre-defined lg column spans with fallback
+                  {
+                    'md:col-span-2': size !== 'full', // Medium screen conditional
+                  },
+                )}
                 key={index}
               >
-                {richText && <RichText data={richText} enableGutter={false} />}
-
+                <RenderComponents column={col} />
                 {enableLink && <CMSLink {...link} />}
               </div>
             )

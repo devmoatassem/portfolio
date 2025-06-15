@@ -1,6 +1,6 @@
 import { cn } from '@/utilities/ui'
 import React from 'react'
-import {RichText} from '@/components/RichText'
+import { RichText } from '@/components/RichText'
 import type { BentoGrid as BentoBlockProps } from '@/payload-types'
 import { HeaderLink } from '@/components/HeaderLink'
 import {
@@ -37,8 +37,8 @@ export const BentoGridBlock: React.FC<BentoBlockProps> = (props) => {
                 <div className="relative z-10">
                   <SectionTitle>{title}</SectionTitle>
                   {description && <SectionDescription>{description}</SectionDescription>}
-                  {/* <LocationCard/> */}
-                  <RenderComponents column={col} />
+
+                  <RenderComponents column={col} renderBlocks />
                 </div>
               </SectionCard>
             )

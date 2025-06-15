@@ -1,12 +1,9 @@
 import { cn } from '@/utilities/ui'
 import React from 'react'
 import type { GridBlockComponent as GridBlcokProps } from '@/payload-types'
-
 import { CMSLink } from '../../components/Link'
 import { HeaderLink } from '@/components/HeaderLink'
 import { RenderComponents } from '../RenderComponents'
-import { RichText } from '@/components/RichText'
-import { StacksMarquee } from '@/components/ui/stacks-marquee'
 
 export const GridBlockComponent: React.FC<GridBlcokProps> = (props) => {
   const { columns } = props
@@ -36,9 +33,7 @@ export const GridBlockComponent: React.FC<GridBlcokProps> = (props) => {
                 )}
                 key={index}
               >
-                {component === 'marquee' && <StacksMarquee />}
-                {/* {richText && <RichText data={richText} enableGutter={false} />} */}
-                {/* <RenderComponents column={col} /> */}
+                <RenderComponents column={col} />
                 {enableLink && <CMSLink {...link} />}
               </div>
             )
