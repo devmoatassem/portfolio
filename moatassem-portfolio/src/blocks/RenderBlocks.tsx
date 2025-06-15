@@ -10,6 +10,7 @@ import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { cn } from '@/utilities/ui'
 import { BentoGridBlock } from './BentoGrid/Component'
 import { GridBlockComponent } from './Grid/Component'
+import { TimlineBlock } from './Timline/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -19,6 +20,7 @@ const blockComponents = {
   mediaBlock: MediaBlock,
   bento: BentoGridBlock,
   grid: GridBlockComponent,
+  timline: TimlineBlock,
 }
 
 export const RenderBlocks: React.FC<{

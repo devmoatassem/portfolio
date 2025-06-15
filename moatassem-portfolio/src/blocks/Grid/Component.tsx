@@ -17,10 +17,10 @@ export const GridBlockComponent: React.FC<GridBlcokProps> = (props) => {
   }
   const headerLink = props?.link
   return (
-    <div className="container py-16">
+    <div className="">
       {props?.enableHeader && <HeaderLink {...headerLink} />}
 
-      <div className="grid grid-cols-12 ">
+      <div className="grid grid-cols-12 gap-1">
         {columns &&
           columns.length > 0 &&
           columns.map((col, index) => {

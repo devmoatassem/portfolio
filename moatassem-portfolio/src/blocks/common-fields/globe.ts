@@ -21,6 +21,5 @@ export const GlobeField: Field = {
   ],
   admin: {
     condition: (_, { component }) => component === 'globe',
-    hideGutter: true,
   },
 }

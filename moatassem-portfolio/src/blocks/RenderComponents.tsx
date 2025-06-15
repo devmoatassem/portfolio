@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import type { BentoGrid, ContentBlock } from '@/payload-types'
+import type { BentoGrid, ContentBlock, Timline } from '@/payload-types'
 import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
 import { TextGradientScroll } from '@/components/ui/text-gradient-scroll'
@@ -16,7 +16,7 @@ const fieldComponents = {
   marquee: StacksMarquee,
 }
 type props = {
-  column: NonNullable<BentoGrid['columns'] | ContentBlock['columns']>[number]
+  column: NonNullable<BentoGrid['columns'] | ContentBlock['columns'] | Timline['events']>[number]
   renderBlocks?: boolean
 }
 export const RenderComponents: React.FC<props> = (props) => {
@@ -45,7 +45,7 @@ export const RenderComponents: React.FC<props> = (props) => {
 
 // Helper function to extract the right props for each component type
 function getComponentProps(
-  column: NonNullable<BentoGrid['columns'] | ContentBlock['columns']>[number],
+  column: NonNullable<BentoGrid['columns'] | ContentBlock['columns'] | Timline['events']>[number],
   renderBlocks?: boolean,
 ) {
   const baseProps = {

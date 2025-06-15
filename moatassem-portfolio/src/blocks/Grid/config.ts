@@ -50,7 +50,7 @@ export const GridBlock: Block = {
   slug: 'grid',
   interfaceName: 'GridBlockComponent',
   fields: [
-    backgroundField,
+    // backgroundField,
     {
       name: 'columns',
       type: 'array',

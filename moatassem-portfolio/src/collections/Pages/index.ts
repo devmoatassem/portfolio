@@ -22,6 +22,7 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 import { BentoGrid } from '@/blocks/BentoGrid/config'
 import { GridBlock } from '@/blocks/Grid/config'
+import { Timline } from '@/blocks/Timline/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -77,7 +78,7 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, BentoGrid, GridBlock],
+              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, BentoGrid, GridBlock, Timline],
               required: true,
               admin: {
                 initCollapsed: true,
