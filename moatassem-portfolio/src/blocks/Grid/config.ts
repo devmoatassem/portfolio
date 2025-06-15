@@ -46,9 +46,9 @@ const columnFields: Field[] = [
   }),
 ]
 
-export const Content: Block = {
-  slug: 'content',
-  interfaceName: 'ContentBlock',
+export const GridBlock: Block = {
+  slug: 'grid',
+  interfaceName: 'GridBlockComponent',
   fields: [
     backgroundField,
     {

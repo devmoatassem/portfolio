@@ -192,7 +192,7 @@ export interface Page {
       | null;
     media?: (string | null) | Media;
   };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | BentoGrid)[];
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock | BentoGrid | GridBlockComponent)[];
   meta?: {
     title?: string | null;
     /**
@@ -449,21 +449,6 @@ export interface ContentBlock {
           coordinates?: number[] | null;
           markerSize?: number | null;
         };
-        richText?: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
         media?: (string | null) | Media;
         button?: {
           type?: ('reference' | 'custom') | null;
@@ -500,6 +485,21 @@ export interface ContentBlock {
               )
             | null;
         };
+        richText?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
         enableLink?: boolean | null;
         link?: {
           type?: ('reference' | 'custom') | null;
@@ -888,21 +888,6 @@ export interface BentoGrid {
           coordinates?: number[] | null;
           markerSize?: number | null;
         };
-        richText?: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
         media?: (string | null) | Media;
         button?: {
           type?: ('reference' | 'custom') | null;
@@ -939,6 +924,21 @@ export interface BentoGrid {
               )
             | null;
         };
+        richText?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
         id?: string | null;
       }[]
     | null;
@@ -961,6 +961,114 @@ export interface BentoGrid {
   id?: string | null;
   blockName?: string | null;
   blockType: 'bento';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GridBlockComponent".
+ */
+export interface GridBlockComponent {
+  background: 'bg-background' | 'bg-background2' | 'bg-background3';
+  columns?:
+    | {
+        size?: ('oneThird' | 'oneFourth' | 'half' | 'twoThirds' | 'full') | null;
+        component: 'richText' | 'media' | 'button' | 'gradientText' | 'globe' | 'marquee';
+        globe?: {
+          coordinates?: number[] | null;
+          markerSize?: number | null;
+        };
+        media?: (string | null) | Media;
+        button?: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: string | Page;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: string | Post;
+              } | null);
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        gradientText?: {
+          text: string;
+          size?:
+            | (
+                | 'text-1xl'
+                | 'text-2xl'
+                | 'text-3xl'
+                | 'text-4xl'
+                | 'text-5xl'
+                | 'text-6xl'
+                | 'text-7xl'
+                | 'text-8xl'
+                | 'text-9xl'
+              )
+            | null;
+        };
+        richText?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        enableLink?: boolean | null;
+        link?: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: string | Page;
+              } | null)
+            | ({
+                relationTo: 'posts';
+                value: string | Post;
+              } | null);
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  enableHeader?: boolean | null;
+  link?: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?:
+      | ({
+          relationTo: 'pages';
+          value: string | Page;
+        } | null)
+      | ({
+          relationTo: 'posts';
+          value: string | Post;
+        } | null);
+    url?: string | null;
+    label: string;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'grid';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1266,6 +1374,7 @@ export interface PagesSelect<T extends boolean = true> {
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
         bento?: T | BentoGridSelect<T>;
+        grid?: T | GridBlockComponentSelect<T>;
       };
   meta?:
     | T
@@ -1323,7 +1432,6 @@ export interface ContentBlockSelect<T extends boolean = true> {
               coordinates?: T;
               markerSize?: T;
             };
-        richText?: T;
         media?: T;
         button?:
           | T
@@ -1341,6 +1449,7 @@ export interface ContentBlockSelect<T extends boolean = true> {
               text?: T;
               size?: T;
             };
+        richText?: T;
         enableLink?: T;
         link?:
           | T
@@ -1427,7 +1536,6 @@ export interface BentoGridSelect<T extends boolean = true> {
               coordinates?: T;
               markerSize?: T;
             };
-        richText?: T;
         media?: T;
         button?:
           | T
@@ -1444,6 +1552,68 @@ export interface BentoGridSelect<T extends boolean = true> {
           | {
               text?: T;
               size?: T;
+            };
+        richText?: T;
+        id?: T;
+      };
+  enableHeader?: T;
+  link?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        url?: T;
+        label?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "GridBlockComponent_select".
+ */
+export interface GridBlockComponentSelect<T extends boolean = true> {
+  background?: T;
+  columns?:
+    | T
+    | {
+        size?: T;
+        component?: T;
+        globe?:
+          | T
+          | {
+              coordinates?: T;
+              markerSize?: T;
+            };
+        media?: T;
+        button?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+            };
+        gradientText?:
+          | T
+          | {
+              text?: T;
+              size?: T;
+            };
+        richText?: T;
+        enableLink?: T;
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
             };
         id?: T;
       };

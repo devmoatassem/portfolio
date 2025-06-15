@@ -1,15 +1,15 @@
 import type { Block, Field } from 'payload'
-
+import { link } from '@/fields/link'
+import { backgroundField } from '../common-fields/background'
+import { fieldChoice, richTextBasic } from '../common-fields/fieldChoice'
 import {
+  BlocksFeature,
   FixedToolbarFeature,
   HeadingFeature,
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
-// import { TextColorFeature, TextSizeFeature } from "payload-lexical-typography";
-import { link } from '@/fields/link'
-import { backgroundField } from '../common-fields/background'
-import { fieldChoice } from '../common-fields/fieldChoice'
+import { GridBlock } from '../Grid/config'
 
 const columnFields: Field[] = [
   {
@@ -34,6 +34,28 @@ const columnFields: Field[] = [
     label: 'Description',
   },
   ...fieldChoice,
+  {
+    name: 'richText',
+    type: 'richText',
+    editor: lexicalEditor({
+      features: ({ defaultFeatures, rootFeatures }) => {
+        return [
+          ...rootFeatures,
+          ...defaultFeatures,
+          HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+          FixedToolbarFeature(),
+          InlineToolbarFeature(),
+          BlocksFeature({
+            blocks: [GridBlock],
+          }),
+        ]
+      },
+    }),
+    label: false,
+    admin: {
+      condition: (_, { component }) => component === 'richText',
+    },
+  },
 ]
 
 export const BentoGrid: Block = {
@@ -41,21 +63,7 @@ export const BentoGrid: Block = {
   interfaceName: 'BentoGrid',
   fields: [
     backgroundField,
-    {
-      name: 'richText',
-      type: 'richText',
-      editor: lexicalEditor({
-        features: ({ rootFeatures }) => {
-          return [
-            ...rootFeatures,
-            HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
-            FixedToolbarFeature(),
-            InlineToolbarFeature(),
-          ]
-        },
-      }),
-      label: false,
-    },
+    richTextBasic,
     {
       name: 'columns',
       type: 'array',
