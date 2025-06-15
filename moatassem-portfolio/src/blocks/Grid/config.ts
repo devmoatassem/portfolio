@@ -1,6 +1,5 @@
 import type { Block, Field } from 'payload'
 import { link } from '@/fields/link'
-import { backgroundField } from '../common-fields/background'
 import { fieldChoice, richTextWithoutBlocks } from '../common-fields/fieldChoice'
 
 const columnFields: Field[] = [

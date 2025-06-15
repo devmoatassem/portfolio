@@ -24,7 +24,7 @@ export const GridBlockComponent: React.FC<GridBlcokProps> = (props) => {
         {columns &&
           columns.length > 0 &&
           columns.map((col, index) => {
-            const { enableLink, link, size, component } = col
+            const { enableLink, link, size } = col
 
             return (
               <div
