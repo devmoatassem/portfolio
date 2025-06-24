@@ -55,30 +55,6 @@ export const fieldChoice: Field[] = [
   GlobeField,
 
   {
-    name: 'richText',
-    type: 'richText',
-    editor: lexicalEditor({
-      features: ({ defaultFeatures, rootFeatures }) => {
-        return [
-          ...rootFeatures,
-          ...defaultFeatures,
-          HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
-          FixedToolbarFeature(),
-          InlineToolbarFeature(),
-
-          // TextColorFeature({
-          //   colors: ["#FFFFFF", "#000000", "#FF0000", "#00FF00", "#0000FF"],
-          // }),
-          // TextSizeFeature(),
-        ]
-      },
-    }),
-    label: false,
-    admin: {
-      condition: (_, { component }) => component === 'richText',
-    },
-  },
-  {
     name: 'media',
     type: 'upload',
     relationTo: 'media',
@@ -140,3 +116,41 @@ export const fieldChoice: Field[] = [
     },
   },
 ]
+
+
+
+export const richTextWithoutBlocks: Field = {
+  name: 'richText',
+  type: 'richText',
+  editor: lexicalEditor({
+    features: ({ defaultFeatures, rootFeatures }) => {
+      return [
+        ...rootFeatures,
+        ...defaultFeatures,
+        HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+        FixedToolbarFeature(),
+        InlineToolbarFeature(),
+      ]
+    },
+  }),
+  label: false,
+  admin: {
+    condition: (_, { component }) => component === 'richText',
+  },
+}
+
+export const richTextBasic: Field = {
+  name: 'richText',
+  type: 'richText',
+  editor: lexicalEditor({
+    features: ({ rootFeatures }) => {
+      return [
+        ...rootFeatures,
+        HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
+        FixedToolbarFeature(),
+        InlineToolbarFeature(),
+      ]
+    },
+  }),
+  label: false,
+}

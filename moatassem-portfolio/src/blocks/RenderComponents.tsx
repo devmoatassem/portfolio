@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import type { BentoGrid } from '@/payload-types'
+import type { BentoGrid, ContentBlock, Timline } from '@/payload-types'
 import { CMSLink } from '@/components/Link'
 import { Media } from '@/components/Media'
 import { TextGradientScroll } from '@/components/ui/text-gradient-scroll'
@@ -15,11 +15,12 @@ const fieldComponents = {
   globe: GlobeCard,
   marquee: StacksMarquee,
 }
-
-export const RenderComponents: React.FC<{
-  column: NonNullable<BentoGrid['columns']>[number]
-}> = (props) => {
-  const { column } = props
+type props = {
+  column: NonNullable<BentoGrid['columns'] | ContentBlock['columns'] | Timline['events']>[number]
+  renderBlocks?: boolean
+}
+export const RenderComponents: React.FC<props> = (props) => {
+  const { column, renderBlocks } = props
   const { component } = column
 
   // Check if component type exists in fieldComponents
@@ -28,7 +29,7 @@ export const RenderComponents: React.FC<{
 
     if (Component) {
       // Prepare props based on component type
-      const componentProps = getComponentProps(column, component)
+      const componentProps = getComponentProps(column, renderBlocks)
 
       return (
         <Fragment>
@@ -44,21 +45,20 @@ export const RenderComponents: React.FC<{
 
 // Helper function to extract the right props for each component type
 function getComponentProps(
-  column: NonNullable<BentoGrid['columns']>[number],
-  componentType: string,
+  column: NonNullable<BentoGrid['columns'] | ContentBlock['columns'] | Timline['events']>[number],
+  renderBlocks?: boolean,
 ) {
   const baseProps = {
-    title: column.title,
-    description: column.description,
     id: column.id,
   }
-
+  const componentType = column.component
   switch (componentType) {
     case 'richText':
       return {
         ...baseProps,
         data: column.richText,
         enableGutter: false,
+        renderBlocks: renderBlocks,
       }
 
     case 'media':
@@ -74,11 +74,11 @@ function getComponentProps(
     //   }
 
     case 'button':
-    case 'link':
-      return {
-        ...baseProps,
-        ...column.button,
-      }
+    // case 'link':
+    //   return {
+    //     ...baseProps,
+    //     ...column.button,
+    //   }
 
     // case 'textarea':
     //   return {

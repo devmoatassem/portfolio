@@ -1,6 +1,5 @@
 import type { Block, Field } from 'payload'
 import { link } from '@/fields/link'
-import { backgroundField } from '../common-fields/background'
 import { fieldChoice, richTextWithoutBlocks } from '../common-fields/fieldChoice'
 
 const columnFields: Field[] = [
@@ -46,11 +45,11 @@ const columnFields: Field[] = [
   }),
 ]
 
-export const Content: Block = {
-  slug: 'content',
-  interfaceName: 'ContentBlock',
+export const GridBlock: Block = {
+  slug: 'grid',
+  interfaceName: 'GridBlockComponent',
   fields: [
-    backgroundField,
+    // backgroundField,
     {
       name: 'columns',
       type: 'array',

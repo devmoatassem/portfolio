@@ -1,4 +1,3 @@
-import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import {
   DefaultNodeTypes,
   SerializedBlockNode,
@@ -10,64 +9,124 @@ import {
   LinkJSXConverter,
   RichText as RichTextWithoutBlocks,
 } from '@payloadcms/richtext-lexical/react'
-
-import { CodeBlock, CodeBlockProps } from '@/blocks/Code/Component'
-
 import type {
   BannerBlock as BannerBlockProps,
   CallToActionBlock as CTABlockProps,
   MediaBlock as MediaBlockProps,
+  GridBlockComponent as GridBlcokProps,
+  CodeBlock as CodeBlockProps,
 } from '@/payload-types'
-import { BannerBlock } from '@/blocks/Banner/Component'
-import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { cn } from '@/utilities/ui'
-// import { TypographyJSXConverters } from 'payload-lexical-typography/converters'
+import { useMemo } from 'react'
+import React from 'react'
 
 type NodeTypes =
   | DefaultNodeTypes
-  | SerializedBlockNode<CTABlockProps | MediaBlockProps | BannerBlockProps | CodeBlockProps>
+  | SerializedBlockNode<
+      CTABlockProps | MediaBlockProps | BannerBlockProps | CodeBlockProps | GridBlcokProps
+    >
 
 const internalDocToHref = ({ linkNode }: { linkNode: SerializedLinkNode }) => {
-  const { value, relationTo } = linkNode.fields.doc!
-  if (typeof value !== 'object') {
-    throw new Error('Expected value to be an object')
-  }
+  if (!linkNode.fields.doc) return '#'
+  const { value, relationTo } = linkNode.fields.doc
+  if (typeof value !== 'object' || value === null) return '#'
   const slug = value.slug
-  return relationTo === 'posts' ? `/posts/${slug}` : `/${slug}`
+  if (typeof slug !== 'string') return '#'
+  return relationTo ? `/${relationTo}/${slug}` : `/${slug}`
 }
-
-const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) => ({
-  ...defaultConverters,
-  // ...TypographyJSXConverters,
-  ...LinkJSXConverter({ internalDocToHref }),
-  blocks: {
-    banner: ({ node }) => <BannerBlock className="col-start-2 mb-4" {...node.fields} />,
-    mediaBlock: ({ node }) => (
-      <MediaBlock
-        className="col-start-1 col-span-3"
-        imgClassName="m-0"
-        {...node.fields}
-        captionClassName="mx-auto max-w-[48rem]"
-        enableGutter={false}
-        disableInnerContainer={true}
-      />
-    ),
-    code: ({ node }) => <CodeBlock className="col-start-2" {...node.fields} />,
-    cta: ({ node }) => <CallToActionBlock {...node.fields} />,
-  },
-})
 
 type Props = {
   data: SerializedEditorState
   enableGutter?: boolean
   enableProse?: boolean
+  renderBlocks?: boolean
 } & React.HTMLAttributes<HTMLDivElement>
 
+// Lazy-loaded block components
+const blockComponents = {
+  banner: React.lazy(() =>
+    import('@/blocks/Banner/Component').then((m) => ({ default: m.BannerBlock })),
+  ),
+  mediaBlock: React.lazy(() =>
+    import('@/blocks/MediaBlock/Component').then((m) => ({ default: m.MediaBlock })),
+  ),
+  code: React.lazy(() => import('@/blocks/Code/Component').then((m) => ({ default: m.CodeBlock }))),
+  cta: React.lazy(() =>
+    import('@/blocks/CallToAction/Component').then((m) => ({ default: m.CallToActionBlock })),
+  ),
+  grid: React.lazy(() =>
+    import('@/blocks/Grid/Component').then((m) => ({ default: m.GridBlockComponent })),
+  ),
+}
+
 export const RichText: React.FC<Props> = (props) => {
-  const { className, enableProse = true, enableGutter = true, ...rest } = props
+  const {
+    className,
+    enableProse = true,
+    enableGutter = true,
+    renderBlocks = false,
+    ...rest
+  } = props
+
+  const converters = useMemo<JSXConvertersFunction<NodeTypes>>(() => {
+    return ({ defaultConverters }) => {
+      const base = {
+        ...defaultConverters,
+        ...LinkJSXConverter({ internalDocToHref }),
+      }
+
+      if (!renderBlocks) return base
+
+      return {
+        ...base,
+        blocks: {
+          banner: ({ node }) => (
+            <React.Suspense fallback={<div className="col-start-2 mb-4" />}>
+              <blockComponents.banner className="col-start-2 mb-4" {...node.fields} />
+            </React.Suspense>
+          ),
+          mediaBlock: ({ node }) => (
+            <React.Suspense fallback={<div className="col-start-1 col-span-3" />}>
+              <blockComponents.mediaBlock
+                className="col-start-1 col-span-3"
+                imgClassName="m-0"
+                {...node.fields}
+                captionClassName="mx-auto max-w-[48rem]"
+                enableGutter={false}
+                disableInnerContainer={true}
+              />
+            </React.Suspense>
+          ),
+          code: ({ node }) => {
+            const { language, ...fields } = node.fields
+            return (
+              <React.Suspense fallback={<div className="col-start-2" />}>
+                <blockComponents.code
+                  className="col-start-2"
+                  {...fields}
+                  language={language ?? undefined}
+                />
+              </React.Suspense>
+            )
+          },
+          cta: ({ node }) => (
+            <React.Suspense fallback={<div />}>
+              <blockComponents.cta {...node.fields} />
+            </React.Suspense>
+          ),
+          grid: ({ node }) => (
+            <React.Suspense fallback={<div />}>
+              <blockComponents.grid {...node.fields} />
+            </React.Suspense>
+          ),
+        },
+      }
+    }
+  }, [renderBlocks])
+
   return (
     <RichTextWithoutBlocks
-      converters={jsxConverters}
+      converters={converters}
       className={cn(
         {
           'container ': enableGutter,

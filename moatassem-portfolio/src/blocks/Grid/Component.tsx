@@ -1,26 +1,26 @@
 import { cn } from '@/utilities/ui'
 import React from 'react'
-import type { ContentBlock as ContentBlockProps } from '@/payload-types'
+import type { GridBlockComponent as GridBlcokProps } from '@/payload-types'
 import { CMSLink } from '../../components/Link'
 import { HeaderLink } from '@/components/HeaderLink'
 import { RenderComponents } from '../RenderComponents'
 
-export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
+export const GridBlockComponent: React.FC<GridBlcokProps> = (props) => {
   const { columns } = props
 
   const lgColSpan = {
-    full: 'lg:col-span-12',
-    half: 'lg:col-span-6',
-    oneThird: 'lg:col-span-4',
-    twoThirds: 'lg:col-span-8',
-    oneFourth: 'lg:col-span-3',
+    full: 'col-span-12',
+    half: 'col-span-6',
+    oneThird: 'col-span-4',
+    twoThirds: 'col-span-8',
+    oneFourth: 'col-span-3',
   }
   const headerLink = props?.link
   return (
-    <div className="container py-16">
+    <div className="">
       {props?.enableHeader && <HeaderLink {...headerLink} />}
 
-      <div className="grid grid-cols-4 lg:grid-cols-12 gap-y-8 gap-x-16">
+      <div className="grid grid-cols-12 gap-1">
         {columns &&
           columns.length > 0 &&
           columns.map((col, index) => {
@@ -29,11 +29,7 @@ export const ContentBlock: React.FC<ContentBlockProps> = (props) => {
             return (
               <div
                 className={cn(
-                  'col-span-4', // Base mobile column span
-                  size ? lgColSpan[size] : 'lg:col-span-6', // Lookup pre-defined lg column spans with fallback
-                  {
-                    'md:col-span-2': size !== 'full', // Medium screen conditional
-                  },
+                  size ? lgColSpan[size] : 'col-span-6', // Lookup pre-defined lg column spans with fallback
                 )}
                 key={index}
               >

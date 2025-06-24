@@ -11,27 +11,12 @@ import {
 } from '@payloadcms/richtext-lexical'
 import { GridBlock } from '../Grid/config'
 
-const columnFields: Field[] = [
-  {
-    name: 'size',
-    type: 'select',
-    defaultValue: 'oneThird',
-    options: Array.from({ length: 12 }, (_, i) => ({
-      label: `Col Span ${i + 1}`,
-      value: `md:col-span-${i + 1}`,
-    })),
-    required: true,
-  },
+const eventsFields: Field[] = [
   {
     type: 'text',
     name: 'title',
     label: 'Titile',
     required: true,
-  },
-  {
-    type: 'textarea',
-    name: 'description',
-    label: 'Description',
   },
   ...fieldChoice,
   {
@@ -58,19 +43,19 @@ const columnFields: Field[] = [
   },
 ]
 
-export const BentoGrid: Block = {
-  slug: 'bento',
-  interfaceName: 'BentoGrid',
+export const Timline: Block = {
+  slug: 'timline',
+  interfaceName: 'Timline',
   fields: [
     backgroundField,
     richTextBasic,
     {
-      name: 'columns',
+      name: 'events',
       type: 'array',
       admin: {
         initCollapsed: true,
       },
-      fields: columnFields,
+      fields: eventsFields,
     },
     // Add header Checkbox field
     {
