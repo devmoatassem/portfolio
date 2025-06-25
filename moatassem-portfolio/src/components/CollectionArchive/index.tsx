@@ -1,7 +1,7 @@
 import { cn } from '@/utilities/ui'
 import React from 'react'
 
-import { Card, ArchiveCardData } from '@/components/Card'
+import { ArchiveCardData } from '@/components/Card'
 import { ProductCard } from '../ui/hero-parallax'
 
 export type Props = {
