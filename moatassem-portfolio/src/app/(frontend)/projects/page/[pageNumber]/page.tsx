@@ -26,13 +26,16 @@ export default async function Page({ params: paramsPromise }: Args) {
   if (!Number.isInteger(sanitizedPageNumber)) notFound()
 
   const posts = await payload.find({
-    collection: 'posts',
+    collection: 'projects',
     depth: 1,
     limit: 12,
     page: sanitizedPageNumber,
     overrideAccess: false,
   })
-
+  const updatedDocs = posts.docs.map((doc) => ({
+    ...doc,
+    relationTo: 'projects',
+  }))
   return (
     <div className="pt-24 pb-24">
       <PageClient />
@@ -44,14 +47,14 @@ export default async function Page({ params: paramsPromise }: Args) {
 
       <div className="container mb-8">
         <PageRange
-          collection="posts"
+          collection="projects"
           currentPage={posts.page}
           limit={12}
           totalDocs={posts.totalDocs}
         />
       </div>
 
-      <CollectionArchive posts={posts.docs} />
+      <CollectionArchive data={updatedDocs} />
 
       <div className="container">
         {posts?.page && posts?.totalPages > 1 && (

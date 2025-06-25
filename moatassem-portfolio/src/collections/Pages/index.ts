@@ -1,5 +1,4 @@
 import type { CollectionConfig } from 'payload'
-
 import { authenticated } from '../../access/authenticated'
 import { authenticatedOrPublished } from '../../access/authenticatedOrPublished'
 import { Archive } from '../../blocks/ArchiveBlock/config'
@@ -78,7 +77,16 @@ export const Pages: CollectionConfig<'pages'> = {
             {
               name: 'layout',
               type: 'blocks',
-              blocks: [CallToAction, Content, MediaBlock, Archive, FormBlock, BentoGrid, GridBlock, Timline],
+              blocks: [
+                CallToAction,
+                Content,
+                MediaBlock,
+                Archive,
+                FormBlock,
+                BentoGrid,
+                GridBlock,
+                Timline,
+              ],
               required: true,
               admin: {
                 initCollapsed: true,
@@ -132,11 +140,9 @@ export const Pages: CollectionConfig<'pages'> = {
   },
   versions: {
     drafts: {
-      autosave: {
-        interval: 100, // We set this interval for optimal live preview
-      },
+      autosave: false,
       schedulePublish: true,
     },
-    maxPerDoc: 50,
+    maxPerDoc: 5,
   },
 }

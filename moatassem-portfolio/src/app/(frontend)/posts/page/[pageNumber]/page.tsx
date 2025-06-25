@@ -32,7 +32,10 @@ export default async function Page({ params: paramsPromise }: Args) {
     page: sanitizedPageNumber,
     overrideAccess: false,
   })
-
+  const updatedDocs = posts.docs.map((doc) => ({
+    ...doc,
+    relationTo: 'posts',
+  }))
   return (
     <div className="pt-24 pb-24">
       <PageClient />
@@ -51,7 +54,7 @@ export default async function Page({ params: paramsPromise }: Args) {
         />
       </div>
 
-      <CollectionArchive posts={posts.docs} />
+      <CollectionArchive data={updatedDocs} />
 
       <div className="container">
         {posts?.page && posts?.totalPages > 1 && (

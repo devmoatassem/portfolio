@@ -51,7 +51,7 @@
     "motion": "^12.9.2",
     "next": "^15.1.5",
     "next-sitemap": "^4.2.3",
-    "payload": "latest",
+    "payload": "^3.43.0",
     "payload-admin-bar": "^1.0.6",
     "payload-cloudinary": "^1.7.0",
     "prism-react-renderer": "^2.3.1",
