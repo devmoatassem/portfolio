@@ -78,7 +78,7 @@ export const ArchiveBlock: React.FC<
         </div>
       )}
 
-      <CollectionArchive posts={posts} />
+      <CollectionArchive data={posts} />
     </div>
   )
 }

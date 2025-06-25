@@ -73,7 +73,7 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
       </div>
 
       {posts.totalDocs > 0 ? (
-        <CollectionArchive posts={posts.docs as ArchiveCardData[]} />
+        <CollectionArchive data={posts.docs as ArchiveCardData[]} />
       ) : (
         <div className="container">No results found.</div>
       )}
