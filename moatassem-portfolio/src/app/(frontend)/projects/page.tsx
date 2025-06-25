@@ -26,13 +26,17 @@ export default async function Page() {
       meta: true,
     },
   })
-
+  
+  const updatedDocs = projects.docs.map((doc) => ({
+    ...doc,
+    relationTo: 'projects',
+  }))
   return (
     <div className="pt-24 pb-24">
       <PageClient />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
+          <h1>Projects</h1>
         </div>
       </div>
 
@@ -45,7 +49,7 @@ export default async function Page() {
         />
       </div>
 
-      <CollectionArchive data={projects.docs} />
+      <CollectionArchive data={updatedDocs} />
 
       <div className="container">
         {projects.totalPages > 1 && projects.page && (

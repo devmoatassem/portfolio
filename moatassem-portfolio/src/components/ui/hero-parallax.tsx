@@ -67,7 +67,7 @@ export const HeroParallax = ({
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) => (
-            <ProductCardAnimated product={product} translate={translateX} key={product.title} />
+            <ProductCardAnimated product={product} translate={translateX} key={product.slug} />
           ))}
         </motion.div>
         <motion.div className="flex flex-row  mb-20 space-x-20 ">
@@ -75,13 +75,13 @@ export const HeroParallax = ({
             <ProductCardAnimated
               product={product}
               translate={translateXReverse}
-              key={product.title}
+              key={product.slug}
             />
           ))}
         </motion.div>
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
           {thirdRow.map((product) => (
-            <ProductCardAnimated product={product} translate={translateX} key={product.title} />
+            <ProductCardAnimated product={product} translate={translateX} key={product.slug} />
           ))}
         </motion.div>
       </motion.div>
@@ -98,7 +98,7 @@ export const ProductCardAnimated = ({
 }) => {
   const { slug, meta, relationTo, title } = product || {}
   const { image: metaImage } = meta || {}
-  const href = `/${relationTo}/${slug}`
+  const href = relationTo ? `/${relationTo}/${slug}` : `${slug}`
   return (
     <motion.div
       style={{
@@ -107,7 +107,7 @@ export const ProductCardAnimated = ({
       whileHover={{
         y: -20,
       }}
-      key={product.title}
+      key={slug}
       className="group/product h-96 w-[30rem] relative shrink-0"
     >
       <Link href={href} className="block group-hover/product:shadow-2xl ">
@@ -136,7 +136,7 @@ export const ProductCard = ({
 }) => {
   const { slug, meta, relationTo, title } = product || {}
   const { image: metaImage } = meta || {}
-  const href = `/${relationTo}/${slug}`
+  const href = relationTo ? `/${relationTo}/${slug}` : `${slug}`
   return (
     <motion.div
       // style={{

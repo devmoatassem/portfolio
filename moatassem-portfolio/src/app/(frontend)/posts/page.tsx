@@ -27,6 +27,10 @@ export default async function Page() {
     },
   })
 
+  const updatedDocs = posts.docs.map((doc) => ({
+    ...doc,
+    relationTo: 'posts',
+  }))
   return (
     <div className="pt-24 pb-24">
       <PageClient />
@@ -45,7 +49,7 @@ export default async function Page() {
         />
       </div>
 
-      <CollectionArchive data={posts.docs} />
+      <CollectionArchive data={updatedDocs} />
 
       <div className="container">
         {posts.totalPages > 1 && posts.page && (

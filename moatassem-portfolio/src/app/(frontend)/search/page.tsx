@@ -58,7 +58,7 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
         }
       : {}),
   })
-
+  // console.log(posts.docs)
   return (
     <div className="pt-24 pb-24">
       <PageClient />
