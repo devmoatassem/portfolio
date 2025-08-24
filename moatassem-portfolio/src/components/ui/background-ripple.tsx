@@ -24,9 +24,9 @@ export const BackgroundCells = ({ children, className, readOnly }: BackgroundCel
             'relative z-50 flex items-center justify-center',
             readOnly && 'pointer-events-none select-none',
           )}
-          style={{
-            zIndex: 9999,
-          }}
+          // style={{
+          //   zIndex: 9999,
+          // }}
         >
           {children}
         </div>

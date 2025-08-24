@@ -21,12 +21,12 @@ export const HighImpactHero: React.FC<Page['hero']> = ({ links, richText }) => {
     >
       {/* <GridBackground /> */}
       <Spotlight />
-      <BackgroundCells readOnly>
-        <div className="container mb-8 relative  ">
+      <BackgroundCells>
+        <div className="container mb-8">
           <div className="max-w-[36.5rem] md:text-center">
             {richText && <RichText className="mb-6 " data={richText} enableGutter={false} />}
             {Array.isArray(links) && links.length > 0 && (
-              <ul className="flex md:justify-center gap-4 z-50">
+              <ul className="flex md:justify-center gap-4 ">
                 {links.map(({ link }, i) => {
                   return (
                     <li key={i}>
