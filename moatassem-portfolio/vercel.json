@@ -4,7 +4,8 @@
     "deploymentEnabled": {
       "main": true,
       "dev": true,
-      "staging": true
+      "staging": true,
+      "portfolio-cms": false
     }
   }
 }
