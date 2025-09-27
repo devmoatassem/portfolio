@@ -2,7 +2,9 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": {
-      "portfolio-cms": false
+      "main": true,
+      "dev": true,
+      "staging": true
     }
   }
 }
