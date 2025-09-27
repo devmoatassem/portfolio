@@ -5,7 +5,7 @@
       "main": true,
       "dev": true,
       "staging": true,
-      "portfolio-cms": false
+      "*": false
     }
   }
 }
