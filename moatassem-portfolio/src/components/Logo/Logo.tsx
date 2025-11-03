@@ -9,12 +9,9 @@ interface Props {
 export const Logo = (props: Props) => {
   const { className } = props
 
-  // const loading = loadingFromProps || 'lazy'
-  // const priority = priorityFromProps || 'low'
-
   return (
-    <div className={cn('dark:text-white font-logo text-3xl translate-y-2', className)}>
+    <p className={cn('font-logo z-50 text-3xl translate-y-2 text-primary', className)}>
       &lt;<span id="abcd">Moatassem Billah</span>/&gt;
-    </div>
+    </p>
   )
 }
