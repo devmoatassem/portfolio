@@ -20,7 +20,7 @@ export const BentoGridBlock: React.FC<BentoBlockProps> = (props) => {
     <div className="container py-16">
       {props?.enableHeader && <HeaderLink {...headerLink} />}
       {richText && <RichText data={richText} enableGutter={false} />}
-      <div className="grid grid-cols-1 md:grid-cols-12 mt-12 md:border dark:border-neutral-800">
+      <div className="grid grid-cols-1 lg:grid-cols-12 mt-12 lg:border dark:border-neutral-800">
         {(columns &&
           columns.length > 0 &&
           columns.map((col, index) => {
