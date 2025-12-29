@@ -49,18 +49,21 @@ const BackgroundCellCore = () => {
       })
     }
   }
-
   const size = 300
   return (
-    <div ref={ref} onMouseMove={handleMouseMove} className="h-full absolute inset-0">
-      <div className="absolute h-full inset-y-0 overflow-hidden">
+    <div className="h-full absolute inset-0 w-full">
+      <div
+        ref={ref}
+        onMouseMove={handleMouseMove}
+        className="absolute h-full inset-y-0 overflow-hidden w-full"
+      >
         <div className="absolute h-full w-full pointer-events-none -bottom-2 z-30 bg-neutral-950 [mask-image:linear-gradient(to_bottom,transparent,black)]" />
         <div
           className="absolute inset-0 z-10 bg-transparent"
           style={{
             maskImage: `radial-gradient(${size / 4}px circle at center, white, transparent)`,
             WebkitMaskImage: `radial-gradient(${size / 4}px circle at center, white, transparent)`,
-            WebkitMaskPosition: `${mousePosition.x - size / 2}px ${mousePosition.y - size / 2}px`,
+            WebkitMaskPosition: `${mousePosition.x - (size / 2)}px ${mousePosition.y - (size)-50}px`,
             WebkitMaskSize: `${size}px`,
             maskSize: `${size}px`,
             pointerEvents: 'none',
@@ -132,7 +135,7 @@ const Pattern = ({ className, cellClassName }: PatternProps) => {
   const [clickedCell, setClickedCell] = useState<[number, number] | null>(null)
 
   return (
-    <div className={cn('flex flex-row relative z-20', className)}>
+    <div className={cn('flex flex-row relative z-20 mx-auto w-fit', className)}>
       {matrix.map((row, rowIdx) => (
         <div key={`matrix-row-${rowIdx}`} className="flex flex-col relative z-10 border-b">
           {row.map((_, colIdx) => (
