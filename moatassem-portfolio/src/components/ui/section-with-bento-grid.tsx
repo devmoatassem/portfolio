@@ -83,14 +83,14 @@ export function getDynamicGridClasses(
   
   // Add right border on medium screens if not last in row
   if (!isLastInRow) {
-    borders.push('md:border-r')
+    borders.push('lg:border-r')
   }
   
   // Hover logic based on row numbers (2, 4, 6 vs others)
   const isEvenRow = (rowIndex + 1) % 2 === 0 && [2, 4, 6].includes(rowIndex + 1)
   
   const hoverClasses = isEvenRow
-    ? 'opacity-0 group-hover:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t md:bg-gradient-to-b from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none'
+    ? 'opacity-0 group-hover:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t lg:bg-gradient-to-b from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none'
     : 'opacity-0 group-hover:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-t from-neutral-100 dark:from-neutral-800 to-transparent pointer-events-none'
   
   return {
