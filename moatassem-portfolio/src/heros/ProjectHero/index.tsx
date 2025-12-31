@@ -36,9 +36,9 @@ export const ProjectHero: React.FC<{
 
   return (
     <div className="relative -mt-[10rem] flex items-end bg-background">
-      <div className="container ">
-        <section className="pt-32 pb-0 px-8 ">
-          <Breadcrumb className="mb-10 mb:mb-16">
+      <div className="container">
+        <section className="pt-28 lg:pt-32 pb-0">
+          <Breadcrumb className="mb-8 mb:mb-16">
             <BreadcrumbList>
               <BreadcrumbItem>
                 <BreadcrumbLink asChild>
