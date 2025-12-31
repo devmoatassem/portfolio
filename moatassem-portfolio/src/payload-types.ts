@@ -624,7 +624,9 @@ export interface ArchiveBlock {
  */
 export interface Project {
   id: string;
+  type: 'web-application' | 'mobile-application';
   title: string;
+  description: string;
   heroImage?: (string | null) | Media;
   content: {
     root: {
@@ -1989,7 +1991,9 @@ export interface UsersSelect<T extends boolean = true> {
  * via the `definition` "projects_select".
  */
 export interface ProjectsSelect<T extends boolean = true> {
+  type?: T;
   title?: T;
+  description?: T;
   heroImage?: T;
   content?: T;
   relatedProjects?: T;
