@@ -8,7 +8,7 @@ import type { Post, Project } from '@/payload-types'
 
 import { Media } from '@/components/Media'
 
-export type ArchiveCardData = Pick<Post | Project, 'slug' | 'categories' | 'meta' | 'title'>
+export type ArchiveCardData = Pick<Post | Project, 'slug' | 'meta' | 'title'>
 
 export const Card: React.FC<{
   alignItems?: 'center'
@@ -27,10 +27,10 @@ export const Card: React.FC<{
     relationTo: relationToFromProps,
   } = props
 
-  const { slug, categories, meta, relationTo, title } = doc || {}
+  const { slug, meta, relationTo, title } = doc || {}
   const { description, image: metaImage } = meta || {}
 
-  const hasCategories = categories && Array.isArray(categories) && categories.length > 0
+  // const hasCategories = categories && Array.isArray(categories) && categories.length > 0
   const titleToUse = titleFromProps || title
   const sanitizedDescription = description?.replace(/\s/g, ' ') // replace non-breaking space with white space
   const relation = relationTo || relationToFromProps
@@ -49,7 +49,7 @@ export const Card: React.FC<{
         {metaImage && typeof metaImage !== 'string' && <Media resource={metaImage} size="33vw" />}
       </div>
       <div className="p-4">
-        {showCategories && hasCategories && (
+        {/* {showCategories && hasCategories && (
           <div className="uppercase text-sm mb-4">
             {showCategories && hasCategories && (
               <div>
@@ -74,7 +74,7 @@ export const Card: React.FC<{
               </div>
             )}
           </div>
-        )}
+        )} */}
         {titleToUse && (
           <div className="prose">
             <h3>

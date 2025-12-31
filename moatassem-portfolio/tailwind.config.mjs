@@ -31,7 +31,7 @@ const config = {
       center: true,
       padding: {
         '2xl': '2rem',
-        DEFAULT: '1rem',
+        DEFAULT: '0.5rem',
         lg: '2rem',
         md: '2rem',
         sm: '1rem',

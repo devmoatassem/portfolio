@@ -24,6 +24,7 @@ import {
   PreviewField,
 } from '@payloadcms/plugin-seo/fields'
 import { slugField } from '@/fields/slug'
+import { linkGroup } from '@/fields/linkGroup'
 
 export const Projects: CollectionConfig<'projects'> = {
   slug: 'projects',
@@ -39,7 +40,7 @@ export const Projects: CollectionConfig<'projects'> = {
   defaultPopulate: {
     title: true,
     slug: true,
-    categories: true,
+    technologies: true,
     meta: {
       image: true,
       description: true,
@@ -68,10 +69,32 @@ export const Projects: CollectionConfig<'projects'> = {
   },
   fields: [
     {
+      name: 'type',
+      type: 'select',
+      options: [
+        {
+          label: 'Web Application',
+          value: 'Web Application',
+        },
+        {
+          label: 'Mobile Application',
+          value: 'Mobile Application',
+        },
+      ],
+      required: true,
+      defaultValue: 'web-application',
+    },
+    {
       name: 'title',
       type: 'text',
       required: true,
     },
+    {
+      name: 'description',
+      type: 'textarea',
+      required: true,
+    },
+
     {
       type: 'tabs',
       tabs: [
@@ -106,6 +129,39 @@ export const Projects: CollectionConfig<'projects'> = {
         },
         {
           fields: [
+            linkGroup({
+              appearances: ['default', 'outline'],
+              overrides: {
+                maxRows: 2,
+              },
+            }),
+            {
+              name: 'attributes',
+              type: 'array',
+              label: 'Attributes',
+              minRows: 1,
+              fields: [
+                {
+                  name: 'label',
+                  type: 'text',
+                  required: true,
+                },
+                {
+                  name: 'value',
+                  type: 'text',
+                  required: true,
+                },
+              ],
+            },
+            {
+              name: 'technologies',
+              type: 'relationship',
+              admin: {
+                position: 'sidebar',
+              },
+              hasMany: true,
+              relationTo: 'technologies',
+            },
             {
               name: 'relatedProjects',
               type: 'relationship',
@@ -121,15 +177,6 @@ export const Projects: CollectionConfig<'projects'> = {
               },
               hasMany: true,
               relationTo: 'projects',
-            },
-            {
-              name: 'categories',
-              type: 'relationship',
-              admin: {
-                position: 'sidebar',
-              },
-              hasMany: true,
-              relationTo: 'categories',
             },
           ],
           label: 'Meta',

@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @layer base {
   h1,
   h2,
@@ -12,84 +11,62 @@
     font-size: unset;
     font-weight: unset;
   }
-
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 0 0% 100%; /* #ffffff */
+    --foreground: 222.2 84% 4.9%; /* #020817 */
     
-    --background-2:0 0% 99%;
-    --background-3: 0 0% 95%;
-
-    --card: 240 5% 96%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 240 6% 80%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
+    --background-2:0 0% 99%; /* #fcfcfc */
+    --background-3: 0 0% 95%; /* #f2f2f2 */
+    --card: 240 5% 96%; /* #f4f4f5 */
+    --card-foreground: 222.2 84% 4.9%; /* #020817 */
+    --popover: 0 0% 100%; /* #ffffff */
+    --popover-foreground: 222.2 84% 4.9%; /* #020817 */
+    --primary: 222.2 47.4% 11.2%; /* #0f172a */
+    --primary-foreground: 210 40% 98%; /* #f8fafc */
+    --secondary: 210 40% 96.1%; /* #f1f5f9 */
+    --secondary-foreground: 222.2 47.4% 11.2%; /* #0f172a */
+    --muted: 210 40% 96.1%; /* #f1f5f9 */
+    --muted-foreground: 215.4 16.3% 46.9%; /* #64748b */
+    --accent: 210 40% 96.1%; /* #f1f5f9 */
+    --accent-foreground: 222.2 47.4% 11.2%; /* #0f172a */
+    --destructive: 0 84.2% 60.2%; /* #ef4444 */
+    --destructive-foreground: 210 40% 98%; /* #f8fafc */
+    --border: 240 6% 80%; /* #cccdd1 */
+    --input: 214.3 31.8% 91.4%; /* #e2e8f0 */
+    --ring: 222.2 84% 4.9%; /* #020817 */
     --radius: 0.2rem;
-
-    --success: 196 52% 74%;
-    --warning: 34 89% 85%;
-    --error: 10 100% 86%;
+    --success: 196 52% 74%; /* #7dd3fc */
+    --warning: 34 89% 85%; /* #fde68a */
+    --error: 10 100% 86%; /* #fecaca */
   }
-
   [data-theme='dark'] {
-    --background: 0 0% 0%;
-    --foreground: 210 40% 98%;
-
-    --background-2:0 0% 10%;
-    --background-3: 0 0% 6%;
+    --background: 0 0% 0%; /* #000000 */
+    --foreground: 210 40% 98%; /* #f8fafc */
+    --background-2:0 0% 10%; /* #1a1a1a */
+    --background-3: 0 0% 6%; /* #0f0f0f */
     
-    --card: 0 0% 4%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 0, 0%, 15%, 0.8;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-
-    --success: 196 100% 14%;
-    --warning: 34 51% 25%;
-    --error: 10 39% 43%;
+    --card: 0 0% 4%; /* #0a0a0a */
+    --card-foreground: 210 40% 98%; /* #f8fafc */
+    --popover: 222.2 84% 4.9%; /* #020817 */
+    --popover-foreground: 210 40% 98%; /* #f8fafc */
+    --primary: 210 40% 98%; /* #f8fafc */
+    --primary-foreground: 222.2 47.4% 11.2%; /* #0f172a */
+    --secondary: 0 0% 17.5%; /* #2c2c2c */
+    --secondary-foreground: 0 0% 96%; /* #f5f5f5 */
+    --muted: 0 0% 13%; /* #212121 */
+    --muted-foreground: 220 6% 64%; /* #9ca3af */
+    --accent: 0 0% 17.5%; /* #2c2c2c */
+    --accent-foreground: 0 0% 96%; /* #f5f5f5 */
+    --destructive: 0 62.8% 30.6%; /* #7f1d1d */
+    --destructive-foreground: 210 40% 98%; /* #f8fafc */
+    --border: 0, 0%, 15%, 0.8; /* #262626 (with 80% opacity) */
+    --input: 217.2 32.6% 17.5%; /* #1e293b */
+    --ring: 212.7 26.8% 83.9%; /* #cbd5e1 */
+    --success: 196 100% 14%; /* #003d47 */
+    --warning: 34 51% 25%; /* #4d3800 */
+    --error: 10 39% 43%; /* #9c3737 */
   }
 }
-
 @layer base {
   * {
     @apply border-border;
@@ -98,11 +75,9 @@
     @apply bg-background text-foreground min-h-[100vh] flex flex-col;
   }
 }
-
 html {
   opacity: 0;
 }
-
 html[data-theme='dark'],
 html[data-theme='light'] {
   opacity: initial;
