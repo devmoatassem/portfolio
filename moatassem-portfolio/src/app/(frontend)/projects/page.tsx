@@ -7,6 +7,8 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
 import PageClient from './page.client'
+import { cn } from '@/utilities/ui'
+import { ProjectCard } from '@/components/ProjectCard'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
@@ -22,14 +24,16 @@ export default async function Page() {
     select: {
       title: true,
       slug: true,
-      categories: true,
+      technologies: true,
       meta: true,
+      type: true,
+      description: true,
     },
   })
-  
+
   const updatedDocs = projects.docs.map((doc) => ({
     ...doc,
-    relationTo: 'projects',
+    // relationTo: 'projects',
   }))
   return (
     <div className="pt-24 pb-24">
@@ -49,7 +53,23 @@ export default async function Page() {
         />
       </div>
 
-      <CollectionArchive data={updatedDocs} />
+      <div className={cn('container')}>
+        <div>
+          <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-y-4 gap-x-4 lg:gap-y-8 lg:gap-x-8 xl:gap-x-8">
+            {updatedDocs?.map((project, index) => {
+              if (typeof project === 'object' && project !== null) {
+                return (
+                  <div className="col-span-4" key={index}>
+                    <ProjectCard data={project} />
+                  </div>
+                )
+              }
+
+              return null
+            })}
+          </div>
+        </div>
+      </div>
 
       <div className="container">
         {projects.totalPages > 1 && projects.page && (
