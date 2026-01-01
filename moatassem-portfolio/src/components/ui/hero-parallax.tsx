@@ -7,6 +7,7 @@ import { ArchiveCardData } from '../Card'
 import Link from 'next/link'
 import { Media } from '@/components/Media'
 import { cn } from '@/utilities/ui'
+import { ProjectCard } from '../ProjectCard'
 
 export const HeroParallax = ({
   posts,
@@ -66,23 +67,35 @@ export const HeroParallax = ({
         className=""
       >
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
-          {firstRow.map((product) => (
-            <ProductCardAnimated product={product} translate={translateX} key={product.slug} />
-          ))}
+          {firstRow.map((product) =>
+            product?.relationTo === 'projects' ? (
+              <ProjectCard data={product as any} key={product.slug} />
+            ) : (
+              <ProductCardAnimated product={product} translate={translateX} key={product.slug} />
+            ),
+          )}
         </motion.div>
         <motion.div className="flex flex-row  mb-20 space-x-20 ">
-          {secondRow.map((product) => (
-            <ProductCardAnimated
-              product={product}
-              translate={translateXReverse}
-              key={product.slug}
-            />
-          ))}
+          {secondRow.map((product) =>
+            product?.relationTo === 'projects' ? (
+              <ProjectCard data={product as any} key={product.slug} />
+            ) : (
+              <ProductCardAnimated
+                product={product}
+                translate={translateXReverse}
+                key={product.slug}
+              />
+            ),
+          )}
         </motion.div>
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
-          {thirdRow.map((product) => (
-            <ProductCardAnimated product={product} translate={translateX} key={product.slug} />
-          ))}
+          {thirdRow.map((product) =>
+            product?.relationTo === 'projects' ? (
+              <ProjectCard data={product as any} key={product.slug} />
+            ) : (
+              <ProductCardAnimated product={product} translate={translateX} key={product.slug} />
+            ),
+          )}
         </motion.div>
       </motion.div>
     </div>
@@ -108,7 +121,7 @@ export const ProductCardAnimated = ({
         y: -20,
       }}
       key={slug}
-      className="group/product h-96 w-[30rem] relative shrink-0"
+      className="group/product h-96 aspect-square relative shrink-0"
     >
       <Link href={href} className="block group-hover/product:shadow-2xl ">
         {!metaImage && <div className="">No image</div>}
