@@ -72,4 +72,8 @@ export const Timline: Block = {
       appearances: false,
     }),
   ],
+  labels: {
+    plural: 'Timlines',
+    singular: 'Timline',
+  },
 }
