@@ -69,7 +69,7 @@ export const HeroParallax = ({
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20 mb-20">
           {firstRow.map((product) =>
             product?.relationTo === 'projects' ? (
-              <ProjectCard data={product as any} key={product.slug} />
+              <ProjectCard data={product as any} key={product.slug} translate={translateX} />
             ) : (
               <ProductCardAnimated product={product} translate={translateX} key={product.slug} />
             ),
@@ -78,7 +78,7 @@ export const HeroParallax = ({
         <motion.div className="flex flex-row  mb-20 space-x-20 ">
           {secondRow.map((product) =>
             product?.relationTo === 'projects' ? (
-              <ProjectCard data={product as any} key={product.slug} />
+              <ProjectCard data={product as any} translate={translateX} key={product.slug}  />
             ) : (
               <ProductCardAnimated
                 product={product}
@@ -91,7 +91,7 @@ export const HeroParallax = ({
         <motion.div className="flex flex-row-reverse space-x-reverse space-x-20">
           {thirdRow.map((product) =>
             product?.relationTo === 'projects' ? (
-              <ProjectCard data={product as any} key={product.slug} />
+              <ProjectCard data={product as any} translate={translateX} key={product.slug}  />
             ) : (
               <ProductCardAnimated product={product} translate={translateX} key={product.slug} />
             ),

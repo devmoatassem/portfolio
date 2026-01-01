@@ -63,9 +63,9 @@ export const Archive: Block = {
     {
       name: 'relationTo',
       type: 'select',
-      admin: {
-        condition: (_, siblingData) => siblingData.populateBy === 'collection',
-      },
+      // admin: {
+      //   condition: (_, siblingData) => siblingData.populateBy === 'collection',
+      // },
       defaultValue: 'projects',
       label: 'Collections To Show',
       options: [
@@ -78,16 +78,6 @@ export const Archive: Block = {
           value: 'posts',
         },
       ],
-    },
-    {
-      name: 'categories',
-      type: 'relationship',
-      admin: {
-        condition: (_, siblingData) => siblingData.populateBy === 'collection',
-      },
-      hasMany: true,
-      label: 'Categories To Show',
-      relationTo: 'categories',
     },
     {
       name: 'limit',
@@ -103,11 +93,12 @@ export const Archive: Block = {
       name: 'selectedDocs',
       type: 'relationship',
       admin: {
-        condition: (_, siblingData) => siblingData.populateBy === 'selection',
+        condition: (_, siblingData) =>
+          siblingData.populateBy === 'selection' && siblingData.relationTo === 'projects',
       },
       hasMany: true,
       label: 'Selection',
-      relationTo: ['posts', 'projects'],
+      relationTo: 'projects',
       // hooks: {
       //   beforeChange: [
       //     ({ value, schemaPath , blockData , context , field , global }) => {
@@ -125,9 +116,6 @@ export const Archive: Block = {
       name: 'showLoadMore',
       type: 'checkbox',
       defaultValue: true,
-      admin: {
-        condition: (_, siblingData) => siblingData.populateBy === 'collection',
-      },
       label: 'Show Load More',
     },
     {
@@ -135,7 +123,7 @@ export const Archive: Block = {
       type: 'text',
       defaultValue: 'Load More',
       admin: {
-        condition: (_, siblingData) => siblingData.showLoadMore === 'collection',
+        condition: (_, siblingData) => siblingData.showLoadMore === true,
       },
     },
   ],

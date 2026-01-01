@@ -13,7 +13,7 @@ export const ArchiveBlock: React.FC<
 > = async (props) => {
   const {
     id,
-    categories,
+
     introContent,
     limit: limitFromProps,
     populateBy,
@@ -29,24 +29,10 @@ export const ArchiveBlock: React.FC<
   if (populateBy === 'collection' && relationTo) {
     const payload = await getPayload({ config: configPromise })
 
-    const flattenedCategories = categories?.map((category) => {
-      if (typeof category === 'object') return category.id
-      else return category
-    })
-
     const fetchedPosts = await payload.find({
       collection: relationTo,
       depth: 1,
       limit,
-      ...(flattenedCategories && flattenedCategories.length > 0
-        ? {
-            where: {
-              categories: {
-                in: flattenedCategories,
-              },
-            },
-          }
-        : {}),
     })
     posts = fetchedPosts.docs.map((doc) => ({
       ...doc,
@@ -55,10 +41,10 @@ export const ArchiveBlock: React.FC<
   } else {
     if (selectedDocs?.length) {
       const filteredSelectedPosts = selectedDocs.map((doc) => {
-        if (typeof doc.value === 'object') {
+        if (typeof doc === 'object') {
           return {
-            ...doc.value,
-            relationTo: doc.relationTo,
+            ...doc,
+            relationTo: relationTo,
           }
         }
       }) as any[]
@@ -66,7 +52,7 @@ export const ArchiveBlock: React.FC<
       posts = filteredSelectedPosts
     }
   }
-
+ 
   if (type === 'advanceParallax') {
     return <HeroParallax posts={posts} introContent={introContent || undefined} />
   }

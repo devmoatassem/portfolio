@@ -3,7 +3,7 @@ import { cn } from '@/utilities/ui'
 import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
-import { motion } from 'motion/react'
+import { motion, MotionValue } from 'motion/react'
 import type { Project } from '@/payload-types'
 import { Media } from '@/components/Media'
 import { MoveUpRight } from 'lucide-react'
@@ -11,9 +11,10 @@ import { MoveUpRight } from 'lucide-react'
 export const ProjectCard: React.FC<{
   className?: string
   data: Omit<Project, 'content' | 'createdAt' | 'updatedAt'>
+  translate?: MotionValue<number>
 }> = (props) => {
   const { card } = useClickableCard({})
-  const { className, data } = props
+  const { className, data, translate } = props
   const { slug, meta, title, technologies, description } = data || {}
   const { image: metaImage } = meta || {}
   const hasTechnologies = technologies && Array.isArray(technologies) && technologies.length > 0
@@ -29,6 +30,7 @@ export const ProjectCard: React.FC<{
         'group/product rounded border overflow-hidden h-96 aspect-square relative shrink-0',
         className,
       )}
+      style={translate ? { x: translate } : undefined}
       ref={card.ref}
       whileHover={{
         y: -20,

@@ -598,20 +598,8 @@ export interface ArchiveBlock {
   type: 'advanceParallax' | 'basicColumns';
   populateBy?: ('collection' | 'selection') | null;
   relationTo?: ('projects' | 'posts') | null;
-  categories?: (string | Category)[] | null;
   limit?: number | null;
-  selectedDocs?:
-    | (
-        | {
-            relationTo: 'posts';
-            value: string | Post;
-          }
-        | {
-            relationTo: 'projects';
-            value: string | Project;
-          }
-      )[]
-    | null;
+  selectedDocs?: (string | Project)[] | null;
   showLoadMore?: boolean | null;
   loadMoreLabel?: string | null;
   id?: string | null;
@@ -1680,7 +1668,6 @@ export interface ArchiveBlockSelect<T extends boolean = true> {
   type?: T;
   populateBy?: T;
   relationTo?: T;
-  categories?: T;
   limit?: T;
   selectedDocs?: T;
   showLoadMore?: T;
