@@ -2,7 +2,7 @@
 import { cn } from '@/utilities/ui'
 import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
-import React, { Fragment } from 'react'
+import React from 'react'
 import { motion, MotionValue } from 'motion/react'
 import type { Project } from '@/payload-types'
 import { Media } from '@/components/Media'

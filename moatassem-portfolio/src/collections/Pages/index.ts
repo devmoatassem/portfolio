@@ -11,7 +11,6 @@ import { slugField } from '@/fields/slug'
 import { populatePublishedAt } from '../../hooks/populatePublishedAt'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { revalidateDelete, revalidatePage } from './hooks/revalidatePage'
-
 import {
   MetaDescriptionField,
   MetaImageField,
@@ -22,6 +21,7 @@ import {
 import { BentoGrid } from '@/blocks/BentoGrid/config'
 import { GridBlock } from '@/blocks/Grid/config'
 import { Timline } from '@/blocks/Timline/config'
+import { ProjectsArchive } from '@/blocks/ProjectsArchiveBlock/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -81,6 +81,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 CallToAction,
                 Content,
                 MediaBlock,
+                ProjectsArchive,
                 Archive,
                 FormBlock,
                 BentoGrid,

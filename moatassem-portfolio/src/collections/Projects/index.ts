@@ -14,7 +14,7 @@ import { Code } from '../../blocks/Code/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
 import { populateAuthors } from './hooks/populateAuthors'
-import { revalidateDelete, revalidatePost } from './hooks/revalidatePost'
+import { revalidateDelete, revalidateProject } from './hooks/revalidateProject'
 
 import {
   MetaDescriptionField,
@@ -266,7 +266,7 @@ export const Projects: CollectionConfig<'projects'> = {
     ...slugField(),
   ],
   hooks: {
-    afterChange: [revalidatePost],
+    afterChange: [revalidateProject],
     afterRead: [populateAuthors],
     afterDelete: [revalidateDelete],
   },

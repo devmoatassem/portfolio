@@ -10,7 +10,6 @@ import {
 import type { Project } from '@/payload-types'
 
 import { Media } from '@/components/Media'
-import { formatAuthors } from '@/utilities/formatAuthors'
 import { CMSLink } from '@/components/Link'
 import Link from 'next/link'
 import { SlashIcon } from 'lucide-react'
@@ -24,14 +23,11 @@ export const ProjectHero: React.FC<{
     links,
     description,
     heroImage,
-    populatedAuthors,
-    publishedAt,
     title,
     type,
   } = post
 
-  const hasAuthors =
-    populatedAuthors && populatedAuthors.length > 0 && formatAuthors(populatedAuthors) !== ''
+
 
   return (
     <div className="relative -mt-[10rem] flex items-end bg-background">

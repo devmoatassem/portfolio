@@ -183,8 +183,8 @@ export interface Page {
                   value: string | Page;
                 } | null)
               | ({
-                  relationTo: 'posts';
-                  value: string | Post;
+                  relationTo: 'projects';
+                  value: string | Project;
                 } | null);
             url?: string | null;
             label: string;
@@ -202,6 +202,7 @@ export interface Page {
     | CallToActionBlock
     | ContentBlock
     | MediaBlock
+    | ProjectsArchiveBlock
     | ArchiveBlock
     | FormBlock
     | BentoGrid
@@ -225,11 +226,13 @@ export interface Page {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
+ * via the `definition` "projects".
  */
-export interface Post {
+export interface Project {
   id: string;
+  type: 'Web Application' | 'Mobile Application';
   title: string;
+  description: string;
   heroImage?: (string | null) | Media;
   content: {
     root: {
@@ -246,8 +249,39 @@ export interface Post {
     };
     [k: string]: unknown;
   };
-  relatedPosts?: (string | Post)[] | null;
-  categories?: (string | Category)[] | null;
+  links?:
+    | {
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?:
+            | ({
+                relationTo: 'pages';
+                value: string | Page;
+              } | null)
+            | ({
+                relationTo: 'projects';
+                value: string | Project;
+              } | null);
+          url?: string | null;
+          label: string;
+          /**
+           * Choose how the link should be rendered.
+           */
+          appearance?: ('default' | 'outline') | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  attributes?:
+    | {
+        label: string;
+        value: string;
+        id?: string | null;
+      }[]
+    | null;
+  technologies?: (string | Technology)[] | null;
+  relatedProjects?: (string | Project)[] | null;
   meta?: {
     title?: string | null;
     /**
@@ -364,20 +398,11 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
+ * via the `definition` "technologies".
  */
-export interface Category {
+export interface Technology {
   id: string;
   title: string;
-  parent?: (string | null) | Category;
-  breadcrumbs?:
-    | {
-        doc?: (string | null) | Category;
-        url?: string | null;
-        label?: string | null;
-        id?: string | null;
-      }[]
-    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -438,8 +463,8 @@ export interface CallToActionBlock {
                 value: string | Page;
               } | null)
             | ({
-                relationTo: 'posts';
-                value: string | Post;
+                relationTo: 'projects';
+                value: string | Project;
               } | null);
           url?: string | null;
           label: string;
@@ -479,8 +504,8 @@ export interface ContentBlock {
                 value: string | Page;
               } | null)
             | ({
-                relationTo: 'posts';
-                value: string | Post;
+                relationTo: 'projects';
+                value: string | Project;
               } | null);
           url?: string | null;
           label: string;
@@ -530,8 +555,8 @@ export interface ContentBlock {
                 value: string | Page;
               } | null)
             | ({
-                relationTo: 'posts';
-                value: string | Post;
+                relationTo: 'projects';
+                value: string | Project;
               } | null);
           url?: string | null;
           label: string;
@@ -553,8 +578,8 @@ export interface ContentBlock {
           value: string | Page;
         } | null)
       | ({
-          relationTo: 'posts';
-          value: string | Post;
+          relationTo: 'projects';
+          value: string | Project;
         } | null);
     url?: string | null;
     label: string;
@@ -573,6 +598,55 @@ export interface MediaBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'mediaBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectsArchiveBlock".
+ */
+export interface ProjectsArchiveBlock {
+  background: 'bg-background' | 'bg-background2' | 'bg-background3';
+  introContent?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  showLoadMore?: boolean | null;
+  loadMoreLink?: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?:
+      | ({
+          relationTo: 'pages';
+          value: string | Page;
+        } | null)
+      | ({
+          relationTo: 'projects';
+          value: string | Project;
+        } | null);
+    url?: string | null;
+    label: string;
+    /**
+     * Choose how the link should be rendered.
+     */
+    appearance?: ('default' | 'outline') | null;
+  };
+  type: 'rectangularOverlys' | 'advanceParallax' | 'basicColumns';
+  populateBy: 'collection' | 'selection';
+  limit?: number | null;
+  selectedDocs?: (string | Project)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectsArchive';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -605,96 +679,6 @@ export interface ArchiveBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'archive';
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "projects".
- */
-export interface Project {
-  id: string;
-  type: 'Web Application' | 'Mobile Application';
-  title: string;
-  description: string;
-  heroImage?: (string | null) | Media;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  links?:
-    | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | ({
-                relationTo: 'pages';
-                value: string | Page;
-              } | null)
-            | ({
-                relationTo: 'posts';
-                value: string | Post;
-              } | null);
-          url?: string | null;
-          label: string;
-          /**
-           * Choose how the link should be rendered.
-           */
-          appearance?: ('default' | 'outline') | null;
-        };
-        id?: string | null;
-      }[]
-    | null;
-  attributes?:
-    | {
-        label: string;
-        value: string;
-        id?: string | null;
-      }[]
-    | null;
-  technologies?: (string | Technology)[] | null;
-  relatedProjects?: (string | Project)[] | null;
-  meta?: {
-    title?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (string | null) | Media;
-    description?: string | null;
-  };
-  publishedAt?: string | null;
-  authors?: (string | User)[] | null;
-  populatedAuthors?:
-    | {
-        id?: string | null;
-        name?: string | null;
-      }[]
-    | null;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "technologies".
- */
-export interface Technology {
-  id: string;
-  title: string;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -950,8 +934,8 @@ export interface BentoGrid {
                 value: string | Page;
               } | null)
             | ({
-                relationTo: 'posts';
-                value: string | Post;
+                relationTo: 'projects';
+                value: string | Project;
               } | null);
           url?: string | null;
           label: string;
@@ -1004,8 +988,8 @@ export interface BentoGrid {
           value: string | Page;
         } | null)
       | ({
-          relationTo: 'posts';
-          value: string | Post;
+          relationTo: 'projects';
+          value: string | Project;
         } | null);
     url?: string | null;
     label: string;
@@ -1037,8 +1021,8 @@ export interface GridBlockComponent {
                 value: string | Page;
               } | null)
             | ({
-                relationTo: 'posts';
-                value: string | Post;
+                relationTo: 'projects';
+                value: string | Project;
               } | null);
           url?: string | null;
           label: string;
@@ -1088,8 +1072,8 @@ export interface GridBlockComponent {
                 value: string | Page;
               } | null)
             | ({
-                relationTo: 'posts';
-                value: string | Post;
+                relationTo: 'projects';
+                value: string | Project;
               } | null);
           url?: string | null;
           label: string;
@@ -1111,8 +1095,8 @@ export interface GridBlockComponent {
           value: string | Page;
         } | null)
       | ({
-          relationTo: 'posts';
-          value: string | Post;
+          relationTo: 'projects';
+          value: string | Project;
         } | null);
     url?: string | null;
     label: string;
@@ -1160,8 +1144,8 @@ export interface Timline {
                 value: string | Page;
               } | null)
             | ({
-                relationTo: 'posts';
-                value: string | Post;
+                relationTo: 'projects';
+                value: string | Project;
               } | null);
           url?: string | null;
           label: string;
@@ -1214,8 +1198,8 @@ export interface Timline {
           value: string | Page;
         } | null)
       | ({
-          relationTo: 'posts';
-          value: string | Post;
+          relationTo: 'projects';
+          value: string | Project;
         } | null);
     url?: string | null;
     label: string;
@@ -1223,6 +1207,72 @@ export interface Timline {
   id?: string | null;
   blockName?: string | null;
   blockType: 'timline';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: string;
+  title: string;
+  heroImage?: (string | null) | Media;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  relatedPosts?: (string | Post)[] | null;
+  categories?: (string | Category)[] | null;
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  authors?: (string | User)[] | null;
+  populatedAuthors?:
+    | {
+        id?: string | null;
+        name?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: string;
+  title: string;
+  parent?: (string | null) | Category;
+  breadcrumbs?:
+    | {
+        doc?: (string | null) | Category;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1542,6 +1592,7 @@ export interface PagesSelect<T extends boolean = true> {
         cta?: T | CallToActionBlockSelect<T>;
         content?: T | ContentBlockSelect<T>;
         mediaBlock?: T | MediaBlockSelect<T>;
+        projectsArchive?: T | ProjectsArchiveBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
         bento?: T | BentoGridSelect<T>;
@@ -1655,6 +1706,31 @@ export interface ContentBlockSelect<T extends boolean = true> {
 export interface MediaBlockSelect<T extends boolean = true> {
   background?: T;
   media?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectsArchiveBlock_select".
+ */
+export interface ProjectsArchiveBlockSelect<T extends boolean = true> {
+  background?: T;
+  introContent?: T;
+  showLoadMore?: T;
+  loadMoreLink?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        url?: T;
+        label?: T;
+        appearance?: T;
+      };
+  type?: T;
+  populateBy?: T;
+  limit?: T;
+  selectedDocs?: T;
   id?: T;
   blockName?: T;
 }
@@ -2359,8 +2435,8 @@ export interface Header {
                 value: string | Page;
               } | null)
             | ({
-                relationTo: 'posts';
-                value: string | Post;
+                relationTo: 'projects';
+                value: string | Project;
               } | null);
           url?: string | null;
           label: string;
@@ -2388,8 +2464,8 @@ export interface Footer {
                 value: string | Page;
               } | null)
             | ({
-                relationTo: 'posts';
-                value: string | Post;
+                relationTo: 'projects';
+                value: string | Project;
               } | null);
           url?: string | null;
           label: string;

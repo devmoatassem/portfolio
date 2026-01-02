@@ -11,6 +11,7 @@ import { cn } from '@/utilities/ui'
 import { BentoGridBlock } from './BentoGrid/Component'
 import { GridBlockComponent } from './Grid/Component'
 import { TimlineBlock } from './Timline/Component'
+import { ProjectsArchiveBlock } from './ProjectsArchiveBlock/Component'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -21,6 +22,7 @@ const blockComponents = {
   bento: BentoGridBlock,
   grid: GridBlockComponent,
   timline: TimlineBlock,
+  projectsArchive: ProjectsArchiveBlock,
 }
 
 export const RenderBlocks: React.FC<{
