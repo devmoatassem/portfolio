@@ -437,45 +437,23 @@ export interface User {
  */
 export interface CallToActionBlock {
   background: 'bg-background' | 'bg-background2' | 'bg-background3';
-  richText?: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  links?:
-    | {
-        link: {
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?:
-            | ({
-                relationTo: 'pages';
-                value: string | Page;
-              } | null)
-            | ({
-                relationTo: 'projects';
-                value: string | Project;
-              } | null);
-          url?: string | null;
-          label: string;
-          /**
-           * Choose how the link should be rendered.
-           */
-          appearance?: ('default' | 'outline') | null;
-        };
-        id?: string | null;
-      }[]
-    | null;
+  specialIndicator?: boolean | null;
+  /**
+   * Text to display as the special indicator. Only applicable if "Special Indicator" is checked.
+   */
+  indicatorText?: string | null;
+  primaryTitle: string;
+  /**
+   * This title will be highlighted differently to draw attention. You can give words a break using a hyphen (-).
+   */
+  secondaryTitle: string;
+  description: string;
+  email?: string | null;
+  actionButton: {
+    buttonLabel: string;
+    buttonURL: string;
+    buttonDescription?: string | null;
+  };
   id?: string | null;
   blockName?: string | null;
   blockType: 'cta';
@@ -1619,21 +1597,18 @@ export interface PagesSelect<T extends boolean = true> {
  */
 export interface CallToActionBlockSelect<T extends boolean = true> {
   background?: T;
-  richText?: T;
-  links?:
+  specialIndicator?: T;
+  indicatorText?: T;
+  primaryTitle?: T;
+  secondaryTitle?: T;
+  description?: T;
+  email?: T;
+  actionButton?:
     | T
     | {
-        link?:
-          | T
-          | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
-              appearance?: T;
-            };
-        id?: T;
+        buttonLabel?: T;
+        buttonURL?: T;
+        buttonDescription?: T;
       };
   id?: T;
   blockName?: T;
