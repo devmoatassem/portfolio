@@ -48,7 +48,7 @@ export const ProjectCard: React.FC<{
       <div className="rounded-full border p-2 absolute top-1 right-1 z-50 opacity-0 group-hover/product:opacity-100 translate-y-4 group-hover/product:translate-y-0 transition-all duration-300 delay-75">
         <MoveUpRight size={16} className="scale-125" />
       </div>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none transition-opacity duration-300 flex flex-col items-center justify-center px-6">
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-background pointer-events-none transition-opacity duration-300 flex flex-col items-center justify-center px-6">
         <h2 className="text-white text-2xl font-bold mb-4  opacity-0 group-hover/product:opacity-100 translate-y-4 group-hover/product:translate-y-0 transition-all duration-300 delay-75">
           {title}
         </h2>

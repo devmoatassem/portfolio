@@ -50,11 +50,11 @@ export const RectangularOverlyCard: React.FC<{
       <div className="flex items-center justify-center w-full h-full z-50 md:mt-5 md:group-hover/product:mt-3 transition-all duration-200 ease-in-out">
         <div className="grid lg:grid-cols-2 items-center lg:items-start gap-8 h-fit lg:w-[90%] mx-auto relative z-50 ">
           <div className="flex items-start gap-8">
-            <span className="text-2xl font-bold">/{formattedIndex}</span>
+            <span className="text-2xl font-bold text-white">/{formattedIndex}</span>
             <div>
               <h2 className="text-white text-4xl font-bold mb-4">{title}</h2>
               {hasTechnologies && (
-                <div className="uppercase text-white text-sm">
+                <div className="uppercase text-foreground text-sm">
                   <div>
                     {displayTechnologies?.map((category, index) => {
                       if (typeof category === 'object') {
