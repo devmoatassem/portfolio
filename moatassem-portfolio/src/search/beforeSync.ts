@@ -4,8 +4,8 @@ export const beforeSyncWithSearch: BeforeSync = async ({ originalDoc, searchDoc 
   const {
     doc: { relationTo: collection },
   } = searchDoc
-  console.log(collection)
-  const { slug, id, categories, title, meta } = originalDoc
+
+  const { slug, id, categories, title, meta, description } = originalDoc
 
   const modifiedDoc: DocToSync = {
     ...searchDoc,

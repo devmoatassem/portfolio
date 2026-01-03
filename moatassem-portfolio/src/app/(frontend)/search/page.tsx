@@ -17,14 +17,14 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
   const { q: query } = await searchParamsPromise
   const payload = await getPayload({ config: configPromise })
 
-  const posts = await payload.find({
+  const results = await payload.find({
     collection: 'search',
     depth: 1,
     limit: 12,
     select: {
       title: true,
       slug: true,
-      categories: true,
+      description: true,
       meta: true,
     },
     // pagination: false reduces overhead if you don't need totalDocs
@@ -35,6 +35,11 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
             or: [
               {
                 title: {
+                  like: query,
+                },
+              },
+              {
+                description: {
                   like: query,
                 },
               },
@@ -58,7 +63,7 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
         }
       : {}),
   })
-  // console.log(posts.docs)
+
   return (
     <div className="pt-24 pb-24">
       <PageClient />
@@ -72,8 +77,8 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
         </div>
       </div>
 
-      {posts.totalDocs > 0 ? (
-        <CollectionArchive data={posts.docs as ArchiveCardData[]} />
+      {results.totalDocs > 0 ? (
+        <CollectionArchive data={results.docs as any} />
       ) : (
         <div className="container">No results found.</div>
       )}

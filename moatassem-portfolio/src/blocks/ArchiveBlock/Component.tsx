@@ -13,7 +13,6 @@ export const ArchiveBlock: React.FC<
 > = async (props) => {
   const {
     id,
-
     introContent,
     limit: limitFromProps,
     populateBy,

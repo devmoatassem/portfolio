@@ -101,15 +101,5 @@ export const ProjectsArchiveBlock: React.FC<
       </div>
     )
   }
-  return (
-    <div className="py-16" id={`block-${id}`}>
-      {introContent && (
-        <div className="container mb-16">
-          <RichText className="ms-0 max-w-[48rem]" data={introContent} enableGutter={false} />
-        </div>
-      )}
-
-      <CollectionArchive data={posts} />
-    </div>
-  )
+  return null
 }
