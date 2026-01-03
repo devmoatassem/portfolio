@@ -29,10 +29,6 @@ export default async function Page() {
     },
   })
 
-  const updatedDocs = projects.docs.map((doc) => ({
-    ...doc,
-    // relationTo: 'projects',
-  }))
   return (
     <div className="pt-24 pb-24">
       <PageClient />
@@ -54,7 +50,7 @@ export default async function Page() {
       <div className={cn('container')}>
         <div>
           <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-y-4 gap-x-4 lg:gap-y-8 lg:gap-x-8 xl:gap-x-8">
-            {updatedDocs?.map((project, index) => {
+            {projects?.docs?.map((project, index) => {
               if (typeof project === 'object' && project !== null) {
                 return (
                   <div className="col-span-4" key={index}>

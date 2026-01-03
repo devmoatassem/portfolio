@@ -403,6 +403,15 @@ export interface Media {
 export interface Technology {
   id: string;
   title: string;
+  parent?: (string | null) | Technology;
+  breadcrumbs?:
+    | {
+        doc?: (string | null) | Technology;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -618,7 +627,7 @@ export interface ProjectsArchiveBlock {
      */
     appearance?: ('default' | 'outline') | null;
   };
-  type: 'rectangularOverlys' | 'advanceParallax' | 'basicColumns';
+  type: 'rectangularOverlys' | 'advanceParallax';
   populateBy: 'collection' | 'selection';
   limit?: number | null;
   selectedDocs?: (string | Project)[] | null;
@@ -1193,6 +1202,7 @@ export interface Timline {
 export interface Post {
   id: string;
   title: string;
+  description: string;
   heroImage?: (string | null) | Media;
   content: {
     root: {
@@ -1324,13 +1334,6 @@ export interface Search {
     description?: string | null;
     image?: (string | null) | Media;
   };
-  categories?:
-    | {
-        relationTo?: string | null;
-        id?: string | null;
-        title?: string | null;
-      }[]
-    | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -1963,6 +1966,7 @@ export interface ProjectsSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  description?: T;
   heroImage?: T;
   content?: T;
   relatedPosts?: T;
@@ -2087,6 +2091,15 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface TechnologiesSelect<T extends boolean = true> {
   title?: T;
+  parent?: T;
+  breadcrumbs?:
+    | T
+    | {
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
@@ -2311,13 +2324,6 @@ export interface SearchSelect<T extends boolean = true> {
         title?: T;
         description?: T;
         image?: T;
-      };
-  categories?:
-    | T
-    | {
-        relationTo?: T;
-        id?: T;
-        title?: T;
       };
   updatedAt?: T;
   createdAt?: T;

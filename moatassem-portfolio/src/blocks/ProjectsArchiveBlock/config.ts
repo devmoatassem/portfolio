@@ -44,7 +44,7 @@ export const ProjectsArchive: Block = {
         },
       },
     }),
-    
+
     {
       name: 'type',
       type: 'select',
@@ -59,10 +59,6 @@ export const ProjectsArchive: Block = {
         {
           label: 'Advance Parallax',
           value: 'advanceParallax',
-        },
-        {
-          label: 'Basic Columns',
-          value: 'basicColumns',
         },
       ],
     },

@@ -1,6 +1,4 @@
 import type { Metadata } from 'next/types'
-
-import { CollectionArchive } from '@/components/CollectionArchive'
 import { PageRange } from '@/components/PageRange'
 import { Pagination } from '@/components/Pagination'
 import configPromise from '@payload-config'
@@ -8,6 +6,8 @@ import { getPayload } from 'payload'
 import React from 'react'
 import PageClient from './page.client'
 import { notFound } from 'next/navigation'
+import { ProjectCard } from '@/components/ProjectCard'
+import { cn } from '@/utilities/ui'
 
 export const revalidate = 600
 
@@ -25,40 +25,52 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   if (!Number.isInteger(sanitizedPageNumber)) notFound()
 
-  const posts = await payload.find({
+  const projects = await payload.find({
     collection: 'projects',
     depth: 1,
     limit: 12,
     page: sanitizedPageNumber,
     overrideAccess: false,
   })
-  const updatedDocs = posts.docs.map((doc) => ({
-    ...doc,
-    relationTo: 'projects',
-  }))
+
   return (
     <div className="pt-24 pb-24">
       <PageClient />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
+          <h1>Projects</h1>
         </div>
       </div>
 
       <div className="container mb-8">
         <PageRange
           collection="projects"
-          currentPage={posts.page}
+          currentPage={projects.page}
           limit={12}
-          totalDocs={posts.totalDocs}
+          totalDocs={projects.totalDocs}
         />
       </div>
 
-      <CollectionArchive data={updatedDocs} />
+      <div className={cn('container')}>
+        <div>
+          <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-y-4 gap-x-4 lg:gap-y-8 lg:gap-x-8 xl:gap-x-8">
+            {projects?.docs?.map((project, index) => {
+              if (typeof project === 'object' && project !== null) {
+                return (
+                  <div className="col-span-4" key={index}>
+                    <ProjectCard data={project} />
+                  </div>
+                )
+              }
+              return null
+            })}
+          </div>
+        </div>
+      </div>
 
       <div className="container">
-        {posts?.page && posts?.totalPages > 1 && (
-          <Pagination page={posts.page} totalPages={posts.totalPages} />
+        {projects.totalPages > 1 && projects.page && (
+          <Pagination page={projects.page} totalPages={projects.totalPages} />
         )}
       </div>
     </div>
