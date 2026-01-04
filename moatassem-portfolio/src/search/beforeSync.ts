@@ -16,7 +16,7 @@ export const beforeSyncWithSearch: BeforeSync = async ({ originalDoc, searchDoc 
       image: meta?.image?.id || meta?.image,
       description: meta?.description,
     },
-    categories: [],
+    description: description,
   }
 
   if (categories && Array.isArray(categories) && categories.length > 0) {

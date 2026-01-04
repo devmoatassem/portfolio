@@ -1,13 +1,4 @@
 import type { Block } from 'payload'
-
-import {
-  FixedToolbarFeature,
-  HeadingFeature,
-  InlineToolbarFeature,
-  lexicalEditor,
-} from '@payloadcms/richtext-lexical'
-
-import { linkGroup } from '../../fields/linkGroup'
 import { backgroundField } from '../common-fields/background'
 
 export const CallToAction: Block = {

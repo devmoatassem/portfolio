@@ -3,7 +3,7 @@
 import type React from 'react'
 import type { CallToActionBlock as CTABlockProps } from '@/payload-types'
 import { useState } from 'react'
-import { ArrowUpRight, Calendar } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 
 export const CallToActionFlow: React.FC<CTABlockProps> = (props) => {
   const [isHovered, setIsHovered] = useState(false)

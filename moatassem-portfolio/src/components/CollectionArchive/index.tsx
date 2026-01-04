@@ -3,7 +3,6 @@ import React from 'react'
 
 import { ArchiveCardData } from '@/components/Card'
 import { ProductCard } from '../ui/hero-parallax'
-import { ProjectCard } from '../ProjectCard'
 
 export type Props = {
   data: (ArchiveCardData & { relationTo?: string })[]
