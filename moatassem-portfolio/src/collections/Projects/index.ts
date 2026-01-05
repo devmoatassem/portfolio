@@ -82,7 +82,7 @@ export const Projects: CollectionConfig<'projects'> = {
         },
       ],
       required: true,
-      defaultValue: 'web-application',
+      defaultValue: 'Web Application',
     },
     {
       name: 'title',
