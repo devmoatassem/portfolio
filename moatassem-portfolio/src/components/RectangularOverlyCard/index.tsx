@@ -37,7 +37,7 @@ export const RectangularOverlyCard: React.FC<{
         transition: { type: 'spring', stiffness: 300, damping: 25 },
       }}
     >
-      <Link href={href} className="block group-hover/product:shadow-2xl">
+      <Link href={href} className="block group-hover/product:shadow-2xl cursor-default">
         {!heroImage && <div className="">No image</div>}
         {heroImage && typeof heroImage !== 'string' && (
           <Media
@@ -46,7 +46,7 @@ export const RectangularOverlyCard: React.FC<{
           />
         )}
       </Link>
-      <div className="absolute inset-0 h-full w-full opacity-70 group-hover/product:opacity-0 bg-black pointer-events-none transition-opacity duration-300 flex flex-col items-center justify-center px-6" />
+      <div className="absolute inset-0 h-full w-full opacity-75 group-hover/product:opacity-25 bg-black pointer-events-none transition-opacity duration-300 flex flex-col items-center justify-center px-6" />
       <div className="flex items-center justify-center w-full h-full z-50 md:mt-5 md:group-hover/product:mt-3 transition-all duration-200 ease-in-out">
         <div className="grid lg:grid-cols-2 items-center lg:items-start gap-8 h-fit lg:w-[90%] mx-auto relative z-50 ">
           <div className="flex items-start gap-8">

@@ -22,8 +22,8 @@ export default async function Page() {
     select: {
       title: true,
       slug: true,
+      heroImage: true,
       technologies: true,
-      meta: true,
       type: true,
       description: true,
     },
