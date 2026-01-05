@@ -10,7 +10,7 @@ import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { FixedToolbarFeature, HeadingFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import { searchFields } from '@/search/fieldOverrides'
 import { beforeSyncWithSearch } from '@/search/beforeSync'
-
+import { cloudinaryStorage } from 'payload-cloudinary'
 import { Page, Post } from '@/payload-types'
 import { getServerSideURL } from '@/utilities/getURL'
 
@@ -90,5 +90,57 @@ export const plugins: Plugin[] = [
       },
     },
   }),
-  payloadCloudPlugin(),
+  // payloadCloudPlugin(),
+  cloudinaryStorage({
+    config: {
+      cloud_name: process.env.CLOUDINARY_CLOUD_NAME || '',
+      api_key: process.env.CLOUDINARY_API_KEY || '',
+      api_secret: process.env.CLOUDINARY_API_SECRET || '',
+    },
+    collections: {
+      media: true, // Enable for media collection
+      // Add more collections as needed
+    },
+    folder: 'payload-media', // Optional, defaults to 'payload-media'
+    disableLocalStorage: true, // Optional, defaults to true
+    enabled: true, // Optional, defaults to true
+    publicID: {
+      enabled: true,
+      useFilename: true,
+      uniqueFilename: false, // Let Cloudinary handle uniqueness via unique_filename option
+      generatePublicID: (filename, prefix, folder) => {
+        // Keep original filename structure (spaces, case) to match staticHandler exactly
+        const nameWithoutExt = filename.replace(/\.[^/.]+$/, '')
+
+        // Minimal sanitization - only remove truly invalid characters
+        const sanitizedName = nameWithoutExt
+          .replace(/[<>:"|?*\x00-\x1f]/g, '-')
+          .replace(/\/+/g, '-')
+          .replace(/\\+/g, '-')
+          .trim()
+
+        // Filter out empty, dot, or invalid prefixes
+        const validPrefix =
+          prefix && prefix !== '.' && prefix.trim() !== ''
+            ? prefix
+                .replace(/[<>:"|?*\x00-\x1f]/g, '-')
+                .replace(/\/+/g, '-')
+                .trim()
+            : ''
+
+        const prefixPath = validPrefix ? `${validPrefix}/` : ''
+
+        // NO timestamp - match staticHandler exactly
+        // Cloudinary's unique_filename option will handle collisions
+        const publicId = `${folder}/${prefixPath}${sanitizedName}`
+          .replace(/\/\.\//g, '/')
+          .replace(/^\.\//, '')
+          .replace(/\/\.$/, '')
+          .replace(/\/+/g, '/')
+          .replace(/^\/|\/$/g, '')
+
+        return publicId
+      },
+    },
+  }),
 ]
