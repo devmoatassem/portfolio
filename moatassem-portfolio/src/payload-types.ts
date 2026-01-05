@@ -233,7 +233,7 @@ export interface Project {
   type: 'Web Application' | 'Mobile Application';
   title: string;
   description: string;
-  heroImage?: (string | null) | Media;
+  heroImage: string | Media;
   content: {
     root: {
       type: string;
@@ -1264,7 +1264,7 @@ export interface Post {
   id: string;
   title: string;
   description: string;
-  heroImage?: (string | null) | Media;
+  heroImage: string | Media;
   content: {
     root: {
       type: string;
@@ -1390,11 +1390,9 @@ export interface Search {
         value: string | Project;
       };
   slug?: string | null;
-  meta?: {
-    title?: string | null;
-    description?: string | null;
-    image?: (string | null) | Media;
-  };
+  description?: string | null;
+  heroImage?: (string | null) | Media;
+  relationTo?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -2397,13 +2395,9 @@ export interface SearchSelect<T extends boolean = true> {
   priority?: T;
   doc?: T;
   slug?: T;
-  meta?:
-    | T
-    | {
-        title?: T;
-        description?: T;
-        image?: T;
-      };
+  description?: T;
+  heroImage?: T;
+  relationTo?: T;
   updatedAt?: T;
   createdAt?: T;
 }

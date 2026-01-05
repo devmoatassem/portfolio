@@ -86,6 +86,7 @@ export const Posts: CollectionConfig<'posts'> = {
               name: 'heroImage',
               type: 'upload',
               relationTo: 'media',
+              required: true
             },
             {
               name: 'content',

@@ -104,6 +104,7 @@ export const Projects: CollectionConfig<'projects'> = {
               name: 'heroImage',
               type: 'upload',
               relationTo: 'media',
+              required:true
             },
             {
               name: 'content',

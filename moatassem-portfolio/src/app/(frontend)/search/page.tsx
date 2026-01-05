@@ -1,11 +1,10 @@
 import type { Metadata } from 'next/types'
-
-import { CollectionArchive } from '@/components/CollectionArchive'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
 import { Search } from '@/search/Component'
 import PageClient from './page.client'
+import { SearchResults } from '@/components/SearchResults'
 
 type Args = {
   searchParams: Promise<{
@@ -19,12 +18,13 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
   const results = await payload.find({
     collection: 'search',
     depth: 1,
-    limit: 12,
+    limit: 4,
     select: {
       title: true,
       slug: true,
       description: true,
-      meta: true,
+      heroImage: true,
+      relationTo: true,
     },
     // pagination: false reduces overhead if you don't need totalDocs
     pagination: false,
@@ -64,11 +64,11 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
   })
 
   return (
-    <div className="pt-24 pb-24">
+    <div className="py-20">
       <PageClient />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-none text-center">
-          <h1 className="mb-8 lg:mb-16">Search</h1>
+          <h1 className="mb-8 lg:mb-16 text-3xl md:text-4xl lg:text-5xl">Search</h1>
 
           <div className="max-w-[50rem] mx-auto">
             <Search />
@@ -76,8 +76,8 @@ export default async function Page({ searchParams: searchParamsPromise }: Args) 
         </div>
       </div>
 
-      {results.totalDocs > 0 ? (
-        <CollectionArchive data={results.docs as any} />
+      {Array.isArray(results.docs) && results.docs.length > 0 ? (
+        <SearchResults data={results.docs} />
       ) : (
         <div className="container">No results found.</div>
       )}
