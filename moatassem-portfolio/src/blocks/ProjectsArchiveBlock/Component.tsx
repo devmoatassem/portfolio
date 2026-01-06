@@ -4,8 +4,9 @@ import { getPayload } from 'payload'
 import React from 'react'
 import { RichText } from '@/components/RichText'
 import { HeroParallax } from '@/components/ui/hero-parallax'
-import { ProjectsOverlyArchive } from '@/components/ProjectsOverlyArchive'
 import { CMSLink } from '@/components/Link'
+import { cn } from '@/utilities/ui'
+import { RectangularOverlyCard } from '@/components/RectangularOverlyCard'
 
 export const ProjectsArchiveBlock: React.FC<
   ArchiveBlockProps & {
@@ -96,7 +97,17 @@ export const ProjectsArchiveBlock: React.FC<
             <CMSLink {...loadMoreLink} />
           </div>
         )}
-        <ProjectsOverlyArchive data={posts} />
+        <div className={cn('container')}>
+          {posts?.map((result, index) => {
+            if (typeof result === 'object' && result !== null) {
+              return (
+                <div className="col-span-4" key={index}>
+                  <RectangularOverlyCard data={result as any} index={index} />
+                </div>
+              )
+            }
+          })}
+        </div>
       </div>
     )
   }

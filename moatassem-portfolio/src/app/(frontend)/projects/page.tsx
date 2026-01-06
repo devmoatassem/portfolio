@@ -34,13 +34,13 @@ export default async function Page() {
       <PageClient />
       <div className="container mb-16">
         <div className="prose dark:prose-invert max-w-none">
-          <h1>Projects</h1>
+          <h1 className="mb-8 lg:mb-16 text-3xl md:text-4xl lg:text-5xl">Projects</h1>
         </div>
       </div>
 
       <div className="container mb-8">
         <PageRange
-          collection="posts"
+          collection="projects"
           currentPage={projects.page}
           limit={12}
           totalDocs={projects.totalDocs}
@@ -49,11 +49,11 @@ export default async function Page() {
 
       <div className={cn('container')}>
         <div>
-          <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-y-4 gap-x-4 lg:gap-y-8 lg:gap-x-8 xl:gap-x-8">
+          <div className="divide-y">
             {projects?.docs?.map((project, index) => {
               if (typeof project === 'object' && project !== null) {
                 return (
-                  <div className="col-span-4" key={index}>
+                  <div className="py-8" key={index}>
                     <ProjectCard data={project} />
                   </div>
                 )
