@@ -1,10 +1,9 @@
 'use client'
-
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -18,21 +17,27 @@ import { Logo } from '@/components/Logo/Logo'
 
 export const HeaderNav: React.FC<{ data: HeaderType }> = ({ data }) => {
   const navItems = data?.navItems || []
+  const pathname = usePathname()
+  const [open, setOpen] = useState(false)
 
+  useEffect(() => {
+    // close sheet whenever the route changes
+    setOpen(false)
+  }, [pathname])
   return (
-    <nav className="flex gap-3 items-center">
-      <Sheet>
-        <SheetTrigger className="md:hidden">
+    <nav className="flex gap-3 items-center relative z-[1000]">
+      <Sheet open={open} onOpenChange={setOpen}>
+        <SheetTrigger className="md:hidden text-primary">
           <Menu />
         </SheetTrigger>
-        <SheetContent>
+        <SheetContent className='z-[1000]'>
           <SheetHeader>
             <SheetTitle>
               <Link href="/">
                 <Logo loading="eager" priority="high" />
               </Link>
             </SheetTitle>
-            <SheetDescription>Navigation Menu</SheetDescription>
+
           </SheetHeader>
           <div className="flex flex-col mt-8 divide-y border">
             {navItems.map(({ link }, i) => {
