@@ -23,7 +23,7 @@ const Marquee = (props: MarqueeProps) => {
 
   const maskDirection = direction === 'left' ? 'to right' : 'to bottom'
   const mask = fade
-    ? `linear-gradient(${maskDirection}, transparent 0%, rgba(0, 0, 0, 1.0) 10%, rgba(0, 0, 0, 1.0) 90%, transparent 100%)`
+    ? `linear-gradient(${maskDirection}, transparent 0%, var(--background) 10%, var(--background) 90%, transparent 100%)`
     : undefined
 
   return (
