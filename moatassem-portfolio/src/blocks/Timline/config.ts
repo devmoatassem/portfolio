@@ -9,7 +9,8 @@ import {
   InlineToolbarFeature,
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
-import { GridBlock } from '../Grid/config'
+// import { GridBlock } from '../Grid/config'
+// import { MediaBlock } from '../MediaBlock/config'
 
 const eventsFields: Field[] = [
   {
@@ -30,9 +31,10 @@ const eventsFields: Field[] = [
           HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
           FixedToolbarFeature(),
           InlineToolbarFeature(),
-          BlocksFeature({
-            blocks: [GridBlock],
-          }),
+          // BlocksFeature({
+          //   blocks: [GridBlock, MediaBlock],
+          // }),
+          
         ]
       },
     }),
