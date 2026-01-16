@@ -3,7 +3,7 @@ import { link } from '@/fields/link'
 import { backgroundField } from '../common-fields/background'
 import { fieldChoice, richTextBasic } from '../common-fields/fieldChoice'
 import {
-  BlocksFeature,
+  // BlocksFeature,
   FixedToolbarFeature,
   HeadingFeature,
   InlineToolbarFeature,
