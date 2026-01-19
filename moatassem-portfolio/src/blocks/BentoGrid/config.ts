@@ -18,7 +18,7 @@ const columnFields: Field[] = [
     defaultValue: 'oneThird',
     options: Array.from({ length: 12 }, (_, i) => ({
       label: `Col Span ${i + 1}`,
-      value: `md:col-span-${i + 1}`,
+      value: `lg:col-span-${i + 1}`,
     })),
     required: true,
   },
