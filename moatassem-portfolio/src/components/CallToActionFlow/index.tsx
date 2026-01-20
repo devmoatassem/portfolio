@@ -204,18 +204,19 @@ export const CallToActionFlow: React.FC<CTABlockProps> = (props) => {
 
             <div className="relative mt-4 flex size-16 items-center justify-center sm:size-20">
               <div
-                className="pointer-events-none absolute inset-0 rounded-full border transition-all ease-out"
+                className="pointer-events-none absolute inset-0 rounded-full border transition-all ease-out border-muted-foreground/60"
                 style={{
-                  borderColor: isClicked
-                    ? 'var(--foreground)'
-                    : isHovered
-                      ? 'var(--foreground)'
-                      : 'var(--border)',
+                  // borderColor: isClicked
+                  //   ? 'var(--border)'
+                  //   : isHovered
+                  //     ? 'var(--border)'
+                  //     : 'var(--border)',
                   backgroundColor: isClicked
                     ? 'transparent'
                     : isHovered
                       ? 'var(--foreground)'
                       : 'transparent',
+                  borderWidth: isClicked ? '2px' : '2px',
                   transform: isClicked ? 'scale(3)' : isHovered ? 'scale(1.1)' : 'scale(1)',
                   opacity: isClicked ? 0 : 1,
                   transitionDuration: isClicked ? '700ms' : '500ms',
