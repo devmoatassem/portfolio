@@ -48,7 +48,7 @@
     "cross-env": "^7.0.3",
     "geist": "^1.3.0",
     "graphql": "^16.8.2",
-    "lucide-react": "^0.378.0",
+    "lucide-react": "^v0.562.0",
     "motion": "^12.9.2",
     "next": "^15.5.9",
     "next-sitemap": "^4.2.3",

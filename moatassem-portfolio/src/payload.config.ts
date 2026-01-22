@@ -50,6 +50,9 @@ export default buildConfig({
         },
       ],
     },
+    components: {
+      beforeDashboard: ['@/components/ClearCacheButton/ClearCacheButton#ClearCacheButton'],
+    },
   },
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
@@ -59,10 +62,7 @@ export default buildConfig({
   collections: [Pages, Projects, Posts, Media, Technologies, Categories, Users],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
-  plugins: [
-    ...plugins,
-    
-  ],
+  plugins: [...plugins],
   secret: process.env.PAYLOAD_SECRET,
   sharp,
   typescript: {
