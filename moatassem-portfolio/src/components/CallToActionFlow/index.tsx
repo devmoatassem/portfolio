@@ -23,13 +23,13 @@ export const CallToActionFlow: React.FC<CTABlockProps> = (props) => {
   const handleBookCall = () => {
     window.open(`${actionButton.buttonURL}`, '_blank')
   }
-    const [primaryTitle1, primaryTitle2] = props.primaryTitle.split(' - ')
-    const [secondaryTitle1, secondaryTitle2] = props.secondaryTitle.split(' - ')
+  const [primaryTitle1, primaryTitle2] = props.primaryTitle.split(' - ')
+  const [secondaryTitle1, secondaryTitle2] = props.secondaryTitle.split(' - ')
   return (
     <section className="flex min-h-screen items-center justify-center px-6">
       <div className="relative flex flex-col items-center gap-12">
         <div
-          className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+          className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-8 transition-all duration-700 ease-&lsqb;cubic-bezier(0.16,1,0.3,1)&rsqb;"
           style={{
             opacity: showSuccess ? 1 : 0,
             transform: showSuccess ? 'translateY(0) scale(1)' : 'translateY(20px) scale(0.95)',
@@ -174,7 +174,7 @@ export const CallToActionFlow: React.FC<CTABlockProps> = (props) => {
         >
           <div className="flex flex-col items-center gap-6">
             <h2
-              className="relative text-center text-5xl font-light tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="relative text-center text-5xl font-light tracking-tight text-foreground sm:text-6xl md:text-7xl lg:text-8xl transition-all duration-700 ease-&lsqb;cubic-bezier(0.16,1,0.3,1)&rsqb;"
               style={{
                 opacity: isClicked ? 0 : 1,
                 transform: isClicked ? 'translateY(-40px) scale(0.95)' : 'translateY(0) scale(1)',
@@ -182,7 +182,7 @@ export const CallToActionFlow: React.FC<CTABlockProps> = (props) => {
             >
               <span className="block overflow-hidden">
                 <span
-                  className="block transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                  className="block transition-transform duration-700 ease-&lsqb;cubic-bezier(0.16,1,0.3,1)&rsqb;"
                   style={{
                     transform: isHovered && !isClicked ? 'translateY(-8%)' : 'translateY(0)',
                   }}
@@ -192,25 +192,25 @@ export const CallToActionFlow: React.FC<CTABlockProps> = (props) => {
               </span>
               <span className="block overflow-hidden">
                 <span
-                  className="block transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] delay-75"
+                  className="block transition-transform duration-700 ease-&lsqb;cubic-bezier(0.16,1,0.3,1)&rsqb; delay-75"
                   style={{
                     transform: isHovered && !isClicked ? 'translateY(-8%)' : 'translateY(0)',
                   }}
                 >
-                  <span className="text-muted-foreground/60">{primaryTitle2}</span>
+                  <span className="text-muted-foreground">{primaryTitle2}</span>
                 </span>
               </span>
             </h2>
 
             <div className="relative mt-4 flex size-16 items-center justify-center sm:size-20">
               <div
-                className="pointer-events-none absolute inset-0 rounded-full border transition-all ease-out border-muted-foreground/60"
+                className="pointer-events-none absolute inset-0 rounded-full border transition-all ease-out "
                 style={{
-                  // borderColor: isClicked
-                  //   ? 'var(--border)'
-                  //   : isHovered
-                  //     ? 'var(--border)'
-                  //     : 'var(--border)',
+                  borderColor: isClicked
+                    ? 'var(--border)'
+                    : isHovered
+                      ? 'var(--border)'
+                      : 'var(--border)',
                   backgroundColor: isClicked
                     ? 'transparent'
                     : isHovered
@@ -223,7 +223,7 @@ export const CallToActionFlow: React.FC<CTABlockProps> = (props) => {
                 }}
               />
               <ArrowUpRight
-                className="size-6 transition-all ease-[cubic-bezier(0.16,1,0.3,1)] sm:size-7"
+                className="size-6 transition-all ease-&lsqb;cubic-bezier(0.16,1,0.3,1)&rsqb; sm:size-7"
                 style={{
                   transform: isClicked
                     ? 'translate(100px, -100px) scale(0.5)'
