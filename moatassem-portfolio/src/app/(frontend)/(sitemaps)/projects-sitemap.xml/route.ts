@@ -33,10 +33,10 @@ const getProjectsSitemap = unstable_cache(
 
     const sitemap = results.docs
       ? results.docs
-          .filter((post) => Boolean(post?.slug))
-          .map((post) => ({
-            loc: `${SITE_URL}/projects/${post?.slug}`,
-            lastmod: post.updatedAt || dateFallback,
+          .filter((project) => Boolean(project?.slug))
+          .map((project) => ({
+            loc: `${SITE_URL}/projects/${project?.slug}`,
+            lastmod: project.updatedAt || dateFallback,
           }))
       : []
 
