@@ -3,10 +3,11 @@ import { getServerSideURL } from './getURL'
 
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
-  description: 'Top-tier web development services specializing in React, Next.js, and modern web technologies.',
+  description:
+    'Top-tier web development services specializing in React, Next.js, and modern web technologies.',
   images: [
     {
-      url: `${getServerSideURL()}/website-template-OG.webp`,
+      url: `${getServerSideURL()}/og-banner.webp`,
     },
   ],
   siteName: 'Moatassem',
