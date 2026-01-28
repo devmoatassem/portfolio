@@ -10,4 +10,4 @@ node_modules
 public/media/
 
 public/robots.txt
-# public/sitemap*.xml
+public/sitemap*.xml
