@@ -39,12 +39,12 @@ export const ProjectCard: React.FC<{
 
           {description && (
             <div className="text-muted-foreground mb-4 ">
-              <p className="line-clamp-2">{sanitizedDescription}</p>
+              <p className="line-clamp-6">{sanitizedDescription}</p>
             </div>
           )}
 
           {hasTechnologies && (
-            <div className="uppercase text-foreground text-sm ">
+            <div className="text-foreground text-sm ">
               <div>
                 {displayTechnologies?.map((category, index) => {
                   if (typeof category === 'object') {
