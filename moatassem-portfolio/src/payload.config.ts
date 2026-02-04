@@ -53,6 +53,13 @@ export default buildConfig({
     components: {
       beforeDashboard: ['@/components/ClearCacheButton/ClearCacheButton#ClearCacheButton'],
     },
+
+    meta: {
+      title: 'Moatassem', // This changes the browser tab title
+      // You can also add a suffix to all pages
+      titleSuffix: '- Admin',
+    },
+    
   },
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
