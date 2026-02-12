@@ -6,6 +6,7 @@ async function syncMongoDB() {
   const targetUri = process.env.TARGET_MONGODB_URI;
   const sourceDbName = process.env.SOURCE_DB_NAME;
   const targetDbName = process.env.TARGET_DB_NAME;
+  const specificCollection = process.env.COLLECTION_NAME; // New: optional specific collection
 
   if (!sourceUri || !targetUri || !sourceDbName || !targetDbName) {
     console.error('❌ Missing required environment variables');
@@ -25,13 +26,22 @@ async function syncMongoDB() {
     await targetClient.connect();
     const targetDb = targetClient.db(targetDbName);
 
-    console.log('📋 Getting collections list...');
-    const collections = await sourceDb.listCollections().toArray();
-    console.log(`Found ${collections.length} collections\n`);
+    let collectionsToSync;
+
+    if (specificCollection) {
+      // Sync only the specified collection
+      console.log(`🎯 Syncing specific collection: ${specificCollection}\n`);
+      collectionsToSync = [{ name: specificCollection }];
+    } else {
+      // Sync all collections
+      console.log('📋 Getting collections list...');
+      collectionsToSync = await sourceDb.listCollections().toArray();
+      console.log(`Found ${collectionsToSync.length} collections\n`);
+    }
 
     const syncResults = [];
 
-    for (const collInfo of collections) {
+    for (const collInfo of collectionsToSync) {
       const collName = collInfo.name;
       console.log(`📦 Syncing collection: ${collName}`);
 
@@ -92,7 +102,6 @@ async function syncMongoDB() {
       console.log('Failed Collections:');
       failed.forEach(r => console.log(`  - ${r.collection}: ${r.error}`));
     }
-
   } catch (error) {
     console.error('❌ Fatal Error:', error.message);
     process.exit(1);
