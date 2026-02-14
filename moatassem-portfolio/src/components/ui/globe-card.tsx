@@ -36,7 +36,7 @@ export const GlobeCard: React.FC = () => {
       width: width * 2,
       height: width * 2,
       phi: 0,
-      theta: 0,
+      theta: 0.3,
       dark: 1,
       diffuse: 2,
       mapSamples: 12_000,
@@ -44,10 +44,10 @@ export const GlobeCard: React.FC = () => {
       baseColor: [0.8, 0.8, 0.8],
       markerColor: [1, 1, 1],
       glowColor: [0.5, 0.5, 0.5],
-      markers: [{ location: [22.3193, 114.1694], size: 0.1 }],
+      markers: [{ location: [30.3753, 69.3451], size: 0.1 }],
       scale: 1.05,
       onRender: (state) => {
-        state.phi = 2.75 + r.get()
+        state.phi = 3.55 + r.get()
         state.width = width * 2
         state.height = width * 2
       },
