@@ -97,14 +97,10 @@ export const ProjectsArchiveBlock: React.FC<
             <CMSLink {...loadMoreLink} />
           </div>
         )}
-        <div className={cn('container')}>
+        <div className={cn('container space-y-5')}>
           {posts?.map((result, index) => {
             if (typeof result === 'object' && result !== null) {
-              return (
-                <div className="col-span-4" key={index}>
-                  <RectangularOverlyCard data={result as any} index={index} />
-                </div>
-              )
+              return <RectangularOverlyCard data={result as any} key={index} index={index} />
             }
           })}
         </div>
