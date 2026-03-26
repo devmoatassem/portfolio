@@ -37,7 +37,8 @@ export const BackgroundCells = ({ children, className, readOnly }: BackgroundCel
 }
 
 const BackgroundCellCore = () => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [mousePosition, setMousePosition] = useState({ x: -1000, y: -1000 })
+  const [clickedCell, setClickedCell] = useState<{ x: number; y: number; id: number }[]>([])
   const ref = useRef<HTMLDivElement>(null)
 
   const handleMouseMove = (event: React.MouseEvent) => {
@@ -49,107 +50,104 @@ const BackgroundCellCore = () => {
       })
     }
   }
+
+  const handleMouseLeave = () => {
+    setMousePosition({ x: -1000, y: -1000 })
+  }
+
+  const handleClick = (event: React.MouseEvent) => {
+    const rect = ref.current?.getBoundingClientRect()
+    if (rect) {
+      const x = Math.floor((event.clientX - rect.left) / 48)
+      const y = Math.floor((event.clientY - rect.top) / 48)
+      const newId = Date.now()
+      
+      setClickedCell(prev => [...prev, { x, y, id: newId }])
+      
+      setTimeout(() => {
+        setClickedCell(prev => prev.filter(cell => cell.id !== newId))
+      }, 1000)
+    }
+  }
+
   const size = 300
   return (
     <div className="h-full absolute inset-0 w-full">
       <div
         ref={ref}
         onMouseMove={handleMouseMove}
-        className="absolute h-full inset-y-0 overflow-hidden w-full"
+        onMouseLeave={handleMouseLeave}
+        onClick={handleClick}
+        className="absolute h-full inset-y-0 overflow-hidden w-full cursor-pointer"
       >
         <div className="absolute h-full w-full pointer-events-none -bottom-2 z-30 bg-neutral-950 [mask-image:linear-gradient(to_bottom,transparent,black)]" />
+        
+        {/* Glow revealed by mouse */}
         <div
-          className="absolute inset-0 z-10 bg-transparent"
+          className="absolute inset-0 z-10 bg-transparent transition-opacity duration-300"
           style={{
             maskImage: `radial-gradient(${size / 4}px circle at center, white, transparent)`,
             WebkitMaskImage: `radial-gradient(${size / 4}px circle at center, white, transparent)`,
-            WebkitMaskPosition: `${mousePosition.x - (size / 2)}px ${mousePosition.y - (size)-70}px`,
+            WebkitMaskPosition: `${mousePosition.x - size / 2}px ${mousePosition.y - size / 2}px`,
             WebkitMaskSize: `${size}px`,
             maskSize: `${size}px`,
             pointerEvents: 'none',
             maskRepeat: 'no-repeat',
             WebkitMaskRepeat: 'no-repeat',
+            opacity: mousePosition.x !== -1000 ? 1 : 0,
           }}
         >
-          <Pattern cellClassName="border-blue-600 relative z-[100]" />
+          {/* Blue grid inside mouse glow */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'linear-gradient(to right, rgba(37,99,235,0.5) 1px, transparent 1px), linear-gradient(to bottom, rgba(37,99,235,0.5) 1px, transparent 1px)',
+              backgroundSize: '48px 48px',
+            }}
+          />
         </div>
-        <Pattern className="opacity-[0.5]" cellClassName="border-neutral-700" />
+        
+        {/* Neutral background grid, perfectly infinite */}
+        <div 
+          className="absolute inset-0 opacity-[0.5]"
+          style={{
+            backgroundImage: 'linear-gradient(to right, rgba(82,82,82,0.4) 1px, transparent 1px), linear-gradient(to bottom, rgba(82,82,82,0.4) 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+          }}
+        />
+
+        {/* Hover highlight block */}
+        <div
+          className="absolute pointer-events-none transition-all duration-150 ease-out bg-[rgba(14,165,233,0.3)]"
+          style={{
+            left: `${Math.floor(mousePosition.x / 48) * 48}px`,
+            top: `${Math.floor(mousePosition.y / 48) * 48}px`,
+            width: '48px',
+            height: '48px',
+            opacity: mousePosition.x !== -1000 ? 1 : 0,
+          }}
+        />
+
+        {/* Click ripple effects */}
+        {clickedCell.map((cell) => (
+          <div
+            key={cell.id}
+            className="absolute pointer-events-none"
+            style={{
+              left: `${cell.x * 48 + 24}px`,
+              top: `${cell.y * 48 + 24}px`,
+            }}
+          >
+            <motion.div
+              initial={{ width: 0, height: 0, opacity: 0.8 }}
+              animate={{ width: 500, height: 500, opacity: 0 }}
+              transition={{ duration: 1, ease: 'easeOut' }}
+              className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full border border-sky-400 bg-sky-400/20"
+            />
+          </div>
+        ))}
       </div>
     </div>
   )
 }
-// New component to handle individual cells with hooks
-interface PatternCellProps {
-  rowIdx: number
-  colIdx: number
-  clickedCell: [number, number] | null
-  setClickedCell: (cell: [number, number] | null) => void
-  cellClassName?: string
-}
 
-const PatternCell = ({
-  rowIdx,
-  colIdx,
-  clickedCell,
-  setClickedCell,
-  cellClassName,
-}: PatternCellProps) => {
-  const controls = useAnimation()
-
-  useEffect(() => {
-    if (clickedCell) {
-      const distance = Math.sqrt(
-        Math.pow(clickedCell[0] - rowIdx, 2) + Math.pow(clickedCell[1] - colIdx, 2),
-      )
-      controls.start({
-        opacity: [0, 1 - distance * 0.1, 0],
-        transition: { duration: distance * 0.2 },
-      })
-    }
-  }, [clickedCell, controls, rowIdx, colIdx])
-
-  return (
-    <div
-      className={cn('bg-transparent border-l border-b border-neutral-600', cellClassName)}
-      onClick={() => setClickedCell([rowIdx, colIdx])}
-    >
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileHover={{ opacity: [0, 1, 0.5] }}
-        transition={{ duration: 0.5, ease: 'backOut' }}
-        animate={controls}
-        className="bg-[rgba(14,165,233,0.3)] h-12 w-12"
-      />
-    </div>
-  )
-}
-interface PatternProps {
-  className?: string
-  cellClassName?: string
-}
-
-const Pattern = ({ className, cellClassName }: PatternProps) => {
-  const x = new Array(47).fill(0)
-  const y = new Array(30).fill(0)
-  const matrix = x.map((_, i) => y.map((_, j) => [i, j]))
-  const [clickedCell, setClickedCell] = useState<[number, number] | null>(null)
-
-  return (
-    <div className={cn('flex flex-row relative z-20 mx-auto w-fit', className)}>
-      {matrix.map((row, rowIdx) => (
-        <div key={`matrix-row-${rowIdx}`} className="flex flex-col relative z-10 border-b">
-          {row.map((_, colIdx) => (
-            <PatternCell
-              key={`pattern-cell-${rowIdx}-${colIdx}`}
-              rowIdx={rowIdx}
-              colIdx={colIdx}
-              clickedCell={clickedCell}
-              setClickedCell={setClickedCell}
-              cellClassName={cellClassName}
-            />
-          ))}
-        </div>
-      ))}
-    </div>
-  )
-}
