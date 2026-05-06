@@ -11,7 +11,7 @@ import {
 import type { Header as HeaderType } from '@/payload-types'
 
 import { CMSLink } from '@/components/Link'
-import Link from 'next/link'
+import { AppLink as Link } from '@/components/AppLink'
 import { Menu, SearchIcon } from 'lucide-react'
 import { Logo } from '@/components/Logo/Logo'
 

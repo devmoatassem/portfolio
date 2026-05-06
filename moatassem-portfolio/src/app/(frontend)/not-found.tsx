@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { AppLink as Link } from '@/components/AppLink'
 import React from 'react'
 
 import { Button } from '@/components/ui/button'

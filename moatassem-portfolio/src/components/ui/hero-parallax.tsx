@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform, useSpring, MotionValue } from 'motion/
 import { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 import { RichText } from '../RichText'
 import { ArchiveCardData } from '../Card'
-import Link from 'next/link'
+import { AppLink as Link } from '@/components/AppLink'
 import { Media } from '@/components/Media'
 import { cn } from '@/utilities/ui'
 import { ProjectCard } from '../ProjectCard'

@@ -11,7 +11,7 @@ import type { Project } from '@/payload-types'
 
 import { Media } from '@/components/Media'
 import { CMSLink } from '@/components/Link'
-import Link from 'next/link'
+import { AppLink as Link } from '@/components/AppLink'
 import { SlashIcon } from 'lucide-react'
 
 export const ProjectHero: React.FC<{

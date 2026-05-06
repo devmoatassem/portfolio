@@ -3,7 +3,7 @@ import React from 'react'
 import { Search as SearchType } from '@/payload-types'
 import { FileText, FolderKanban, MoveRight } from 'lucide-react'
 import { Media } from '@/components/Media'
-import Link from 'next/link'
+import { AppLink as Link } from '@/components/AppLink'
 
 export type Props = {
   data: Pick<SearchType, 'id' | 'title' | 'slug' | 'description' | 'heroImage' | 'relationTo'>[]

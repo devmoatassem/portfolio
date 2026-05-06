@@ -1,7 +1,7 @@
 'use client'
 import { cn } from '@/utilities/ui'
 import useClickableCard from '@/utilities/useClickableCard'
-import Link from 'next/link'
+import { AppLink as Link } from '@/components/AppLink'
 import React from 'react'
 import { motion, MotionValue } from 'motion/react'
 import type { Project } from '@/payload-types'
