@@ -204,6 +204,7 @@ export interface Page {
     | ContentBlock
     | MediaBlock
     | ProjectsArchiveBlock
+    | ProjectShowcaseBlock
     | ArchiveBlock
     | FormBlock
     | BentoGrid
@@ -664,6 +665,54 @@ export interface ProjectsArchiveBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'projectsArchive';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectShowcaseBlock".
+ */
+export interface ProjectShowcaseBlock {
+  background: 'bg-background' | 'bg-background2' | 'bg-background3';
+  introContent?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  showLoadMore?: boolean | null;
+  loadMoreLink?: {
+    type?: ('reference' | 'custom') | null;
+    newTab?: boolean | null;
+    reference?:
+      | ({
+          relationTo: 'pages';
+          value: string | Page;
+        } | null)
+      | ({
+          relationTo: 'projects';
+          value: string | Project;
+        } | null);
+    url?: string | null;
+    label: string;
+    /**
+     * Choose how the link should be rendered.
+     */
+    appearance?: ('default' | 'outline') | null;
+  };
+  populateBy: 'collection' | 'selection';
+  limit?: number | null;
+  selectedDocs?: (string | Project)[] | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectShowcase';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1628,6 +1677,7 @@ export interface PagesSelect<T extends boolean = true> {
         content?: T | ContentBlockSelect<T>;
         mediaBlock?: T | MediaBlockSelect<T>;
         projectsArchive?: T | ProjectsArchiveBlockSelect<T>;
+        projectShowcase?: T | ProjectShowcaseBlockSelect<T>;
         archive?: T | ArchiveBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
         bento?: T | BentoGridSelect<T>;
@@ -1760,6 +1810,30 @@ export interface ProjectsArchiveBlockSelect<T extends boolean = true> {
         appearance?: T;
       };
   type?: T;
+  populateBy?: T;
+  limit?: T;
+  selectedDocs?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectShowcaseBlock_select".
+ */
+export interface ProjectShowcaseBlockSelect<T extends boolean = true> {
+  background?: T;
+  introContent?: T;
+  showLoadMore?: T;
+  loadMoreLink?:
+    | T
+    | {
+        type?: T;
+        newTab?: T;
+        reference?: T;
+        url?: T;
+        label?: T;
+        appearance?: T;
+      };
   populateBy?: T;
   limit?: T;
   selectedDocs?: T;

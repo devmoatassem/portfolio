@@ -22,6 +22,7 @@ import { BentoGrid } from '@/blocks/BentoGrid/config'
 import { GridBlock } from '@/blocks/Grid/config'
 import { Timline } from '@/blocks/Timline/config'
 import { ProjectsArchive } from '@/blocks/ProjectsArchiveBlock/config'
+import { ProjectShowcase } from '@/blocks/ProjectShowcaseBlock/config'
 
 export const Pages: CollectionConfig<'pages'> = {
   slug: 'pages',
@@ -82,6 +83,7 @@ export const Pages: CollectionConfig<'pages'> = {
                 Content,
                 MediaBlock,
                 ProjectsArchive,
+                ProjectShowcase,
                 Archive,
                 FormBlock,
                 BentoGrid,
